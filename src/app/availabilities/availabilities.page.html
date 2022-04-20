@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="availability" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Set up availability</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="section">
+    <div class="professional" *ngIf="!empty">
+      <ion-item lines="none" class="al-start">
+        <h1>{{professional_name}}</h1>
+      </ion-item>
+    </div>
+    <h4>Schedule</h4>
+    <div class="schedule" *ngIf="!empty">
+      <div class="day" *ngFor="let availability of availabilities | keyvalue">
+        <ion-item lines="none"class="al-start ion-align-items-center">
+          <ion-label>{{availability.value.day}}</ion-label>
+          <ion-toggle mode="ios" [(ngModel)]="availability.value.status"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none" class="al-start ion-align-items-center" *ngIf="availability.value.status">
+          <ion-title>Hours</ion-title>
+          <ion-select interface="popover" [value]="availability.value.start_time" (ionChange)="setStartTime(availability.key, $event)">
+            <ion-select-option *ngFor="let time of availability.value.time_select" [value]="time">{{time}}</ion-select-option>
+          </ion-select>
+          <ion-title class="ion-text-center to">to</ion-title>
+          <ion-select interface="popover" [value]="availability.value.end_time" (ionChange)="setEndTime(availability.key, $event)">
+            <ion-select-option *ngFor="let time of availability.value.time_select" [value]="time">{{time}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item lines="none" class="al-start ion-align-items-center" *ngIf="availability.value.status && availability.value.break_start_time != null">
+          <ion-title>Break</ion-title>
+          <ion-select interface="popover" [value]="availability.value.break_start_time" (ionChange)="setBreakStartTime(availability.key, $event)">
+            <ion-select-option *ngFor="let time of availability.value.time_select" [value]="time">{{time}}</ion-select-option>
+          </ion-select>
+          <ion-title class="ion-text-center to">to</ion-title>
+          <ion-select interface="popover" [value]="availability.value.break_end_time" (ionChange)="setBreakEndTime(availability.key, $event)">
+            <ion-select-option *ngFor="let time of availability.value.time_select" [value]="time">{{time}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item lines="none"class="ion-justify-content-center ion-align-items-center" *ngIf="availability.value.status">
+          <p (click)="addBreack(availability.key)"  *ngIf="availability.value.break_start_time == null"><img src="assets/imgs/add.png"><span>Add break</span></p>
+          <p (click)="removeBreack(availability.key)" *ngIf="availability.value.break_start_time != null"><img src="assets/imgs/remove.png"><span>Remove break</span></p>
+        </ion-item>
+      </div>
+    </div>
+    <div class="bottom ion-padding-horizontal">
+      <ion-button (click)="saveProfile()">Save</ion-button>
+    </div>
+  </div>  
+</ion-content>

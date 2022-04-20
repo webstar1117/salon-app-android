@@ -1,0 +1,59 @@
+ion-toolbar
+{
+    --background: white;
+    position: relative;
+
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 20px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position: absolute;
+        right: 0
+    }
+}
+
+ion-content
+{
+    --background: white;
+
+    .calendar
+    {
+        height: 100%;
+        
+        ion-item
+        {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+
+            ion-title
+            {
+                padding: 0;
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+            }
+    
+            ion-buttons
+            {
+                ion-button
+                {
+                    width: 24px;
+                    height: 24px;
+                    --padding-start: 0;
+                    --padding-end: 0;
+    
+                    ion-icon
+                    {
+                        color: #767676;
+                    }
+                }
+            }
+        }
+    }
+    
+}

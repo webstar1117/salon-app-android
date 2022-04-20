@@ -1,0 +1,23 @@
+<ion-content class="ion-padding">
+  <ion-grid style="height: 100%">
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%">
+      <div class="holder">
+
+        <div class="btn-coin-holder ion-text-center " [ngClass]="bitcoinhandler">
+          <img src="assets/imgs/coinonly.png" alt="">
+        </div>
+
+        <div class="details animate__animated animate__fadeInUp animate__delay-2s ion-text-center">
+          <h2>Payment Successfull</h2>
+          <p class="ion-text-wrap">you got <span> $10000</span> bitcoins. <br> you may find details in spot wallet</p>
+        </div>
+
+        <div class="btn-holder animate__animated animate__fadeInUp animate__delay-3s ion-text-center">
+          <ion-button (click)="close()">
+            Got it
+          </ion-button>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

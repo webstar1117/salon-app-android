@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-center">Calendar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="calendar">
+    <ion-item mode="md" lines="none">
+      <ion-title>{{viewTitle}}</ion-title>
+
+      <ion-datetime
+      #todayDate
+      [max]="maxApplicableDate"
+      presentation="date"
+      (ionChange)="onCurrentDateChanged(todayDate.value)"
+      [disabled]="isIdeal"
+    >
+    </ion-datetime>
+  </ion-item>
+      <!-- <ion-buttons end>
+        <ion-button (click)="previous()"><ion-icon name="chevron-back"></ion-icon></ion-button>
+        <ion-button (click)="next()"><ion-icon name="chevron-forward"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item>
+    <calendar [calendarMode]="calendar.mode"
+              [dateFormatter] = "calendar.dateFormatter"
+              [startingDayMonth] = "calendar.startingDayMonth"
+              [currentDate]="calendar.currentDate"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              [showEventDetail]="false"
+              [step]="calendar.step">
+    </calendar> -->
+  </div>
+
+  <div class="time">
+    <h2>Choose your preferred time</h2>
+    <div class="buttons flex">
+        <ion-button expand="block" [ngClass]="day=='morning'? 'checked' : '' " (click)="setTime('morning')">Morning</ion-button>
+        <ion-button expand="block" [ngClass]="day=='afternoon'? 'checked' : '' "(click)="setTime('afternoon')">Afternoon</ion-button>
+        <ion-button expand="block" [ngClass]="day=='evening'? 'checked' : '' "(click)="setTime('evening')">Evening</ion-button>
+    </div>
+    <div class="time-picker">
+      <ion-range dualKnobs="true" min="8" max="24" pin="true" [(ngModel)]="time"></ion-range>
+    </div>
+  </div>
+
+  <div class="confirm flex">
+    <ion-button class="clear" expand="block" (click)="clear()">Clear</ion-button>
+    <ion-button class="apply" expand="block" (click)="apply()">Apply</ion-button>
+  </div>
+</ion-content>

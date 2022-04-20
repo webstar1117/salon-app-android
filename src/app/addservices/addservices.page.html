@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="businessprofile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Add services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="section">   
+    <div class="search-holder ion-padding-horizontal">
+      <ion-input placeholder="Seacrh for a service" [(ngModel)]="keyword" (keyup)="search($event)"></ion-input>
+    </div>
+
+    <div class="ion-padding-horizontal">
+      <div class="buttons flex">
+        <ion-button [ngClass]="service_type == type.value.name? 'checked': ''" *ngFor="let type of service_types | keyvalue" (click)="selectServiceType(type.key)">{{type.value.name}}</ion-button>
+      </div>
+    </div>
+
+    <div class="services">
+      <ion-item lines="none" class="al-start" *ngFor="let service of services">
+        <h1>{{service.service_name.name}}</h1>
+        <ion-icon name="add-circle-outline" *ngIf="checked.indexOf(service.service_name_id) == -1" slot="end" (click)="check(service)"></ion-icon>
+        <ion-icon name="checkmark-circle" *ngIf="checked.indexOf(service.service_name_id) !== -1" slot="end"></ion-icon>
+      </ion-item>
+      <p class="ion-text-center" *ngIf="service_empty">Add services, change the name later</p>
+    </div>
+  </div>
+</ion-content>

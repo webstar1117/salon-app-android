@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="menu" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="calendar">
+    <ion-item mode="md" lines="none">
+      <ion-title>{{viewTitle}}</ion-title>
+      <ion-buttons end>
+        <ion-button (click)="previous()"><ion-icon name="chevron-back"></ion-icon></ion-button>
+        <ion-button (click)="next()"><ion-icon name="chevron-forward"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <calendar [eventSource]="eventSource"
+              [calendarMode]="calendar.mode"
+              [dateFormatter] = "calendar.dateFormatter"
+              [startingDayMonth] = "calendar.startingDayMonth"
+              [currentDate]="calendar.currentDate"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              [showEventDetail]="false"
+              (onEventSelected)="onEventSelected($event)"
+              [step]="calendar.step">
+    </calendar>
+  </div>
+
+</ion-content>

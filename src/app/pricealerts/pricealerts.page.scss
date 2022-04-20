@@ -1,0 +1,147 @@
+ion-toolbar
+{
+    --background: transparent;
+    position: absolute;
+    width: 100%;
+    ion-title
+    {
+        --color: #EDEEFA;
+        font-family: 'CSMedium';
+        font-size: 15px;
+        margin-right: 15px;
+    }
+
+    ion-back-button
+    {
+        color: #EDEEFA;
+    }
+}
+
+ion-content
+{
+    --background:  url('../../assets/imgs/pricealert.png') no-repeat center center / cover;
+
+
+    .top-img-holder
+    {
+        margin-top: 10vw;
+    }
+
+    .the-list
+    {
+        ion-item
+        {
+
+            --background: #2b2e4633;
+            --border-radius: 20px;
+
+            #aave
+            {
+                background: linear-gradient(225.33deg, #FF24F6 -12.15%, #28FC97 111.3%, #24FF96 111.32%);
+            }
+
+            #btc
+            {
+               background: #FF7324; 
+            }
+
+            #binance
+            {
+                background: #F3BA2F; 
+            }
+            #compound
+            {
+               background: #227720; 
+            }
+
+            #dash
+            {
+               background: #0075FF; 
+            }
+
+            #eth
+            {
+               background: #8424FF; 
+            }
+
+            #kusama
+            {
+               background: #FFF; 
+            }
+
+            #maker
+            {
+                background: linear-gradient(180deg, #28D157 0%, #199E66 100%);
+            }
+
+            #meta
+            {
+                background: white;
+            }
+
+            #monero
+            {
+               background: #FF7324; 
+            }
+            .thumb
+            {
+                border-radius: 15px;
+                height: 40px;
+                width: 40px;
+                margin: 10px 10px 10px 0;
+            }
+
+
+            ion-label
+            {
+                
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 15px;
+                    margin: 0;
+
+
+                    span
+                    {
+                       color: #A5ABDD; 
+                    }
+                }
+
+              
+            }
+
+            ion-icon
+            {
+                color: #A5ABDD;
+            }
+        }
+    }
+
+    .floatanimation
+    {
+        animation: float 5s ease-in-out  infinite ;
+    }
+
+
+    @keyframes float
+    {
+        0%
+        {
+            transform: translateY(0px);
+        }
+
+        50%
+        {
+            transform: translateY(-20px);
+        }
+
+        100%
+        {
+            transform: translateY(0px);
+        }
+    }
+
+
+}

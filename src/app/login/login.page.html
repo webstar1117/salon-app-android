@@ -1,0 +1,61 @@
+<ion-content class="ion-padding">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title class="ion-text-center" >Registration</ion-title>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="skip()">Skip</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="title-holder ion-text-left">
+    <h2>Find a beauty salon near you</h2>
+  </div>
+  <div class="the-form">
+
+    <div class="input-item">
+      <ion-item lines="none">
+        <ion-input type="email" placeholder="EMAIL" [(ngModel)]="userEmail" (ionChange)="emailCheck()" (ionBlur)="emailExist()"></ion-input>
+      </ion-item>
+      <p class="error" *ngIf="!isEmail && setPassword">Email fail! Please type in your correct email address</p>
+    </div>
+
+    <div class="input-item" *ngIf="setPassword">
+      <ion-item lines="none">
+        <ion-input [type]="ptype" placeholder="PASSWORD" [(ngModel)]="password" (ionChange)="strongPass()"></ion-input>
+        <div class="end-slot password" slot="end">
+          <ion-icon name="eye-off-outline" *ngIf="ptype=='text'" (click)="switchType()"></ion-icon>
+          <ion-icon name="eye-outline" *ngIf="ptype=='password'" (click)="switchType()"></ion-icon>
+        </div>
+      </ion-item>
+      <p class="alert" *ngIf="checkPass">Secure passwords are at least 8 characters long and include numbers and symbols</p>
+      <p class="error" *ngIf="!checkPass">Password should be at leat 8 charachters long and include numbers and symbols</p>
+    </div>
+
+    <p class="forgot" *ngIf="setPassword && isExist" (click)="forgotPassword()">Forgot password?</p>
+  </div>
+
+  <div class="btn-holder ion-text-center">
+    <ion-button expand="block" [disabled]="!isEmail" (click)="nextStep()">
+      CONTINUE
+    </ion-button>
+  </div>
+
+  <div class="intermediate" *ngIf="!isEmail && !setPassword">or</div>
+
+  <div class="social-holder al-center jc-center" *ngIf="!isEmail && !setPassword">
+    <div class="btn flex al-center jc-center ion-activatable ripple-parent" (click)="withApple()">
+      <img src="assets/imgs/apple.svg" alt="">
+      <label>Continue with Apple</label>
+    </div>
+    <div class="btn flex al-center jc-center ion-activatable ripple-parent" (click)="withGoogle()">
+      <img src="assets/imgs/google.svg" alt="">
+      <label>Continue with GOOGLE</label>
+    </div>
+    <div class="btn flex al-center jc-center ion-activatable ripple-parent" (click)="withFacebook()">
+      <img src="assets/imgs/fb.svg" alt="">
+      <label>Continue with FACEBOOK</label>
+    </div>
+  </div>
+</ion-content>

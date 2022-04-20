@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>507474131030-rdkoo2d21mmuf781u3252jjolt9jcimo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.507474131030-rdkoo2d21mmuf781u3252jjolt9jcimo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDG7jLAwPEtpBCW7t8b8sbZFd1Yo5Eg5YE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>507474131030</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hairdayinc.hairday</string>
+	<key>PROJECT_ID</key>
+	<string>salon-app-319cb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>salon-app-319cb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:507474131030:ios:272aae91de4d4b544ee3f7</string>
+	<key>DATABASE_URL</key>
+	<string>https://salon-app-319cb-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

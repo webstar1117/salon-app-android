@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="bankaccount1" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Bank account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder">
+    <h1>Where to send your deposits</h1>
+  </div>
+
+  <div class="the-form">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <h5>Account holder's name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="John Smoth" [(ngModel)]="holder"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Routing number</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="2222222222" [(ngModel)]="routing"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Account number</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="88888888" [(ngModel)]="account"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveBankAccount()">Submit</ion-button>
+  </div>
+
+</ion-content>

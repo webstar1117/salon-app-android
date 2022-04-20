@@ -1,0 +1,87 @@
+ion-toolbar
+{
+    --background: white;
+    position: relative;
+
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 20px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position: absolute;
+        right: 0
+    }
+}
+
+ion-content
+{
+    --background: white;
+
+    .section
+    {
+        margin-top: 10px;
+        padding-left: 6px;
+        padding-right: 6px;
+
+        .empty
+        {
+            p
+            {
+                font-family: "PoppinsRegular";
+                font-size: 14px;
+                color: #1e1e1e;
+            }
+
+            ion-button
+            {
+                width: 60%;
+                --background: #1e1e1e;
+                --border-radius: 40px;
+                height: 50px;
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+            }
+        }
+        
+        .title
+        {
+            h3
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+                font-size: 18px;                
+            }
+
+            h5
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsLight';
+                font-size: 16px;  
+            }
+        }
+
+        ion-list
+        {
+            ion-item
+            {
+                ion-icon
+                {
+                    margin-right: 10px;
+                }
+
+                ion-label
+                {
+                    font-size: 16px;
+                    font-family: 'PoppinsLight';
+                    color: #1e1e1e;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}

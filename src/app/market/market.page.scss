@@ -1,0 +1,158 @@
+ion-toolbar
+{
+    --background: #171826;
+
+    ion-title
+    {
+        --color: #EDEEFA;
+        font-family: 'CSMedium';
+        font-size: 15px;
+    }
+}
+
+ion-content
+{
+    --background: #171826;
+
+    .seg-holder
+    {
+        ion-segment
+        {
+            ion-segment-button
+            {
+                --color: #53578A;
+                --color-checked:var(--ion-color-light);
+                font-family: 'CSMedium';
+                font-size: 14px;
+                text-transform: none;
+            }
+        }
+    }
+
+    .watchlist
+    {
+        ion-item
+        {
+
+            --background: #2b2e46;
+            --border-radius: 20px;
+            margin: 16px 0;
+
+            #aave
+            {
+                background: linear-gradient(225.33deg, #FF24F6 -12.15%, #28FC97 111.3%, #24FF96 111.32%);
+            }
+
+            #btc
+            {
+               background: #FF7324; 
+            }
+
+            #compound
+            {
+               background: #227720; 
+            }
+
+            #dash
+            {
+               background: #0075FF; 
+            }
+
+            #eth
+            {
+               background: #8424FF; 
+            }
+
+            #kusama
+            {
+               background: #FFF; 
+            }
+
+            #maker
+            {
+                background: linear-gradient(180deg, #28D157 0%, #199E66 100%);
+            }
+
+            #monero
+            {
+               background: #FF7324; 
+            }
+            .thumb
+            {
+                border-radius: 15px;
+                height: 50px;
+                width: 50px;
+                margin: 10px 10px 10px 0;
+            }
+
+
+            ion-label
+            {
+                
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 15px;
+                    margin: 0;
+                }
+
+                .up
+                {
+                    h5,ion-icon
+                    {
+                        color: #58E45D;
+                    }
+                }
+
+                .down
+                {
+                    h5,ion-icon
+                    {
+                        color: #F03737;
+                    }
+                }
+
+
+                
+                h5
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+
+            .end-slot1
+            {
+                img
+                {
+                    height: 10vw;
+                }
+            }
+
+            .end-slot2
+            {
+                margin-left: 10px;
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 16px;
+                    margin: 0;
+                }
+
+
+                
+                h5
+                {
+                    color: #A5ABDD;
+                    font-family: 'CSMedium';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    ion-buttons
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .serviceType
+    {
+        h1
+        {
+            font-size: 18px;
+            font-family: 'PoppinsSemiBold';
+            color: #1e1e1e;
+            text-transform: uppercase;
+        }
+    }
+
+    .services
+    {
+
+        ion-item
+        {
+            --background: white;
+            margin: 10px 0;
+
+            .accordion-container,
+            .accordion-container .arrow,
+            .accordion-container .arrow:before,
+            .accordion-container .arrow:after,
+            .accordion-container .content {
+                transition: all .3s ease-in-out;
+            }
+            .accordion-container .arrow {
+                position: absolute;
+                top: 50%;
+                right: 10%;
+            }
+            .accordion-container .arrow,
+            .accordion-container .arrow:before,
+            .accordion-container .arrow:after {
+                border-radius: 25px;
+            }
+            .accordion-container .arrow:before {
+                content: " ";
+                width: 10px;
+                height: 1px;
+                left: 50%;
+                margin-left: -9px;
+                background-color: #1e1e1e;
+                position: absolute;
+                transform: rotate(45deg);
+            }
+            .accordion-container .arrow:after {
+                content: " ";
+                width: 10px;
+                height: 1px;
+                background-color: #1e1e1e;
+                position: absolute;
+                right: -8px;
+                transform: rotate(-45deg);
+            }
+            .accordion-container.open .arrow:before {
+                transform: rotate(-45deg);
+            }
+            .accordion-container.open .arrow:after {
+                transform: rotate(45deg);
+            }
+            .accordion-container h1 {
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                position: relative;
+                width: 100%;
+                display: block;
+                margin-top: 16px;
+                padding-right:35px;
+            }
+            .accordion-container {
+                width: 230px;
+                display: block;
+                cursor: pointer;
+                position: relative;
+            }
+            .accordion-container.open {
+                cursor: default;
+            }
+            .accordion-container .content {
+                opacity: 0;
+                display: none;
+            }
+            .accordion-container.open .content {
+                display: block;
+                opacity: 1;
+
+                h5
+                {
+                    font-size: 14px;
+                    font-family: 'PoppinsLight';
+                    color: #1e1e1e;
+                    margin-top: 10px;
+                }
+            }
+
+            h5
+            {
+                font-family: 'PoppinsLight';
+                color: #828282;
+                font-size: 14px;
+            }
+
+            ion-icon
+            {
+                color: #1e1e1e;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        
+    }    
+
+    .bottom
+    {
+        margin-top: 30px;
+        
+        ion-button
+        {
+            width: 100%;
+            --background: #1e1e1e;
+            --border-radius: 40px;
+            height: 50px;
+            font-size: 16px;
+            font-family: 'PoppinsMedium';
+        }
+    }
+}

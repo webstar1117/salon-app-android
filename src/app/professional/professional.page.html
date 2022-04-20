@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="salon" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Select professionals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="the-title ion-padding-horizontal">
+    <h2>{{title}}</h2>
+    <p>Professionals</p>
+  </div>
+  
+  <div class="the-content">  
+    <div class="professionals animate__animated animate__slideInUp animate__fast">
+      <div class="card" *ngFor="let professional of professionals" (click)="goPortfolio(professional.id)">
+        <ion-grid class="ion-no-padding" fixed>
+          <ion-row class="ion-padding-horizontal slider">
+            <ion-slides mode="ios" pager="false" scrollbar="false" [options]="professional.options">
+              <ion-slide *ngFor="let image of professional.professional_images">
+                <div class="card ion-text-left">
+                  <img src="{{professionalUrl}}{{image.image}}" alt="">
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </ion-row>
+          <ion-row class="ion-padding-horizontal detail">
+            <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <ion-item lines="none">
+                <div class="thumb flex" slot="start">
+                  <img src="{{avatarUrl}}{{professional.avatar}}" alt="">
+                </div>
+                <ion-label>
+                  <div class="title flex al-center" >
+                    <p>{{professional.first_name}} {{professional.last_name}}</p>
+                  </div>
+                   <div class="special flex al-center" >
+                    <p>{{professional.professional_skill.name}}</p>
+                  </div>
+                  <div class="status flex al-center" >
+                     <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? professional.review_rate : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
+                  </div>
+                  <ion-button>{{title}} from ${{professional.price}}</ion-button>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

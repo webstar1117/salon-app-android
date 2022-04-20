@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="clients" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Add client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder">
+    <h1>Import from contacts</h1>
+  </div>
+
+  <div class="the-form">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="6">
+            <h5>First name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Alison" [(ngModel)]="fname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <h5>Last name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Adams" [(ngModel)]="lname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Email address</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Tia76@hotmail.com" [(ngModel)]="email"></ion-input>
+              </ion-item>
+              <p class="error" *ngIf="!isEmail">Please enter a valid email address</p>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Phone number</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="888 888 8888" [(ngModel)]="phone"></ion-input>
+              </ion-item>
+              <p class="error" *ngIf="!isPhone">Please enter a valid phone number</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveClient()">Continue</ion-button>
+  </div>
+
+</ion-content>

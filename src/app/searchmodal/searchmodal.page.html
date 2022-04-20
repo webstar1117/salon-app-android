@@ -1,0 +1,75 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-center">Search</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="section">   
+    <div class="modal search-holder">
+      <ion-searchbar placeholder="Service or salon" showClearButton="never" [(ngModel)]="service" (keyup)="search($event)"></ion-searchbar>
+    </div>
+
+    <div *ngIf="new">
+      <div class="title">
+        <h3>Popular search</h3>
+      </div>
+  
+      <ion-list mode="md">
+        <ion-item lines="none" mode="md" *ngFor="let keyword of popular" (click)="searchResult(keyword.ss_id, keyword.name, keyword.type)">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>{{keyword.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="!new && !service_empty">
+      <div class="title">
+        <h3>Services</h3>
+      </div>
+  
+      <ion-list mode="md">
+        <ion-item lines="none" mode="md" *ngFor="let keyword of services" (click)="searchResult(keyword.id, keyword.service_name.name, 'service')">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>{{keyword.service_name.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="!new && !salon_empty">
+      <div class="title">
+        <h3>Salons</h3>
+      </div>
+  
+      <ion-list mode="md">
+        <ion-item lines="none" mode="md" *ngFor="let keyword of salons" (click)="searchResult(keyword.id, keyword.name, 'salon')">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>{{keyword.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="!new && service_empty && salon_empty">
+      <div class="empty ion-text-center">
+        <p>There are no results based on your current search</p>
+        <ion-button (click)="newSearch()">TRY A NEW SEARCH</ion-button>
+      </div>
+
+      <div class="title">
+        <h3>Improve your results</h3>
+        <h5>Check the spelling</h5>
+        <h5>Try a more general search, e.g. “haircut”</h5>
+      </div>     
+    </div>
+  
+  </div>
+
+</ion-content>

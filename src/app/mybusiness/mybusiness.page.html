@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >My business</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="options">
+    <ion-grid class="ion-no-padding" fixed>
+      <ion-row class="ion-padding-horizontal detail">
+        <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster" *ngFor="let business of businesses">
+          <ion-item lines="none" (click)="selectBusiness(business.id)">
+            <div class="thumb flex" id="btc" slot="start">
+              <img src="{{business.logo != null? logoUrl+business.logo : avatarUrl}}" alt="">
+            </div>
+            <ion-label>
+              <div class="title flex al-center" >
+                <p>{{business.name}}</p>
+              </div>
+              <div class="status flex al-center" >
+                <p>Beauty Salon</p>
+              </div>
+              <div class="time" >
+                <p class="flex al-center"><img src="assets/imgs/location.png"> <span>{{business.street}}</span></p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <p (click)="addBusiness()"><img src="assets/imgs/add.png"> <span>Add a new business</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

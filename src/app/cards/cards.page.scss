@@ -1,0 +1,100 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    ion-buttons
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+    
+}
+
+ion-content
+{
+    --background:  #F4EDE9;
+
+    .top-holder
+    {
+        margin-bottom: 20px;
+        position: relative;
+
+        h2
+        {
+            font-size: 18px;
+            font-family: 'PoppinsRegular';
+            color: #1e1e1e;
+        }
+    }
+
+
+    .the-list
+    {
+        margin-bottom: 20px;
+        
+        .radio-group
+        {
+            display: flex;
+            align-items: center;
+
+            ion-item
+            {
+                --background: transparent;
+                width: 95%;
+    
+                .icon
+                {
+                    width: 56px;
+                    padding: 10px;
+                    margin-right: 16px;
+                    border: 1px solid #1e1e1e;
+                    background: white;
+                }
+                
+                ion-label
+                {
+                    color: #1e1e1e;
+                    font-family: 'PoppinsMedium';
+                    font-size: 18px;
+                    text-transform: capitalize;
+                }
+    
+                ion-radio
+                {
+                    --color: #1e1e1e;
+                    --color-checked: #1e1e1e;
+                    --border-width: 1px;
+                }
+            }
+
+            ion-label
+            {
+                float: right;
+                color: red
+            }
+        }
+        
+    }
+
+    .add-card
+    {
+        font-size: 16px;
+        font-family: 'PoppinsRegular';
+        color: #1e1e1e;
+
+        ion-icon
+        {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+        }
+    }
+}

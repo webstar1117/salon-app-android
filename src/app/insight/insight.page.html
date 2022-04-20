@@ -1,0 +1,147 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="tabs/tab1" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Insight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="seg-holder">
+    <ion-segment [value]="category" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="trending">
+        <ion-label>Trending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="recent">
+        <ion-label>Recent</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="popular">
+        <ion-label>Popular</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div class="trending ion-padding " *ngIf="category == 'trending'">
+
+    <div class="section">
+      <div class="title-holder flex al-center jc-between">
+        <h3>Trending</h3>
+        <p>View All</p>
+      </div>
+      <div class="slider-holder">
+        <ion-slides mode="ios" pager="false" scrollbar="false" [options]="slideOptions">
+          <ion-slide>
+            <ion-grid fixed class="ion-no-padding">
+              <ion-row>
+                <ion-col size="12">
+                  <div class="holder">
+                    <div class="card">
+                      <div class="top-holder">
+                        <div class="text-holder">
+                          <p>2 Days ago</p>
+                        </div>
+                        <div class="img-holder">
+                          <img src="assets/imgs/news1.png" alt="">
+                        </div>
+                      </div>
+
+                      <div class="description">
+                        <p class="ion-text-wrap">
+                          Cryptocurrency Prices Today: Bitcoin,
+                          Ethereum prices fall in the last
+                          24 hours
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-grid fixed class="ion-no-padding">
+              <ion-row>
+                <ion-col size="12">
+                  <div class="holder">
+                    <div class="card">
+                      <div class="top-holder">
+                        <div class="text-holder">
+                          <p>2 Days ago</p>
+                        </div>
+                        <div class="img-holder">
+                          <img src="assets/imgs/news1.png" alt="">
+                        </div>
+                      </div>
+
+                      <div class="description">
+                        <p class="ion-text-wrap">
+                          Cryptocurrency Prices Today: Bitcoin,
+                          Ethereum prices fall in the last
+                          24 hours
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="title-holder flex al-center jc-between">
+        <h3>Latest News</h3>
+        <p>View All</p>
+      </div>
+
+      <div class="news-list">
+        <ion-item lines="none" (click)="goDetails()">
+          <div class="thumb" slot="start">
+            <img src="assets/imgs/news2.png" alt="">
+          </div>
+          <ion-label class="ion-text-wrap">
+            AMC will let customers pay in
+            Ethereum and Litecoin by the
+            end of the year
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <div class="thumb" slot="start">
+            <img src="assets/imgs/news3.png" alt="">
+          </div>
+          <ion-label class="ion-text-wrap">
+            Bitcoin, Ethereum, Crypto 
+            News and Price Data
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <div class="thumb" slot="start">
+            <img src="assets/imgs/news4.png" alt="">
+          </div>
+          <ion-label class="ion-text-wrap">
+            Wall Street trading groups step 
+            up incursion into crypto 
+            markets
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <div class="thumb" slot="start">
+            <img src="assets/imgs/news5.png" alt="">
+          </div>
+          <ion-label class="ion-text-wrap">
+            Crypto companies set their 
+            sights on derivatives
+          </ion-label>
+        </ion-item>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

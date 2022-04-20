@@ -1,0 +1,80 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-center">{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="ion-text-center">
+    <img src="assets/imgs/check.png">
+    <h1 class="ion-text-center">You're all set!</h1>
+  </div>
+  <h2>Your appointment with </h2>
+
+  <div *ngFor="let data of datas">
+    <div class="professional">
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-row class="detail">
+          <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+            <ion-item lines="none">
+              <div class="thumb flex" slot="start">
+                <img src="{{avatarUrl}}{{data.professional.avatar}}" alt="">
+              </div>
+              <ion-label>
+                <div class="title flex al-center" >
+                  <p>{{data.professional.first_name}} {{data.professional.last_name}}</p>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-col>      
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="service">
+      <p id="serviceType">{{data.service.service_type.name}}</p>
+      <p id="service">{{data.service.service_name.name}}  – {{data.service.duration}} min</p>
+      <p id="price">${{data.service.price}}</p>
+    </div>
+
+    <div class="date">
+      <h2>Date</h2>
+      <div id="date">
+        <p>{{data.dateString}}</p>
+      </div>
+      <h5 id="time">{{data.time}} - {{data.time_done}}</h5>
+    </div>
+  </div>
+
+  <div class="settings">
+    <ion-grid class="ion-no-padding" fixed>
+      <ion-row>
+        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
+          <img src="assets/imgs/envelope.png" alt="">
+          <p>Send to my email</p>
+        </ion-col>
+        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
+          <img src="assets/imgs/calendar.png" alt="">
+          <p>Add to my calendar</p>
+        </ion-col>
+        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
+          <img src="assets/imgs/location.png" alt="">
+          <p>Get directions</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="close()">Choose another service</ion-button>
+  </div>
+
+</ion-content>

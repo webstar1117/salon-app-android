@@ -1,0 +1,592 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 12px;
+        font-family: 'PoppinsLight';
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .top-holder
+    {
+        margin: 30px 0 20px 0;
+        position: relative;
+
+        .profile-holder
+        {
+            ion-avatar
+            {
+                --border-radius: 50%;
+                height: 5.5rem;
+                position: relative;
+                width: 5.5rem;
+            }
+
+            ion-label
+            {
+                margin-left: 10px;
+
+                h1
+                {
+                    color: #1e1e1e;
+                    font-family: 'PoppinsRegular';
+                    font-size: 18px;
+                    margin-bottom: 0;
+                }
+    
+                p
+                {
+                    color:#1e1e1e;
+                    font-family: 'PoppinsLight';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+           
+        }
+    }
+
+    .top-slider-holder
+    {
+        margin-top: 10px;
+
+        ion-slides
+        {
+            ion-slide
+            {
+                .card
+                {
+                    width: 95%;
+
+                    img
+                    {
+                        width: 100%;
+                        border-radius: 10px;
+                        height: 28vw;
+                    }
+                }
+            }
+        }
+    }
+
+    .upload
+    {
+        margin: 20px 16px;
+        border: 1px dotted #828282;
+        
+        p
+        {
+            text-align: center;
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            color: #1e1e1e;
+            margin: 25px 0;
+
+            img
+            {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    .input-item
+    {
+        h1
+        {
+            color: #1e1e1e;
+            font-family: 'PoppinsMedium';
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            position: relative;
+
+            span
+            {
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                position: absolute;
+                right: 0;
+                top: 3px;
+            }
+        }
+
+        p
+        {
+            margin: 0;
+            font-family: 'PoppinsRegular';
+            color: #1e1e1e;
+            font-size: 16px;
+            position: relative;
+
+            span
+            {
+                position: absolute;
+                left: 30%
+            }
+        }
+    }
+
+    .seg-holder
+    {
+        margin-top: 20px;
+
+        ion-slides
+        {
+            ion-slide
+            {
+                color: #828282;
+                font-family: 'PoppinsRegular';
+                font-size: 16px;
+                text-transform: none;
+                
+                ion-label
+                {
+                    padding: 0 15px;
+                }
+            }
+
+            .checked
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+
+                ion-label
+                {
+                    border-bottom: 2px solid #1e1e1e;
+                }
+            }
+        }
+    }
+
+    .services
+    {
+        margin-bottom: 30px;
+
+        p
+        {
+            padding: 0 16px;
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            position: relative;
+
+            span
+            {
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        .accordion-container,
+        .accordion-container .arrow,
+        .accordion-container .arrow:before,
+        .accordion-container .arrow:after,
+        .accordion-container .content {
+            transition: all .3s ease-in-out;
+        }
+        .accordion-container .arrow {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+        }
+        .accordion-container .arrow,
+        .accordion-container .arrow:before,
+        .accordion-container .arrow:after {
+            border-radius: 25px;
+        }
+        .accordion-container .arrow:before {
+            content: " ";
+            width: 10px;
+            height: 1px;
+            left: 50%;
+            margin-left: -9px;
+            background-color: #1e1e1e;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+        .accordion-container .arrow:after {
+            content: " ";
+            width: 10px;
+            height: 1px;
+            background-color: #1e1e1e;
+            position: absolute;
+            right: -8px;
+            transform: rotate(-45deg);
+        }
+        .accordion-container.open .arrow:before {
+            transform: rotate(-45deg);
+        }
+        .accordion-container.open .arrow:after {
+            transform: rotate(45deg);
+        }
+        .accordion-container h1 {
+            font-size: 18px;
+            font-family: 'PoppinsSemiBold';
+            color: #1e1e1e;
+            text-transform: uppercase;
+            position: relative;
+            width: 100%;
+            display: block;
+            padding-right: 16px;
+            padding-left: 16px;
+        }
+        .accordion-container {
+            display: block;
+            cursor: pointer;
+            position: relative;
+        }
+        .accordion-container.open {
+            cursor: default;
+        }
+        .accordion-container .content {
+            opacity: 0;
+            display: none;
+        }
+        .accordion-container.open .content {
+            display: block;
+            opacity: 1;
+        }
+
+        ion-item
+        {
+            --background: white;
+            margin: 10px 0;
+
+            .thumb
+            {
+                border-radius: 15px;
+                height: 50px;
+                width: 50px;
+                margin: 10px 10px 10px 0;
+            }
+
+
+            ion-label
+            {
+                position: relative;
+                white-space: normal;
+                
+                h2
+                {
+                    color: #1e1e1e;
+                    font-family: 'PoppinsMedium';
+                    font-size: 16px;
+                    margin: 0;
+                    width: 70%;
+
+                    span
+                    {
+                        position: absolute;
+                        right: 0;
+                        font-size: 14px;
+                        font-family: 'PoppinsRegular';
+                    }
+                }
+                
+                h5
+                {
+                    width: 70%;
+                    color: #1e1e1e;
+                    font-family: 'PoppinsLight';
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .bottom
+        {
+            margin-top: 30px;
+            
+            ion-button
+            {
+                width: 100%;
+                --background: #1e1e1e;
+                --border-radius: 40px;
+                height: 50px;
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+            }
+        }
+    }
+
+    .professionals
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        p
+        {
+            padding: 0 16px;
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            position: relative;
+
+            span
+            {
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        .card {
+            background: white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            ion-grid
+            {
+                .slider
+                {
+                    padding-top: 16px;
+
+                    ion-slides
+                    {
+                        ion-slide
+                        {
+                            .card
+                            {
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                                width: 95%;
+                                
+                                img
+                                {
+                                    width: 100%;
+                                    height: 25vw;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .detail
+                {
+                    ion-item
+                    {
+                        --padding-start: 5px;
+                        align-items: start;
+
+                        .thumb
+                        {
+                            margin-inline-end: 10px;
+
+                            img
+                            {
+                                border-radius: 50%;
+                                width: 12vw;
+                                height: 12vw;
+                            }
+                        }
+
+                        ion-label
+                        {
+                            margin: 0;
+
+                            .title
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsMedium";
+                                    font-size: 18px;
+                                }
+                            }
+                            
+                            .special
+                            {
+                                p
+                                {
+                                    color: #828282;
+                                    font-family: "PoppinsLightItalic";
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .status
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsRegular";
+                                    font-size: 14px;
+                                }
+                            }
+
+
+                            ion-button
+                            {
+                                margin-top: 5px;
+                                --background: white;
+                                color: #111111;
+                                --box-shadow: none;
+                                border: 1px solid #1e1e1e;
+                                font-family: "PoppinsRegular";
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .about
+    {
+        margin-bottom: 30px;
+
+        p
+        {
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            position: relative;
+
+            span
+            {
+                position: absolute;
+                left: 25px;
+            }
+        }
+
+        .title, .policy, .time
+        {
+            h4
+            {
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+                text-transform: capitalize;
+
+                img
+                {
+                    margin-right: 10px;
+                }
+            }
+
+            p
+            {
+                font-size: 16px;
+                font-family: 'PoppinsLight';
+                color: #1e1e1e;
+                margin-top: 0;
+                line-height: 130%;
+            }
+        }
+
+        .safety, .amenity
+        {
+            h4
+            {
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+
+                img
+                {
+                    margin-right: 10px;
+                }
+            }
+
+            ion-grid
+            {
+                ion-item
+                {
+                    --background: #F4EDE9;
+                    --padding-start: 0;
+                    --min-height: 30px;
+
+                    ion-icon
+                    {
+                        color: #1e1e1e;
+                        margin-right: 5px;
+                    }
+
+                    ion-label
+                    {
+                        color: #1e1e1e;
+                        font-size: 14px;
+                        font-family: 'PoppinsLight';
+                        white-space: normal;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .phone, .site
+        {
+            h4
+            {
+                font-size: 16px;
+                font-family: 'PoppinsLight';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+
+                img
+                {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .time
+        {
+            h4
+            {
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+                text-transform: capitalize;
+
+                img
+                {
+                    margin-right: 10px;
+                }
+            }
+
+            p
+            {
+                font-size: 16px;
+                font-family: 'PoppinsLight';
+                color: #1e1e1e;
+                margin-top: 0;
+                margin-bottom: 5px;
+                line-height: 130%;
+                position: relative;
+
+                span{
+                    position: absolute;
+                    left: 40%
+                }
+            }
+        }
+    }
+}

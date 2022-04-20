@@ -1,0 +1,328 @@
+
+ion-toolbar
+{
+    --background: transparent;
+position: absolute;
+width: 100%;
+    ion-title
+    {
+        --color: #EDEEFA;
+        font-family: 'CSMedium';
+        font-size: 15px;
+        margin-right: 15px;
+    }
+
+    ion-back-button
+    {
+        color: #EDEEFA;
+    }
+}
+
+ion-content
+{
+    --background: #171826;
+    --padding-top: 10vh;
+
+.first, #first
+{
+    background: url('../../assets/imgs/cc1.png');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: top !important;
+}
+
+.second, #second
+{
+    background: url('../../assets/imgs/cc2.png');
+    background-repeat: no-repeat ;
+    background-size: cover ;
+    background-position: center;
+}
+
+.third, #third
+{
+    background: url('../../assets/imgs/cc3.png');
+    background-repeat: no-repeat ;
+    background-size: cover ;
+    background-position: center;
+} 
+.visa-card
+{
+  
+    position: relative;
+ 
+    border-radius: 20px;
+    height: 100vw;
+    width: 100%;
+}
+
+.visa-cardvertical
+{
+  
+    border-radius: 20px;
+    height: 60vw;
+    width: 100%;
+}
+
+.selected-card-holder
+{
+  margin-bottom: 20px;
+  transform: scale(0.00005);
+  z-index: 100 !important;
+  position: relative;
+  pointer-events: none !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+.showbalance
+{
+    animation: animateshowbalance 1s ease-in-out  1 ;
+    animation-fill-mode: forwards;
+}
+
+.hidebalance
+{
+    animation: animatehidebalance 1s ease-in-out  1 ;
+    animation-fill-mode: forwards;
+}
+
+
+.top-balance
+{
+    transform: scale(0.00001);
+}
+
+.card-number
+{
+    padding-left: 20px;
+    h1
+    {
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+    }
+}
+
+.cards-holder
+{
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.vertical
+{
+
+   
+    .card-type
+    {
+        position: absolute !important;
+        bottom: 50px !important;
+        h2
+        {
+            transform: rotate(-90deg);
+        }
+    }
+    
+    .logo-holder
+    {
+        img
+        {
+            transform: rotate(-90deg);
+        }
+    }
+
+
+    .bottom-holder
+    {
+        
+        position: absolute;
+        right: -60vw !important;
+        bottom: -60px !important;
+        transform: rotate(-90deg);
+        height: 100%;
+
+    }
+
+}
+
+
+.horizontal
+{
+
+    position: relative;
+    
+    .bottom-holder
+    {
+        bottom: 5px;
+        position: absolute;
+        width: 100%;
+
+        h5,h3
+        {
+            margin: 0;
+        }
+    }
+}
+
+.top-holder
+{
+    .card-type
+    {
+
+        h2
+        {
+            color: white;
+            font-family: 'CSBold';
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+
+
+    .logo-holder
+    {
+        padding: 20px;
+
+
+        #visa
+        {
+            height: 20px ;
+            margin-top: 10px;
+        }
+        #ionic
+        {
+           
+            height: 50px;
+        }
+    }
+}
+
+.bottom-holder
+{
+    width: 100% !important;
+    h5
+    {
+        color: var(--ion-color-light);
+        font-family: 'CSBook';
+        font-size: 12px;
+        margin: 0;
+    }
+
+    h3
+    {
+        color: var(--ion-color-light);
+        font-family: 'CSMedium';
+        font-size: 20px;
+        margin: 5px 0;
+        width: 100px;
+    }
+
+    .section
+    {
+        margin: 0 20px;
+    }
+}
+
+
+.cover-bar
+{
+    background: rgba(5, 0, 0, 0.384);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    width: 100%;
+}
+
+.vcc-holder
+{
+    padding-top: 20vw;
+    .vcc
+    {
+        background: var(--ion-color-light);
+        padding:0 40px;
+        width: fit-content;
+        margin: 0 auto;
+
+        h3
+        {
+            margin: 0;
+        }
+    }
+
+}
+
+
+
+.visa-card :nth-child(0)
+{
+    display: none !important;
+}
+
+
+.balance-holder
+{
+    margin-left: 20px;
+
+    h5
+    {
+        color: white;
+        font-family: 'CSMedium';
+        font-size: 20px;
+        margin: 0;
+    }
+    h1
+    {
+        color: white;
+        font-family: 'CSBold';
+        font-size: 30px;
+        margin-top: 5px;
+    }
+}
+@keyframes animateshowbalance
+{
+    0%
+    {
+        transform: scale(1);
+      
+    }
+
+    100%
+    {
+        transform: scale(0.00001);
+    }
+}
+
+@keyframes animatehidebalance
+{
+    0%
+    {
+        transform: scale(0.00001);
+    }
+
+    100%
+    {
+        transform: scale(1);
+    }
+}
+
+.shownone
+{
+    display: none;
+}
+    .pay-btn
+    {
+        bottom: 40px;
+        left: 0;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+}

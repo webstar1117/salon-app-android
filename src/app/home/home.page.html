@@ -1,0 +1,43 @@
+<ion-content [scrollEvents]="true" (ionScrollStart)="onScroll($event)">
+  <ion-header class="ion-no-border ion-padding-horizontal">
+    <ion-toolbar class="flex al-center">
+      <ion-icon name="reorder-two-outline" *ngIf="!guest" (click)="goProfile()"></ion-icon>
+      <img src="assets/icon/logo.png" alt="">
+      <ion-text slot="end">{{city}},{{country}}</ion-text>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="the-list">
+    <ion-item lines="none">
+      <ion-label>
+        <h2>ONLINE <span>BEAUTY</span> APPOINTMENT <span>SCHEDULING</span></h2>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+          <img src="assets/imgs/vector.png" alt="">
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="options ion-padding-horizontal">
+    <ion-grid class="ion-no-padding" fixed >
+      <ion-row>
+        <ion-col size="6" class="animate__animated animate__zoomIn animate__delay-1s animate__faster" *ngFor="let service of services" (click)="goSearchresult(service.id, service.name)">
+          <div class="item left">
+            <div class="thumb">
+              <img src="{{imageUrl}}{{service.image}}" alt="">
+            </div>
+            <div class="label">
+              <ion-label>{{service.name}}<img slot="end" src="assets/imgs/arrow-right-top.png"></ion-label>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="trending">
+    <div class="title animate__animated animate__zoomIn flex jc-end">
+      <ion-searchbar class="salon" [ngClass]="expand ? 'expand' : 'collapse'" showClearButton="never" placeholder="Service or salon" (click)="searchbar()"></ion-searchbar>
+    </div>
+  </div>
+</ion-content>

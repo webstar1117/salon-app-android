@@ -1,0 +1,220 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    ion-buttons
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .date, .time
+    {
+        font-size: 16px;
+        font-family: 'PoppinsBold';
+        color: #1e1e1e;
+        margin: 5px 0;
+    }
+
+    .detail
+    {
+        margin-top: 20px;
+
+        ion-item
+        {
+            --padding-start: 5px;
+            --background: inherit;
+
+            .thumb
+            {
+                margin-inline-end: 10px;
+
+                img
+                {
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            ion-label
+            {
+                margin: 0;
+
+                .title
+                {
+                    p
+                    {
+                        color: #1e1e1e;
+                        font-family: "PoppinsMedium";
+                        font-size: 16px;
+                        text-transform: uppercase;
+                    }
+                }
+
+                .status
+                {
+                    p
+                    {
+                        color: #1e1e1e;
+                        font-family: "PoppinsLight";
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .service
+    {
+        font-size: 16px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+        margin: 10px 0 0;
+    }
+
+    .professional
+    {
+        font-size: 16px;
+        font-family: 'PoppinsLight';
+        color: #828282;
+        margin: 5px 0 0;
+    }
+
+    .review
+    {
+        margin-top: 30px;
+
+        .review_rate{
+            h1
+            {
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+            }
+
+            h4
+            {
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+
+                ion-icon
+                {
+                    margin-right: 5px;
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .the-form
+        {
+            margin-top: 20px;
+
+            h1
+            {
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+                color: #1e1e1e;
+                margin-bottom: 5px;
+            }
+
+            .input-item
+            {
+                margin: 0;
+
+                ion-grid
+                {
+                    padding: 0;
+
+                    ion-col
+                    {
+                        padding: 0;
+    
+                        ion-item
+                        {
+                            border: 1px solid #828282;
+                            --padding-start: 8px;
+                            --inner-padding-end: 5px;
+                            &.item-has-focus{
+                                border: 1px solid #1e1e1e;
+                            }
+            
+                            ion-input
+                            {
+                                color: #1e1e1e;
+                                --placeholder-color: #828282;
+                                --placeholder-opacity: 1;
+                                font-family: 'PoppinsRegular';
+                                font-size: 16px
+                            }
+    
+                            ion-textarea
+                            {
+                                color: #1e1e1e;
+                                --placeholder-color: #828282;
+                                --placeholder-opacity: 1;
+                                font-family: 'PoppinsRegular';
+                                font-size: 16px;
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .upload
+        {
+            margin: 20px 0;
+            border: 1px dotted #828282;
+            
+            p
+            {
+                text-align: center;
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                color: #1e1e1e;
+                margin: 20px 0;
+    
+                img
+                {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+
+        .bottom
+        {
+            margin: 30px 0;
+            
+            ion-button
+            {
+                width: 100%;
+                --background: #1e1e1e;
+                --border-radius: 40px;
+                height: 50px;
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+                --background-activated: inherit;
+            }
+        }
+    }
+}

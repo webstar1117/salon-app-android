@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Cards</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="top-holder">
+    <h2>Payment methods</h2>
+  </div>
+
+  <div class="the-list ">
+    <ion-radio-group [(ngModel)]="method" (ionChange)="selectCard()">
+      <div class="radio-group">
+        <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
+          <div class="icon"><img src="assets/imgs/apple.png"></div>
+          <ion-label>Apple Pay</ion-label>
+          <ion-radio slot="end" value="apple"></ion-radio>
+        </ion-item>
+      </div>     
+      <div class="radio-group" *ngFor="let card of cards">
+        <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
+          <div class="icon"><img src="assets/imgs/visa.png"></div>
+          <ion-label>{{card.type}}</ion-label>
+          <ion-radio slot="end" value="{{card.id}}"></ion-radio>
+        </ion-item>
+        <ion-label><ion-icon name="trash-outline" (click)="deleteCard(card.id)"></ion-icon></ion-label>
+      </div>     
+    </ion-radio-group>    
+  </div>
+
+  <div class="add-card flex al-center" (click)="addCard()">
+    <ion-icon name="add-outline"></ion-icon>
+    Add a new card
+  </div>
+</ion-content>

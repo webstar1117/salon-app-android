@@ -1,0 +1,73 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-left">{{service.service_name.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="section ion-text-left">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <h5>Price</h5>
+          </ion-col>
+          <ion-col size="9">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <span>$ </span>
+                <ion-input type="text" [value]="price" (keyup)="setPrice($event)"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <h5>Duration</h5>
+          </ion-col>
+          <ion-col size="9">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-select interface="popover" [value]="duration" (change)="setDuration($event)">
+                  <ion-select-option value="15">15 min</ion-select-option>
+                  <ion-select-option value="30">30 min</ion-select-option>
+                  <ion-select-option value="45">45 min</ion-select-option>
+                  <ion-select-option value="60">1 hour</ion-select-option>
+                  <ion-select-option value="75">1 hour 15 min</ion-select-option>
+                  <ion-select-option value="90">1 hour 30 min</ion-select-option>
+                  <ion-select-option value="105">1 hour 45 min</ion-select-option>
+                  <ion-select-option value="120">2 hour</ion-select-option>
+                  <ion-select-option value="135">2 hour 15 min</ion-select-option>
+                  <ion-select-option value="150">2 hour 30 min</ion-select-option>
+                  <ion-select-option value="165">2 hour 45 min</ion-select-option>
+                  <ion-select-option value="180">3 hour</ion-select-option>
+                  <ion-select-option value="195">3 hour 15 min</ion-select-option>
+                  <ion-select-option value="210">3 hour 30 min</ion-select-option>
+                  <ion-select-option value="225">3 hour 45 min</ion-select-option>
+                  <ion-select-option value="240">4 hour</ion-select-option>
+                  <ion-select-option value="300">5 hour</ion-select-option>
+                  <ion-select-option value="360">6 hour</ion-select-option>
+                  <ion-select-option value="420">7 hour</ion-select-option>
+                  <ion-select-option value="480">8 hour</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="save()">Save</ion-button>
+  </div>
+
+</ion-content>

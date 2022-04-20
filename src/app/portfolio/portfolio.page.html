@@ -1,0 +1,100 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="professional" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="addFavorite()" *ngIf="!guest"><ion-icon name="heart-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let professional of professionals">
+    <div class="information">
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-row class="ion-padding-horizontal detail">
+          <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+            <ion-item lines="none">
+              <div class="thumb flex" slot="start">
+                <img src="{{avatarUrl}}{{professional.avatar}}" alt="">
+              </div>
+              <ion-label>
+                <div class="title flex al-center" >
+                  <p>{{professional.first_name}} {{professional.last_name}}</p>
+                </div>
+                <div class="special flex al-center" >
+                  <p>{{professional.professional_skill.name}}</p>
+                </div>
+                <div class="status flex al-center" >
+                  <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? professional.review_rate : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-col>      
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+    <div class="seg-holder ion-padding-horizontal">
+      <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options">
+        <ion-slide [ngClass]="category=='portfolio' ? 'checked' : ''" (click)="segmentChanged('portfolio')">
+          <ion-label>Portfolio</ion-label>
+        </ion-slide>
+        <ion-slide [ngClass]="category=='services' ? 'checked' : ''" (click)="segmentChanged('services')">
+          <ion-label>Services</ion-label>
+        </ion-slide>     
+        <ion-slide [ngClass]="category=='reviews' ? 'checked' : ''" (click)="segmentChanged('reviews')">
+          <ion-label>Reviews</ion-label>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="the-content">
+      <div class="services animate__animated animate__slideInUp animate__fast" *ngIf="category=='services'">
+        <div class="content">
+          <ion-item lines="none" *ngFor="let service of professional.services">
+            <ion-label>
+              <h2>Adult Cut – {{service.duration}} min<span slot="end">$ {{service.price}}</span></h2>
+              <h5>{{service.description}}</h5>
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="portfolio ion-padding-horizontal animate__animated animate__slideInUp animate__fast" *ngIf="category=='portfolio'">
+        <ion-grid class="ion-no-padding" fixed >
+          <ion-row>
+            <ion-col size="6" *ngFor="let image of professional.professional_images" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <div class="item left">
+                <div class="thumb">
+                  <img src="{{professionalUrl}}{{image.image}}" alt="">
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="reviews ion-padding-horizontal animate__animated animate__slideInUp animate__fast" *ngIf="category=='reviews'">
+        <div class="review" *ngFor="let review of professional.reviews">
+          <h4 class="flex al-center">
+            <ion-icon name="{{review.rate >= 1 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 2 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 3 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 4 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 5 ? 'star' : 'star-outline'}}"></ion-icon>
+            {{review.name}}
+          </h4>
+          <p>{{review.description}}</p>
+          <img src="{{reviewUrl}}{{review.image}}" *ngIf="review.image != null">
+          <h5>Lisa F.  {{dateStringify(review.created_at)}}</h5>
+        </div>
+      </div>
+
+      <div class="bottom ion-padding-horizontal" *ngIf="!guest">
+        <ion-button (click)="appointment()">BOOK APPOINTMENT</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="businessprofile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Add Professional</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="section">
+    <div class="services">
+      <ion-item lines="none" class="al-start" (click)="addProfessional(skill.key)" *ngFor="let skill of skills | keyvalue">
+        <h1>{{skill.value.name}}</h1>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

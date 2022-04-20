@@ -1,0 +1,130 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="buy" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Select Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="balance-holder top-balance" [ngClass]="balancecontrol">
+    <h5>Balance</h5>
+    <h1>$ {{selectedBalance}}</h1>
+  </div>
+
+
+  <div class="selected-card-holder" (click)="goBackSelections()" #selectedCard>
+    <swiper [config]="config2" [centeredSlides]="true" [slidesPerView]="1.4" (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange2($event)" #swiper2>
+      <ng-template swiperSlide *ngFor="let card of cards2;let i = index ">
+
+        <div class="visa-cardvertical horizontal" [id]="selectedId">
+          <div *ngIf="i == 0" class="top-holder flex al-center jc-between ion-padding-horizontal">
+            <div class="card-type">
+              <h2>Credit Card</h2>
+            </div>
+            <div class="logo-holder ion-text-right">
+              <img id="visa" src="assets/imgs/visa.svg" alt="" *ngIf="card.cardtype=='visa'">
+              <img id="master" src="assets/imgs/master.svg" alt="" *ngIf="card.cardtype=='master'">
+              <img id="ionic" src="assets/imgs/ionic3d.png" alt="" *ngIf="card.cardtype=='ionic'">
+            </div>
+          </div>
+
+          <div class="card-number" *ngIf="i == 0">
+            <h1> {{card.cardnumber}}</h1>
+          </div>
+
+          <div class="cover-bar" *ngIf="i > 0">
+
+          </div>
+          <div class="vcc-holder" *ngIf="i > 0">
+            <div class="vcc">
+              <h3>123</h3>
+            </div>
+          </div>
+
+
+
+          <div class="bottom-holder" *ngIf="i == 0">
+            <ion-row>
+              <ion-col size="6">
+                <div class="section">
+                  <h5>CARD HOLDER</h5>
+                  <h3>Ion Wizard</h3>
+                </div>
+              </ion-col>
+
+              <ion-col size="6">
+                <div class="section">
+                  <h5>EXPIRES</h5>
+                  <h3>05 /30</h3>
+                </div>
+              </ion-col>
+            </ion-row>
+
+
+
+          </div>
+        </div>
+
+      </ng-template>
+
+
+    </swiper>
+  </div>
+
+
+  <div class="balance-holder" [ngClass]="balancecontrol2">
+    <h5>Balance</h5>
+    <h1>$ {{selectedBalance}}</h1>
+  </div>
+
+ 
+
+
+  <div class="cards-holder " id="cardc" #cardsContainer>
+    <swiper [config]="config" [centeredSlides]="true" [slidesPerView]="1.4" (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange($event)" (slideChangeTransitionEnd)="onTend($event)" #swiper>
+      <ng-template swiperSlide *ngFor="let card of cards">
+
+        <div class="visa-card vertical" (click)="goSelected($event)" #selectionCard [id]="card.id">
+          <div class="top-holder  flex al-center jc-between">
+            <div class="card-type">
+              <h2>Credit Card</h2>
+            </div>
+            <div class="logo-holder ion-text-right">
+              <img id="visa" src="assets/imgs/visa.svg" alt="" *ngIf="card.cardtype=='visa'">
+              <img id="master" src="assets/imgs/master.svg" alt="" *ngIf="card.cardtype=='master'">
+              <img id="ionic" src="assets/imgs/ionic3d.png" alt="" *ngIf="card.cardtype=='ionic'">
+            </div>
+          </div>
+
+          <div class="bottom-holder flex">
+            <div class="section">
+              <h5>CARD HOLDER</h5>
+              <h3>Ion Wizard</h3>
+            </div>
+
+            <div class="section">
+              <h5>EXPIRES</h5>
+              <h3>05 /30</h3>
+            </div>
+          </div>
+        </div>
+
+
+      </ng-template>
+
+    </swiper>
+  </div>
+
+
+  <div class="pay-btn btn-holder ion-text-center" >
+    <ion-button (click)="pay()">
+      Pay
+    </ion-button>
+  </div>
+
+</ion-content>

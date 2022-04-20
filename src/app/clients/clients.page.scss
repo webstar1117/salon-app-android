@@ -1,0 +1,130 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 16px;
+        font-family: 'PoppinsMedium';
+    }
+    
+}
+
+ion-content
+{
+    --background:  #F4EDE9;
+
+    .section
+    {
+        margin-top: 10px;
+        padding-left: 6px;
+        padding-right: 6px;
+
+        .search-holder
+        {
+            ion-input
+            {
+                border: 1px solid #828282;
+                border-radius: 49px;
+                --padding-start: 16px;
+                --padding-end: 16px;
+                color: #1e1e1e;
+                --placeholder-color: #828282;
+                --placeholder-opacity: 1;
+                font-family: 'PoppinsLight';
+                font-size: 14px
+            }
+        }
+        
+        .title
+        {
+            h3
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+
+                span
+                {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .list
+        {
+            margin-top: 40px;
+
+            .group
+            {
+                h3
+                {
+                    font-family: 'PoppinsRegular';
+                    font-size: 16px;
+                    color: #000000;
+                }
+            }
+    
+            ion-item
+            {
+                --background: inherit;
+
+                .thumb
+                {
+                    border-radius: 50%;
+                    background: #e0e0e0;
+                    padding: 10px 13px;
+
+                    ion-label
+                    {
+                        font-size: 16px;
+                        font-family: 'PoppinsRegular';
+                        color: #1e1e1e;
+                    }
+                }
+
+                ion-label
+                {
+                    .title
+                    {
+                        p{
+                            font-family: 'PoppinsMedium';
+                            font-size: 16px;
+                            color: #000000;
+                        }
+                    }
+
+                    .status
+                    {
+                        p{
+                            font-family: 'PoppinsRegular';
+                            font-size: 16px;
+                            color: #000000;
+                        }
+                    }
+
+                }
+                
+            }
+        }
+    }
+}

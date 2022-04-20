@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="verify" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Bank account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder">
+    <h1>Add your mailing address</h1>
+  </div>
+
+  <div class="the-form">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <h5>Street name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="123 Main St." [(ngModel)]="street"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Suite, Apt</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Suite #1" [(ngModel)]="suite"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>City</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="New York" [(ngModel)]="city"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>State</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="New York" [(ngModel)]="state"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Zip code</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="e.g. 94119" [(ngModel)]="zip"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="nextstep()">Next</ion-button>
+  </div>
+
+</ion-content>

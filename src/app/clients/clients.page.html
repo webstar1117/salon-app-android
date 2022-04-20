@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="menu" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Clients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="section">   
+    <div class="search-holder">
+      <ion-input placeholder="Seacrh name, email or phone number" [(ngModel)]="keyword" (keyup)="search($event)"></ion-input>
+    </div>
+
+    <div class="title">
+      <h3 (click)="addClient()"><img src="assets/imgs/add.png"/> <span> Add new client</span></h3>
+    </div>
+
+    <div class="list">
+      <div class="group" *ngFor="let group of results | keyvalue ">
+        <h3>{{group.key}}</h3>
+        <ion-item lines="none" *ngFor="let client of group.value">
+          <div class="thumb flex" slot="start">
+            <ion-label>{{client.first_letter}}</ion-label>
+          </div>
+          <ion-label>
+            <div class="title flex al-center" >
+              <p>{{client.first_name}} {{client.last_name}}</p>
+            </div>
+            <div class="status flex al-center" >
+               <p>{{client.phone}}</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </div>
+      
+    </div>
+  
+  </div>
+
+</ion-content>

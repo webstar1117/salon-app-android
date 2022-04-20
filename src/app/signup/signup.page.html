@@ -1,0 +1,66 @@
+<ion-content class="ion-padding-horizontal">
+  <div class="logo-holder ion-text-center">
+    <div class="the-logo  ion-text-center">
+      <div class="circle animate__animated animate__bounceInDown animate__slow flex al-center jc-center">
+        <div class="animate__animated animate__heartBeat animate__delay-5s">
+          <img src="assets/imgs/Bitcoin.png" alt="">
+        </div>
+
+      </div>
+
+      <div class="small-circle animate__animated animate__delay-3s animate__zoomIn">
+
+      </div>
+
+      <div class="name-holder animate__animated animate__bounceIn animate__delay-4s ion-text-center">
+        <h1>ionCrypto</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="title-holder ion-text-left">
+    <h2>Signup</h2>
+  </div>
+  <div class="the-form">
+
+    <div class="input-item">
+      <ion-label>User Name</ion-label>
+      <ion-item lines="none">
+        <ion-input type="email" placeholder="johndoe"></ion-input>
+      </ion-item>
+    </div>
+
+    
+    <div class="input-item">
+      <ion-label>Email Address</ion-label>
+      <ion-item lines="none">
+        <ion-input type="email" placeholder="johndoe@gmail.com"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="input-item">
+      <ion-label>Password</ion-label>
+      <ion-item lines="none">
+        <ion-input [type]="ptype" placeholder="*****************"></ion-input>
+        <div class="end-slot password" slot="end">
+          <ion-icon name="eye-off-outline" *ngIf="ptype=='text'" (click)="switchType()"></ion-icon>
+          <ion-icon name="eye-outline" *ngIf="ptype=='password'" (click)="switchType()"></ion-icon>
+        </div>
+      </ion-item>
+    </div>
+
+  </div>
+
+  <div class="btn-holder ion-text-center">
+    <ion-button expand="block" (click)="goOTP()">
+     Sign Up
+    </ion-button>
+  </div>
+
+
+  <div class="bottom-holder ion-text-center">
+    <h5>Already have an account?</h5>
+    <h3 (click)="goLogin()">Login</h3>
+  </div>
+</ion-content>

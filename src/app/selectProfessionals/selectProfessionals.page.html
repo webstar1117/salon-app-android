@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="services" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Select professionals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let service of services">
+    <div class="the-title ion-padding-horizontal">
+      <h2>{{service.name}} – {{service.duration}} min</h2>
+    </div>
+    
+    <div class="the-content">
+      <div class="professionals animate__animated animate__slideInUp animate__fast">
+        <div class="card" *ngFor="let professional of service.professionals">
+          <ion-grid class="ion-no-padding" fixed>
+            <ion-row class="ion-padding-horizontal detail">
+              <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+                <ion-item lines="none">
+                  <div class="thumb flex" slot="start">
+                    <img src="{{avatarUrl}}{{professional.avatar}}" alt="">
+                  </div>
+                  <ion-label>
+                    <div class="title flex al-center" >
+                      <p>{{professional.first_name}} {{professional.last_name}} <span>{{professional.professional_skill.name}}</span></p>
+                    </div>
+                    <div class="status flex al-center" >
+                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? professional.review_rate : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
+                    </div>
+                    <ion-button>{{service.name}} ${{professional.price}}</ion-button>
+                  </ion-label>
+                  <div class="buttons">
+                    <ion-icon name="add-circle-outline" *ngIf="checked.indexOf(service.service_id.toString()+professional.id.toString()) == -1"  slot="end" (click)="check(true, service.service_id, professional.id)"></ion-icon>
+                    <ion-icon name="checkmark-circle" *ngIf="checked.indexOf(service.service_id.toString()+professional.id.toString()) !== -1" slot="end" (click)="check(false, service.service_id, professional.id)"></ion-icon>
+                  </div>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom ion-padding-horizontal">
+    <ion-button (click)="appointment()">BOOK APPOINTMENT</ion-button>
+  </div>
+</ion-content>

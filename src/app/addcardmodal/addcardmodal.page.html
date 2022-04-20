@@ -1,0 +1,53 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-left">Add a new card</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="section ion-text-center">
+    <div class="input-item">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="1" class="flex al-center">
+            <ion-icon name="card-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="7">
+            <ion-input type="text" [maxlength]="cardNumMaxLength" placeholder="4444 4444 4444 4444" [value]="cardNumber" (keyup)="validateCardNumber($event)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input type="text" placeholder="12/23" (value)="expireDate" (keyup)="validateExpiryDate($event)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input type="text" [disabled]="!validated" [maxlength]="cvvMaxLength" placeholder="444" [value]="cvv" (keyup)="validateCVV($event)"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <p class="error" [hidden]="validated">Something went wrong</p>
+
+  <div class="default">
+    <ion-radio-group (ionChange)="setDefault()">
+      <div class="radio-group">
+        <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
+          <ion-label class="ion-text-right" slot="end">Make Default</ion-label>
+          <ion-radio mode="md" slot="end" value="1"></ion-radio>
+        </ion-item>
+      </div>     
+    </ion-radio-group>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="addCard()" [disabled]="btnDisabled">Add Card</ion-button>
+  </div>
+
+</ion-content>

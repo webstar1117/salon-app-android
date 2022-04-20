@@ -1,0 +1,106 @@
+ion-content
+{
+    --background:  #F4EDE9;
+
+    .top-holder
+    {
+        margin: 50px 0 20px 0;
+        position: relative;
+
+        .profile-holder
+        {
+            ion-avatar
+            {
+                --border-radius: 50%;
+                height: 90px;
+                position: relative;
+                width: 90px;
+            }
+
+            ion-label
+            {
+                margin-left: 20px;
+                text-align: center;
+
+                img
+                {
+                    width: 40px;
+                    height: 40px;
+                }
+    
+                p
+                {
+                    color:#000000;
+                    font-family: 'PoppinsRegular';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+           
+        }
+    }
+
+
+    .the-list
+    {
+        
+        ion-item
+        {
+            --background: transparent;
+            
+            ion-label
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsRegular';
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+.floatanimation1
+{
+    animation: float 5s ease-in-out  infinite ;
+}
+
+.floatanimation2
+{
+    animation: float2 3s ease-in-out infinite ;
+}
+
+@keyframes float
+{
+    0%
+    {
+        transform: translateY(0px);
+    }
+
+    50%
+    {
+        transform: translateY(-20px);
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float2
+{
+    0%
+    {
+        transform: translateY(-20px);
+    }
+
+    50%
+    {
+        transform: translateY(0px);
+    }
+
+    100%
+    {
+        transform: translateY(-20px);
+    }
+}

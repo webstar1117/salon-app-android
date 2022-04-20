@@ -1,0 +1,483 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.flex
+{
+    display: flex;
+}
+
+.flexd
+{
+    flex-direction: column;
+}
+
+
+.al-start
+{
+    align-items: flex-start;
+}
+
+.al-center
+{
+    align-items: center;
+}
+
+.al-end
+{
+    align-items: flex-end;
+}
+
+.jc-start
+{
+    justify-content: flex-start;
+}
+
+
+.jc-center
+{
+    justify-content: center;
+}
+
+.jc-end
+{
+    justify-content: flex-end;
+}
+
+.jc-between
+{
+    justify-content: space-between;
+}
+
+.jc-around
+{
+    justify-content: space-around;
+}
+
+ion-button
+{
+    text-transform: none;
+}
+
+
+ion-tab-bar
+{
+   --background: #1D1F30;
+}
+
+ion-select::part(icon) {
+    display: none !important;
+}
+
+.btn-holder
+{
+    ion-button
+    {
+        --background: #000000;
+        --border-radius: 0;
+        --color:white;
+        font-family: 'PoppinsMedium';
+        font-size: 16px;
+        height: 50px;
+        width: 100%;
+    }
+    .button-disabled {
+        opacity: 0.2!important;
+     }
+}
+
+.trending
+{
+    ion-searchbar
+    {   
+        border-radius: 50px;
+
+        .searchbar-input-container
+        {
+            --background: inherit;
+
+            .searchbar-input
+            {
+                border-radius: 50px;
+                padding-left:15px;
+            }
+        }
+
+        ion-icon
+        {
+            right: -1px !important;
+            left: auto !important;
+            background: black;
+            color: white!important;
+            border-radius: 50%;
+            padding: 11px;
+            top: 0!important;
+        }
+    
+    }
+}
+
+.the-form
+{
+    margin-top: 10px;
+
+    .input-item, .otp-holder
+    {
+        margin: 10px 0;
+        ion-label
+        {
+            color: #9496BA;
+            font-family: 'CSMedium';
+        }
+        ion-item
+        {
+            --background: inherit;
+            border: 1px solid #111111;
+            ion-input
+            {
+                color: #111111;
+                --placeholder-color: #111111;
+                --placeholder-opacity: 1;
+                font-family: 'PoppinsMedium';
+                font-size: 16px
+            }
+
+            .password
+            {
+                ion-icon
+                {
+                    font-size: 24px;
+                    color: #111111;
+                }
+            }
+        }
+    }
+}
+
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+}
+
+.my-alert{
+    --max-width: 80vw;
+    --min-width: 75vw;
+    --background: #f2f2f2;
+    text-align: center;
+
+    .alert-wrapper
+    {
+        border-radius: 14px;
+    }
+
+    .alert-title
+    {
+        text-align: center;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        font-family: 'PoppinsSemiBold';
+        font-size: 19px;
+    }
+
+    .alert-message
+    {
+        color: black;
+        font-family: 'PoppinsRegular';
+        font-size: 15px;
+        padding: 0;
+        max-height: 100vh;
+
+        p
+        {
+            margin-top: 0;
+            padding: 0 10px;
+        }
+
+        img
+        {
+            width: 100%;
+            border-bottom: 1px solid #3c3c434a;
+        }
+
+        #map
+        {
+            width: 100%;
+            height: 200px;
+            --background: transparent;
+        }
+    }
+
+    .alert-button-group
+    {
+        padding: 0;
+
+        .alert-button
+        {
+            margin-right: 0;
+            border-bottom: 1px solid #3c3c434a;
+            color: #007AFF;
+            font-family: 'PoppinsRegular';
+            font-size: 19px;
+            text-transform: none;
+            padding: 15px;
+
+            .alert-button-inner
+            {
+                justify-content: center
+            }
+        }
+        
+    }
+}
+
+.confirm-alert{
+    --max-width: 80vw;
+    --min-width: 75vw;
+    --background: #f2f2f2;
+    text-align: center;
+
+    .alert-wrapper
+    {
+        border-radius: 14px;
+    }
+
+    .alert-title
+    {
+        text-align: center;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        font-family: 'PoppinsSemiBold';
+        font-size: 19px;
+        color: #000000
+    }
+
+    .alert-message
+    {
+        color: black;
+        font-family: 'PoppinsRegular';
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .alert-button-group
+    {
+        padding: 0;
+        margin-top: 20px;
+
+        .alert-button
+        {
+            margin-right: 0;
+            font-family: 'PoppinsRegular';
+            font-size: 19px;
+            text-transform: none;
+            padding: 25px;
+
+            .alert-button-inner
+            {
+                justify-content: center
+            }
+        }
+
+        .confirm-button
+        {
+            color: #EE0004;
+        }
+
+        .cancel-button{
+            color: #0A60FF;
+            font-weight: normal;
+        }
+        
+    }
+}
+
+.calendarmodal{
+  
+    @media (min-width: 768px) { 
+        margin: auto;
+        --width: 50%;
+        --height: 65%;
+     }
+  
+    
+}
+
+.searchmodal
+{
+    .modal-wrapper{
+        height: 75%;
+        bottom: 0;
+        border-radius: 16px 16px 0 0;
+        position: absolute; 
+        display: block;
+    }  
+}
+
+.appointmodal
+{
+    .modal-wrapper{
+        height: 95%;
+        bottom: 0;
+        border-radius: 16px 16px 0 0;
+        position: absolute; 
+        display: block;
+    } 
+}
+
+.imagemodal
+{
+    .modal-wrapper{
+        height: 35%;
+        bottom: 0;
+        border-radius: 16px 16px 0 0;
+        position: absolute; 
+        display: block;
+    } 
+}
+
+.trending
+{
+    .title{
+        ion-searchbar.collapse
+        {
+            width: 13%;
+            border: none!important;
+
+            .searchbar-input-container {
+                height: 42px;
+
+                input {
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: visibility 2s, opacity 2s linear;
+                    font-size: 14px;
+                    font-family: 'PoppinsRegular';
+                }
+            }
+        }
+
+        ion-searchbar.expand
+        {
+
+            .searchbar-input-container {
+
+                input {
+                    visibility: visible;
+                    opacity: 1;
+                    transition: opacity 2s linear;
+                    font-size: 14px;
+                    font-family: 'PoppinsRegular';
+                }
+            }
+        }
+
+        .expand.salon
+        {
+            width: 100%;
+        }
+
+        .expand.service
+        {
+            width: 60%;
+        }
+
+        .expand.calendar
+        {
+            margin-left: 5px;
+            width: 40%;
+        }
+    }
+}
+
+.search-holder
+{
+    ion-searchbar
+    {
+        padding: 0;
+
+        .searchbar-input-container {
+            input {
+                background: inherit !important;
+                box-shadow: none !important;
+                border-radius: 0;
+                border-bottom: 2px solid #808080;
+                font-family: 'CSBook';
+            }
+        }
+    }
+}
+
+:root {
+    --animate-delay: 0.5s;
+}
+
+.apexcharts-legend-text
+{
+    color: white !important;
+}
+
+.monthview-container
+{
+    height: auto!important;
+
+    .monthview-datetable
+    {
+        border: none!important;
+        td, th {
+            border: 0 !important;
+            padding: 15px 10px!important;
+        }
+
+        th
+        {
+            small
+            {
+                font-weight: normal;
+                font-size: 16px;
+                font-family: 'PoppinsMedium';
+            }
+        }
+
+        td
+        {
+            font-size: 16px;
+            font-family: 'PoppinsLight';
+        }
+
+        .monthview-current
+        {
+            background: white;
+        }
+
+        .monthview-selected
+        {
+            background-color: #1e1e1e;
+            color: white;
+            border-radius: 50%;
+        }
+    }
+}

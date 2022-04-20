@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border"  #headerimg>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="insight" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="top-img-holder" #getHeight>
+    <img src="assets/imgs/news2.png" alt="">
+    <div class="overlay"></div>
+  </div>
+
+
+  <div class="details">
+    <div class="header flex al-start jc-between">
+      <h2 class="ion-text-wrap">AMC will let customers pay in
+        Ethereum and Litecoin by the
+        end of the year</h2>
+        <ion-icon  name="bookmark-outline"></ion-icon>
+    </div>
+
+    <div class="description">
+      <p class="iuon-text-wrap">
+        AMC is expanding its cryptocurrency interests.
+        <br> <br>
+        The movie theater chain has announced it will
+        begin accepting Ethereum, Litecoin, and Bitcoin
+        Cash for online ticket sales and concession payments
+        by the end of the year. The announcement comes
+        just over a month after AMC announced it would
+        begin accepting Bitcoin.
+        <br> <br>
+
+        CEO Adam Aron dropped word of the new policy
+        in a tweet Wednesday evening.
+
+      </p>
+
+      <div class="btn-holder ion-padding-horizontal ion-text-center">
+        <ion-button (click)="setReadMore()" expand="block">
+          <!-- Height of above tag : {{ getHeight.offsetHeight }} -->
+          Read More
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

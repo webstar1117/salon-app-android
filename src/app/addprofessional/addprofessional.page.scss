@@ -1,0 +1,325 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 12px;
+        font-family: 'PoppinsLight';
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .title-holder
+    {
+        margin-top: 20px;
+
+        h1
+        {
+            color: #1e1e1e;
+            font-family: 'PoppinsMedium';
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        img
+        {
+            width: 80px;
+            height: 80px;
+        }
+        
+        h2
+        {
+            color: #1e1e1e;
+            font-family: 'PoppinsRegular';
+            font-size: 14px;
+            margin-top: 0;
+        }
+    }
+
+    .the-form
+    {
+        margin-top: 20px;
+        .input-item
+        {
+            ion-col
+            {
+                h5
+                {
+                    font-family: 'PoppinsRegular';
+                    font-size: 14px;
+                    color: #1e1e1e;
+                    margin-bottom: 5px;
+                    margin-top: 0;
+                }
+
+                ion-item
+                {
+                    margin-bottom: 10px;
+                    border: 1px solid #828282;
+                    &.item-has-focus{
+                        border: 1px solid #1e1e1e;
+                    }
+    
+                    ion-input
+                    {
+                        color: #1e1e1e;
+                        --placeholder-color: #828282;
+                        --placeholder-opacity: 1;
+                        font-family: 'PoppinsRegular';
+                        font-size: 18px
+                    }
+                }
+            }
+        }
+    }
+
+    .seg-holder
+    {
+        margin-top: 20px;
+
+        ion-slides
+        {
+            ion-slide
+            {
+                color: #828282;
+                font-family: 'PoppinsRegular';
+                font-size: 18px;
+                text-transform: none;
+                
+                ion-label
+                {
+                    padding: 0 15px;
+                }
+            }
+
+            .checked
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+
+                ion-label
+                {
+                    border-bottom: 2px solid #1e1e1e;
+                }
+            }
+        }
+    }
+
+    .services
+    {
+        .serviceType
+        {
+            h1
+            {
+                font-size: 18px;
+                font-family: 'PoppinsSemiBold';
+                color: #1e1e1e;
+                text-transform: uppercase;
+            }
+        }
+
+        .servicesDetail
+        {
+
+            ion-item
+            {
+                --background: white;
+                margin: 10px 0;
+
+                .accordion-container,
+                .accordion-container .arrow,
+                .accordion-container .arrow:before,
+                .accordion-container .arrow:after,
+                .accordion-container .content {
+                    transition: all .3s ease-in-out;
+                }
+                .accordion-container .arrow {
+                    position: absolute;
+                    top: 50%;
+                    right: 10%;
+                }
+                .accordion-container .arrow,
+                .accordion-container .arrow:before,
+                .accordion-container .arrow:after {
+                    border-radius: 25px;
+                }
+                .accordion-container .arrow:before {
+                    content: " ";
+                    width: 10px;
+                    height: 1px;
+                    left: 50%;
+                    margin-left: -9px;
+                    background-color: #1e1e1e;
+                    position: absolute;
+                    transform: rotate(45deg);
+                }
+                .accordion-container .arrow:after {
+                    content: " ";
+                    width: 10px;
+                    height: 1px;
+                    background-color: #1e1e1e;
+                    position: absolute;
+                    right: -8px;
+                    transform: rotate(-45deg);
+                }
+                .accordion-container.open .arrow:before {
+                    transform: rotate(-45deg);
+                }
+                .accordion-container.open .arrow:after {
+                    transform: rotate(45deg);
+                }
+                .accordion-container h1 {
+                    font-size: 16px;
+                    font-family: 'PoppinsMedium';
+                    color: #1e1e1e;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    margin-top: 16px;
+                    padding-right:35px;
+                }
+                .accordion-container {
+                    width: 230px;
+                    display: block;
+                    cursor: pointer;
+                    position: relative;
+                }
+                .accordion-container.open {
+                    cursor: default;
+                }
+                .accordion-container .content {
+                    opacity: 0;
+                    display: none;
+                }
+                .accordion-container.open .content {
+                    display: block;
+                    opacity: 1;
+
+                    h5
+                    {
+                        font-size: 14px;
+                        font-family: 'PoppinsLight';
+                        color: #1e1e1e;
+                        margin-top: 10px;
+                    }
+                }
+
+                h5
+                {
+                    font-family: 'PoppinsLight';
+                    color: #828282;
+                    font-size: 14px;
+                }
+
+                ion-icon
+                {
+                    color: #1e1e1e;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            
+        } 
+    }
+
+    .portfolio
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        ion-grid
+        {
+            .item
+            {
+                --background: inherit;
+                --border-radius: 0;
+                --inner-padding-end: 0;
+                --padding-start: 0;
+
+                .thumb
+                {
+                    width: 100%;
+
+                    img
+                    {
+                        width: 100%;
+                        height: 165px;
+                        border-radius: 10px;
+                    }
+                }
+                    
+            }
+
+            .left
+            {
+                margin: 0 5px 10px 0;
+            }
+
+            .right
+            {
+                margin: 0 0 10px 5px;
+            }
+
+        }
+
+        .upload
+        {
+            margin: 20px 0;
+            border: 1px dotted #828282;
+            
+            p
+            {
+                text-align: center;
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                color: #1e1e1e;
+                margin: 20px 0;
+    
+                img
+                {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+
+
+    .bottom
+    {
+        margin: 30px 0;
+        
+        ion-button
+        {
+            width: 100%;
+            --background: #1e1e1e;
+            --border-radius: 40px;
+            height: 50px;
+            font-size: 16px;
+            font-family: 'PoppinsMedium';
+            --background-activated: inherit;
+        }
+    }
+}

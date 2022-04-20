@@ -1,0 +1,54 @@
+ion-toolbar
+{
+    --background: white;
+    position: relative;
+
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 20px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position: absolute;
+        right: 0
+    }
+}
+
+ion-content
+{
+    --background: white;
+
+    .client
+    {
+        margin-bottom: 20px;
+    }
+
+    h6
+    {
+        font-family: 'PoppinsRegular';
+        font-size: 14px;
+        color: #000000;
+        margin: 5px 0;
+    }
+
+    h3
+    {
+        font-family: 'PoppinsMedium';
+        font-size: 16px;
+        color: #000000;
+        margin: 5px 0;
+    }
+
+    p
+    {
+        font-family: 'PoppinsLight';
+        font-size: 14px;
+        color: #000000;
+        margin: 5px 0;
+        text-transform: uppercase;
+    }
+}

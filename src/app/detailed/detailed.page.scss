@@ -1,0 +1,225 @@
+ion-toolbar
+{
+    --background: #171826;
+
+    ion-title
+    {
+        --color: #EDEEFA;
+        font-family: 'CSMedium';
+        font-size: 15px;
+        margin-right: 15px;
+    }
+
+    ion-back-button
+    {
+        color: #EDEEFA;
+    }
+}
+
+ion-content
+{
+    --background: #171826;
+
+
+    .top-holder
+    {
+        ion-item
+        {
+
+            --background: #2b2e46;
+            --border-radius: 20px;
+            margin: 16px 0;
+
+            #aave
+            {
+                background: linear-gradient(225.33deg, #FF24F6 -12.15%, #28FC97 111.3%, #24FF96 111.32%);
+            }
+
+            #btc
+            {
+               background: #FF7324; 
+            }
+
+            #compound
+            {
+               background: #227720; 
+            }
+
+            #dash
+            {
+               background: #0075FF; 
+            }
+
+            #eth
+            {
+               background: #8424FF; 
+            }
+
+            #kusama
+            {
+               background: #FFF; 
+            }
+
+            #maker
+            {
+                background: linear-gradient(180deg, #28D157 0%, #199E66 100%);
+            }
+
+            #monero
+            {
+               background: #FF7324; 
+            }
+            .thumb
+            {
+                border-radius: 15px;
+                height: 50px;
+                width: 50px;
+                margin: 10px 10px 10px 0;
+            }
+
+
+            ion-label
+            {
+                
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 18px;
+                    margin: 0;
+                }
+
+                 
+                h3
+                {
+                    color: white;
+                    font-family: 'CSBlack';
+                    font-size: 20px;
+                    margin: 0;
+                }
+
+           
+
+                
+            }
+
+     
+
+            .end-slot
+            {
+                
+                h5
+                {
+                    font-family: 'CSMedium';
+                    font-size: 12px;
+                    margin: 0;
+                }
+                .up
+                {
+
+                    background: #25A629;
+                    color: white;
+                }
+
+                .down
+                {
+
+                    background: #F03737;
+                    color: white;
+                }
+
+            }
+        }
+    }
+
+
+    .chart-holder
+    {
+        .chart-switcher
+        {
+            background: #202234;
+            ion-segment
+            {
+               
+                width: 100% !important;
+                ion-segment-button
+                {
+                    --background-checked: var(--ion-color-primary);
+                    --color: #626687;
+                    --color-checked: white;
+                    --indicator-height:0;
+                    border-radius: 10px;
+                    font-family: 'CSMedium';
+                    font-size: 14px;
+                    text-transform: none;
+                    min-width: 20px !important;
+                }
+            }
+        }
+    }
+
+    .history-holder
+    {
+
+        position: relative;
+        padding-bottom: 70px;
+        h3
+        {
+            color: var(--ion-color-light);
+            font-family: 'CSMedium';
+            font-size: 17px;
+        }
+
+        h4
+        {
+            color: #626687;
+            font-family: 'CSMedium';
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+
+        .up
+        {
+            color: #DC2929;
+        }
+
+        .down
+        {
+            color: #25A629;
+        }
+
+    }
+
+    .bottom-btn-holder
+    {
+        background: linear-gradient(180deg, rgba(23, 24, 38, 0) 5.64%, #171826 45.45%);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        width: 100%;
+
+
+        #sell
+        {
+            --background: transparent;
+            --border-color: #0066FF;
+            --border-style: solid;
+            --border-width: 1px;
+        }
+
+        #buy
+        {
+            --background: #0066FF;
+        }
+        ion-button
+        {
+            --border-radius: 15px;
+            font-family: 'CSMedium';
+            font-size: 18px;
+            height: 50px;
+        }
+    }
+
+}

@@ -1,0 +1,134 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-center">{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <h2 *ngIf="payable">Your appointment with </h2>
+
+  <div *ngFor="let data of datas | keyvalue">
+    <div class="professional">
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-row class="detail">
+          <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+            <ion-item lines="none">
+              <div class="thumb flex" slot="start">
+                <img src="{{avatarUrl}}{{data.value.professional.avatar}}" alt="">
+              </div>
+              <ion-label>
+                <div class="title flex al-center" >
+                  <p>{{data.value.professional.first_name}} {{data.value.professional.last_name}}</p>
+                </div>
+                <div class="special flex al-center" >
+                  <p>{{data.value.professional.professional_skill.name}}</p>
+                </div>
+                <div class="status flex al-center" >
+                  <p><ion-icon name="star"></ion-icon> {{data.value.professional.review_rate != null ? data.value.professional.review_rate :'0.0'}} ({{data.value.professional.review_count != null ? data.value.professional.review_count : '0'}} reviews)</p>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-col>      
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="service">
+      <p id="serviceType">{{data.value.service.service_type.name}}</p>
+      <p id="service">{{data.value.service.service_name.name}}  – {{data.value.service.duration}} min</p>
+      <p id="price">${{data.value.service.price}}</p>
+    </div>
+
+    <div class="date">
+      <h2>Date</h2>
+      <div id="date">
+        <p *ngIf="!data.value.editable">{{data.value.dateString}}</p>
+        <div class="calendar" *ngIf="data.value.editable">
+          <ion-item mode="md" lines="none">
+            <ion-title>{{data.value.viewTitle}}</ion-title>
+            <ion-buttons end>
+              <ion-button (click)="previous(data.key)"><ion-icon name="chevron-back"></ion-icon></ion-button>
+              <ion-button (click)="next(data.key)"><ion-icon name="chevron-forward"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-item>
+      
+          <calendar [calendarMode]="calendar.mode"
+                    [dateFormatter] = "calendar.dateFormatter"
+                    [startingDayMonth] = "calendar.startingDayMonth"
+                    [currentDate]="data.value.date"
+                    (onTitleChanged)="onViewTitleChanged($event, data.key)"
+                    (onCurrentDateChanged)="onCurrentDateChanged($event, data.key)"
+                    [showEventDetail]="false"
+                    [step]="calendar.step">
+          </calendar>
+        </div>
+      </div>
+      <h5 id="time" *ngIf="isSetTime">{{data.value.time}} - {{data.value.time_done}}</h5>
+      <div id="edit" (click)="editDate(data.key)" *ngIf="!data.value.editable">Edit</div>    
+    </div>
+
+    <div class="time" *ngIf="!isSetTime">
+      <h2>Time</h2>
+      <div class="morning">
+        <h3>Morning</h3>
+        <div class="buttons flex" *ngIf="data.value.time_list.available_time != null">
+          <ion-button *ngFor="let morning of data.value.time_list.available_time.morning" [ngClass]="data.value.time == morning.start? 'checked': ''" (click)="setTime(morning, data.key)">{{morning.start}}</ion-button>
+        </div>
+      </div>
+      <div class="morning">
+        <h3>Afternoon</h3>
+        <div class="buttons flex" *ngIf="data.value.time_list.available_time != null">
+          <ion-button *ngFor="let afternoon of data.value.time_list.available_time.afternoon" [ngClass]="data.value.time == afternoon.start? 'checked': ''" (click)="setTime(afternoon, data.key)">{{afternoon.start}}</ion-button>
+        </div>
+      </div>
+      <div class="morning">
+        <h3>Evening</h3>
+        <div class="buttons flex" *ngIf="data.value.time_list.available_time != null">
+          <ion-button *ngFor="let evening of data.value.time_list.available_time.evening" [ngClass]="data.value.time == evening.start? 'checked': ''" (click)="setTime(evening, data.key)">{{evening.start}}</ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div id="break-line" *ngIf="this.multi && !isSetTime"></div>
+
+  </div>
+
+  <div class="policy" *ngIf="isSetTime && !payable">
+    <h3>Cancellation policy</h3>
+    <p>You will not be charged if you cancel 
+      at least 24 hours before your booking. Otherwise you will be charged 50% of price.</p>
+  </div>
+
+  <div class="payment" *ngIf="payable">
+    <h2>Add a tip</h2>
+    <div class="tip">
+      <div class="buttons flex">
+        <ion-button [ngClass]="tip=='10'? 'checked': ''" (click)="setTip('10')">10%</ion-button>
+        <ion-button [ngClass]="tip=='20'? 'checked': ''" (click)="setTip('20')">20%</ion-button>
+        <ion-button [ngClass]="tip=='30'? 'checked': ''" (click)="setTip('30')">30%</ion-button>
+        <ion-button [ngClass]="tip=='none'? 'checked': ''" (click)="setTip('none')">None</ion-button>
+      </div>
+    </div>
+    <div class="price">
+      <p id="total">Total Price<span>${{total_price | number:'1.2-2'}}</span></p>
+      <p class="main" *ngFor="let data of datas">{{data.service.service_name.name}}<span>${{data.service.price != null ? (data.service.price | number:'1.2-2') : '0.00'}}</span></p>
+      <p id="tip">Tip:{{tip != 'none'?tip+'%':'None'}}<span>${{tip_price | number:'1.2-2'}}</span></p>
+      <p id="tax">Taxes & Fees<span>$0.00</span></p>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="nextStep()" *ngIf="!payable">NEXT</ion-button>
+    <ion-button (click)="applePayment()" *ngIf="payable"><ion-icon name="logo-apple"></ion-icon>Pay</ion-button>
+    <ion-button (click)="visaPay()" *ngIf="payable">PAY WITH CREDIT CARD</ion-button>
+  </div>
+
+</ion-content>

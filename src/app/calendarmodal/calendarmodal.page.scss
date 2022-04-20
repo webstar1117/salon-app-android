@@ -1,0 +1,148 @@
+ion-toolbar
+{
+    --background: white;
+    position: relative;
+
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 20px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position: absolute;
+        right: 0
+    }
+}
+
+ion-content
+{
+    --background: white;
+
+    .calendar
+    {
+        ion-item
+        {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+
+            ion-title
+            {
+                padding: 0;
+                font-size: 18px;
+                font-family: 'PoppinsMedium';
+            }
+    
+            ion-buttons
+            {
+                ion-button
+                {
+                    width: 24px;
+                    height: 24px;
+                    --padding-start: 0;
+                    --padding-end: 0;
+    
+                    ion-icon
+                    {
+                        color: #767676;
+                    }
+                }
+            }
+        }
+    }
+
+    .time
+    {
+        h2
+        {
+            font-size: 18px;
+            font-family: 'PoppinsMedium';
+        }
+
+        .buttons
+        {
+            ion-button
+            {
+                --background: white;
+                color: #111111;
+                --box-shadow: none;
+                border: 1px solid #1e1e1e;
+                margin: 0 5px;
+                font-family: "PoppinsRegular";
+                font-size: 16px;
+                --border:none;
+                height: 39px;
+                --background-activated: inherit;
+            }           
+
+            .checked
+            {
+                background: #1e1e1e;
+                --background: #1e1e1e;
+                color: white;
+            }
+        }
+        
+        .time-picker
+        {
+            margin-bottom: 50px;
+
+            ion-range
+            {
+                --knob-background: #1e1e1e;
+                --knob-size: 24px;
+                --bar-background-active: #1e1e1e;
+                padding-top: 10px;
+
+                &::part(pin) {
+                    transform: translate3d(0px, 60px, 0px) scale(1);
+                    font-size: 18px;
+                    font-family: 'PoppinsRegular';
+                    &:after {
+                        content: ":00";
+                    }
+                    position: absolute;
+                    right:0
+                }
+            }
+        }        
+    }
+
+    .confirm
+    {
+        margin-bottom: 30px;
+        position: relative;
+
+        ion-button
+        {
+            font-size: 16px;
+            font-family: 'PoppinsMedium';
+            color: #1e1e1e;
+        }
+
+        ion-button.clear
+        {
+            color: #1e1e1e;
+            --background: white;
+            --padding-start: 0;
+            --padding-end: 0;
+        }
+
+        ion-button.apply
+        {
+            position: absolute;
+            right: 0;
+            color: white;
+            --background: #1e1e1e;
+            height: 49px;
+            --border-radius: 40px;
+            --padding-start: 32px;
+            --padding-end: 32px;
+            margin: 0
+        }
+    }
+    
+}

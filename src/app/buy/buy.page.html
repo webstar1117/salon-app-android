@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="detailed"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Buy BTC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid style="height: 100%">
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%">
+      <div class="holder">
+        <div class="input-holder animate__animated animate__zoomIn flex al-center">
+          <ion-input class="ion-text-center" placeholder="0"></ion-input>
+          <p>USD</p>
+        </div>
+
+        <div class="range-holder animate__animated animate__fadeIn ion-text-center">
+          <h5>15 - 15,0000 USD</h5>
+
+          <div class="details  animate__animated animate__fadeInUp flex al-center jc-center">
+            <div class="img-holder flex al-center jc-center">
+              <img src="assets/imgs/btc.svg" alt="">
+            </div>
+              <h4>1 BTC = $38,918</h4>  
+          </div>
+        </div>
+
+        <div class="bottom-holder">
+
+            <div class="btn-holder ion-text-center">
+              <ion-button (click)="goPaybyCard()">
+               Buy
+              </ion-button>
+            </div>
+          </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

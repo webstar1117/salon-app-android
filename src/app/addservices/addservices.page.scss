@@ -1,0 +1,125 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 16px;
+        font-family: 'PoppinsMedium';
+    }
+    
+}
+
+ion-content
+{
+    --background:  #F4EDE9;
+
+    .section
+    {
+        margin-top: 10px;
+
+        .search-holder
+        {
+            margin-bottom: 20px;
+
+            ion-input
+            {
+                border: 1px solid #828282;
+                border-radius: 49px;
+                --padding-start: 16px;
+                --padding-end: 16px;
+                color: #1e1e1e;
+                --placeholder-color: #828282;
+                --placeholder-opacity: 1;
+                font-family: 'PoppinsLight';
+                font-size: 14px
+            }
+        }
+        
+        .buttons
+        {
+            overflow: auto;
+            background: white;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            ion-button
+            {
+                --padding-start: 5px;
+                --padding-end: 5px;
+                --padding-top: 10px;
+                --padding-bottom: 10px;
+                --background: white;
+                color: #111111;
+                --box-shadow: none;
+                font-family: "PoppinsRegular";
+                font-size: 18px;
+                --border-radius: 0;
+                margin: 0 5px 0 0;
+                --background-activated: inherit;
+                text-transform: uppercase;
+            }
+
+            .checked
+            {
+                background: #1e1e1e;
+                --background: #1e1e1e;
+                color: white;
+            }
+        }
+
+        .services
+        {
+            margin-top: 20px;
+
+            ion-item
+            {
+                --background: white;
+                margin: 10px 0;
+                h1 {
+                    font-size: 16px;
+                    font-family: 'PoppinsMedium';
+                    color: #1e1e1e;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    margin-top: 16px;
+                    padding-right:35px;
+                }
+
+                ion-icon
+                {
+                    color: #1e1e1e;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            p
+            {
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                color: #1e1e1e;
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,114 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="professionallist" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Add Professional</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="preview()">Preview</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="title-holder ion-text-center ion-padding-horizontal">
+    <img src="{{avatarUrl}}" (click)="changeImage()">
+    <h2 (click)="changeImage()">Change profile image</h2>
+  </div>
+
+  <div class="the-form ion-padding-horizontal">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <h5>Professional</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Hair stylist" [(ngModel)]="professional"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>First name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Calvin" [(ngModel)]="fname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Last name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Nelson" [(ngModel)]="lname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="seg-holder ion-padding-horizontal">
+    <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options">
+      <ion-slide [ngClass]="category=='portfolio' ? 'checked' : ''" (click)="segmentChanged('portfolio')">
+        <ion-label>Portfolio</ion-label>
+      </ion-slide>
+      <ion-slide [ngClass]="category=='services' ? 'checked' : ''" (click)="segmentChanged('services')">
+        <ion-label>Services</ion-label>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="the-content">
+    <div class="services animate__animated animate__slideInUp animate__fast" *ngIf="category=='services'">
+      <div class="content">
+        <div *ngFor="let service of services">
+          <div class="serviceType ion-padding-horizontal">
+            <h1>{{service.name}}</h1>
+          </div>
+          <div class="servicesDetail">
+            <ion-item lines="none" class="al-start" *ngFor="let data of service.data">
+              <div class="accordion-container" [ngClass]="open.indexOf(data.id) !== -1 ? 'open' : ''">
+                <h1>
+                  {{data.service_name.name}} – {{data.duration}} min
+                  <div class="arrow" (click)="openAccordian(data.id)"></div>
+                </h1>
+                <div class="content">
+                  <h5>{{data.description}}</h5>
+                </div> 
+              </div>
+              <h5>from $ {{data.price}}</h5>
+              <ion-icon name="add-circle-outline" *ngIf="checked.indexOf(data.id) == -1"  slot="end" (click)="check(true, data.id)"></ion-icon>
+              <ion-icon name="checkmark-circle" *ngIf="checked.indexOf(data.id) !== -1" slot="end" (click)="check(false, data.id)"></ion-icon>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio ion-padding-horizontal" *ngIf="category=='portfolio'">
+      <div class="upload" (click)="uploadPortfolio()">
+        <p><img src="assets/imgs/noImage.png"> Upload portfolio image</p>      
+      </div>
+      <div>
+        <ion-grid class="ion-no-padding" fixed >
+          <ion-row>
+            <ion-col size="6" *ngFor="let portfolio_url of portfolio_urls" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <div class="item left">
+                <div class="thumb">
+                  <img src="{{portfolio_url}}" alt="">
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveProfessional()">Save</ion-button>
+  </div>
+
+</ion-content>

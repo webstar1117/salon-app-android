@@ -1,0 +1,95 @@
+ion-toolbar
+{
+    position: relative;
+    --background: #F4EDE9;
+    
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 20px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: -12px
+    }
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+   
+
+   .title-holder
+   {
+       margin-top: 100px;
+       h2
+       {
+           color: #111111;
+           font-family: 'PoppinsMedium';
+           font-size: 18px;
+           margin-top: 0;
+       }
+   }
+
+   .the-form
+   {
+       ion-grid
+       {
+           padding: 0;
+           
+           ion-item
+           {
+               height: 60px;
+               display: flex;
+
+               ion-input
+               {
+                   font-size: 18px;
+               }
+           }
+       }
+
+        .error
+        {
+            margin: 0;
+            font-size: 12px;
+            font-family: 'PoppinsLight';
+            color: red;
+        }
+
+        .alert
+        {
+            font-size: 14px;
+            font-family: 'PoppinsMedium';
+            color: grey;
+        }
+     }
+
+   .btn-holder
+   {
+       margin-top: 10px;
+       ion-button
+       {
+           text-transform: uppercase;
+           margin: 0 auto;
+       }
+   }
+
+   .resend-holder
+   {
+       margin-top: 10px;
+
+       ion-button
+       {
+            --background: inherit;
+            --box-shadow: none;
+            color: grey;
+            font-size: 14px;
+            font-family: 'PoppinsMedium';
+       }
+   }
+}

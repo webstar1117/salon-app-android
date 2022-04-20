@@ -1,0 +1,272 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    ion-buttons
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .seg-holder
+    {
+        margin-top: 20px;
+
+        ion-slides
+        {
+            ion-slide
+            {
+                color: #828282;
+                font-family: 'PoppinsRegular';
+                font-size: 18px;
+                text-transform: none;
+                
+                ion-label
+                {
+                    padding: 0 15px;
+                }
+            }
+
+            .checked
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+
+                ion-label
+                {
+                    padding-bottom: 5px;
+                    border-bottom: 2px solid #1e1e1e;
+                }
+            }
+        }
+    }
+
+    .salons
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        .card 
+        {
+            background: white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            ion-grid
+            {
+                .slider
+                {
+                    .thumb
+                    {
+                        padding: 5px;
+
+                        img
+                        {
+                            border-radius: 10px;
+                            width: 100%;
+                            height: 20vw;
+                        }
+                    }
+                }
+
+                .detail
+                {
+                    ion-item
+                    {
+                        --padding-start: 5px;
+                        align-items: start;
+
+                        .thumb
+                        {
+                            margin-inline-end: 10px;
+
+                            img
+                            {
+                                border-radius: 50%;
+                                width: 12vw;
+                                height: 12vw;
+                            }
+                        }
+
+                        ion-label
+                        {
+                            margin: 0;
+
+                            .title
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsSemiBold";
+                                    font-size: 18px;
+                                    text-transform: uppercase;
+
+                                    span
+                                    {
+                                        color: #828282;
+                                        font-family: "PoppinsLight";
+                                        font-size: 14px;
+                                        text-transform: none;
+                                    }
+                                }
+                            }
+
+                            .status
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsRegular";
+                                    font-size: 14px;
+
+                                    span
+                                    {
+                                        color: #828282;
+                                        font-family: "PoppinsLight";
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+
+                            .time
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsLight";
+                                    font-size: 12px;
+
+                                    span
+                                    {
+                                        text-transform: uppercase;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .professionals
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        .card 
+        {
+            background: white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            ion-grid
+            {
+                .slider
+                {
+                    padding-top: 16px;
+
+                    ion-slides
+                    {
+                        ion-slide
+                        {
+                            .card
+                            {
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                                img
+                                {
+                                    width: 100%;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .detail
+                {
+                    ion-item
+                    {
+                        --padding-start: 5px;
+                        align-items: start;
+
+                        .thumb
+                        {
+                            margin-inline-end: 10px;
+
+                            img
+                            {
+                                border-radius: 50%;
+                                width: 12vw;
+                                height: 12vw;
+                            }
+                        }
+
+                        ion-label
+                        {
+                            margin: 0;
+
+                            .title
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsMedium";
+                                    font-size: 18px;
+                                }
+                            }
+                            
+                            .special
+                            {
+                                p
+                                {
+                                    color: #828282;
+                                    font-family: "PoppinsLightItalic";
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .status
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsRegular";
+                                    font-size: 14px;
+                                }
+                            }
+
+
+                            ion-button
+                            {
+                                margin-top: 5px;
+                                --background: white;
+                                color: #111111;
+                                --box-shadow: none;
+                                border: 1px solid #1e1e1e;
+                                font-family: "PoppinsRegular";
+                                font-size: 12px;
+                                width: 130px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

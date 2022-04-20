@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="salon" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Select services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let service of services">
+    <div class="serviceType ion-padding-horizontal">
+      <h1>{{service.name}}</h1>
+    </div>
+    <div class="services">
+      <ion-item lines="none" class="al-start" *ngFor="let data of service.data">
+        <div class="accordion-container" [ngClass]="open.indexOf(data.id) !== -1 ? 'open' : ''">
+          <h1>
+            {{data.service_name.name}} – {{data.duration}} min
+            <div class="arrow" (click)="openAccordian(data.id)"></div>
+          </h1>
+          <div class="content">
+            <h5>{{data.description}}</h5>
+          </div> 
+        </div>
+        <h5>from $ {{data.price}}</h5>
+        <ion-icon name="add-circle-outline" *ngIf="checked.indexOf(service.service_type_id.toString()+data.id.toString()) == -1"  slot="end" (click)="check(true, service.service_type_id, data.id)"></ion-icon>
+        <ion-icon name="checkmark-circle" *ngIf="checked.indexOf(service.service_type_id.toString()+data.id.toString()) !== -1" slot="end" (click)="check(false, service.service_type_id, data.id)"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="bottom ion-padding-horizontal">
+    <ion-button (click)="selectProfessionals()">NEXT</ion-button>
+  </div>
+</ion-content>

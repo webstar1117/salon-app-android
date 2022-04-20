@@ -1,0 +1,102 @@
+ion-content
+{
+    --background:  url('../../assets/imgs/lobg.png') no-repeat center center / cover;
+   .logo-holder
+   {
+       width: 100%;
+       .the-logo
+       {
+           position: relative;
+           width: fit-content;
+           margin: 12vw auto 0 auto;
+           .circle
+           {
+               background: linear-gradient(139.05deg, #9369F4 -13.59%, #E3619A 107.69%);
+               border-radius: 50%;
+               border: 8px solid #FBEEFF;
+               height: 7rem;
+               width: 7rem;
+   
+               img
+               {
+                   height: 5rem;
+               }
+           }
+   
+           .small-circle
+           {
+               border-radius: 50%;
+               border: 8px solid #c869f4d8;
+               background: #FBEEFF;
+               height: 2rem;
+               position: absolute;
+               top: 0;
+               right: 20px;
+               width: 2rem;
+           }
+
+           .name-holder
+           {
+               h1
+               {
+                   color: #FBEEFF;
+                   font-family: 'CSBold';
+                   margin-top: 5px;
+               }
+           }
+       }
+   }
+
+   .title-holder
+   {
+       margin-top: 10vw;
+       h2
+       {
+           color: #EDEEFA;
+           font-family: 'CSBold';
+           font-size: 20px;
+           margin-top: 0;
+       }
+   }
+
+
+   .btn-holder
+   {
+       margin-top: 30px;
+       ion-button
+       {
+           margin: 0 auto;
+       }
+   }
+
+   .social-holder
+   {
+       margin-top: 20px;
+       .btn
+       {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            height: 45px;
+            margin: 0 10px;
+            width: 45px;
+       }
+   }
+
+   .bottom-holder
+   {
+       h5
+       {
+           color: #9496BA;
+           font-family: 'CSBook';
+           font-size: 12px;
+       }
+
+       h3
+       {
+           color: #FFFF;
+           font-family: 'CSMedium';
+           font-size: 12px;
+           margin-top: 0;
+       }
+   }
+}

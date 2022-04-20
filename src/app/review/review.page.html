@@ -1,0 +1,85 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="myappointments" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Leave feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="the-content">
+    <div class="upcoming animate__animated animate__slideInUp animate__fast">
+      <h2 class="date ion-padding-horizontal">TH, Dec 18</h2>
+      <h2 class="time ion-padding-horizontal">09:00 AM – 09:30 AM</h2>
+      <div class="detail ion-padding-horizontal">
+        <ion-item lines="none">
+          <div class="thumb flex" id="btc" slot="start">
+            <img src="assets/imgs/img5.png" alt="">
+          </div>
+          <ion-label>
+            <div class="title flex al-center" >
+              <p>Hoeger - tillman</p>
+            </div>
+            <div class="location flex al-center" >
+                <p>1023 New York Avenue</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </div>
+      <h2 class="service ion-padding-horizontal">Adult cut  – 30 min</h2>
+      <h2 class="professional ion-padding-horizontal">April Olson </h2>
+      <div class="review ion-padding-horizontal">
+        <div class="review_rate">
+          <h1>Rate this service</h1>
+          <h4 class="flex al-center">
+            <ion-icon name="{{rate >= 1 ? 'star' : 'star-outline'}}" (click)="setRate(1)"></ion-icon>
+            <ion-icon name="{{rate >= 2 ? 'star' : 'star-outline'}}" (click)="setRate(2)"></ion-icon>
+            <ion-icon name="{{rate >= 3 ? 'star' : 'star-outline'}}" (click)="setRate(3)"></ion-icon>
+            <ion-icon name="{{rate >= 4 ? 'star' : 'star-outline'}}" (click)="setRate(4)"></ion-icon>
+            <ion-icon name="{{rate >= 5 ? 'star' : 'star-outline'}}" (click)="setRate(5)"></ion-icon>
+          </h4>
+        </div>
+        <div class="the-form">
+          <h1>Title this review</h1>
+          <div class="input-item">
+            <ion-grid fixed>
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="12">
+                  <div class="input-holder">
+                    <ion-item lines="none">
+                      <ion-input type="text" placeholder="Fantastic!" [(ngModel)]="title"></ion-input>
+                    </ion-item>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>      
+          </div>
+        </div>
+        <div class="the-form">
+          <h1>Write your review</h1>
+          <div class="input-item">
+            <ion-grid fixed>
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="12">
+                  <div class="input-holder">
+                    <ion-item lines="none">
+                      <ion-textarea rows="6" placeholder="." [(ngModel)]="feedback"></ion-textarea>
+                    </ion-item>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>      
+          </div>
+        </div>
+        <div class="upload" (click)="uploadImage()">
+          <p><img src="assets/imgs/noImage.png"> Upload portfolio image</p>
+        </div>
+        <img [src]="imageUrl" width="50%" *ngIf="imageUrl != undefined">
+        <div class="bottom">
+          <ion-button (click)="saveReview()">Save</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

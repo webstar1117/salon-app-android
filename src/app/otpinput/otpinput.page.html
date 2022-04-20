@@ -1,0 +1,80 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="otpphoneinput" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder ion-text-left">
+    <h2>One Time Password verification</h2>
+  </div>
+  <div class="the-form">
+    <div class="otp-holder">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp1 [(ngModel)]="code1"  class="otp ion-text-center" maxlength="1" (keyup)="next(otp2)" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp2 [(ngModel)]="code2" class="otp ion-text-center" maxlength="1" (keyup)="next(otp3)" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp3 [(ngModel)]="code3" class="otp ion-text-center" maxlength="1" (keyup)="next(otp4)" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp4 [(ngModel)]="code4" class="otp ion-text-center" maxlength="1" (keyup)="next(otp5)" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp5 [(ngModel)]="code5" class="otp ion-text-center" maxlength="1" (keyup)="next(otp6)" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="tel" #otp6 [(ngModel)]="code6" class="otp ion-text-center" maxlength="1" ></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <p class="alert">*Enter the One Time Password verification sent to lananev@icloud.com</p>
+  </div>
+
+  <div class="btn-holder ion-text-center">
+    <ion-button expand="block" (click)="verify()">
+     Submit
+    </ion-button>
+  </div>
+
+  <div class="resend-holder ion-text-center">
+    <ion-button (click)="resend()">
+      Resend Code
+    </ion-button>
+  </div>
+
+
+ 
+</ion-content>

@@ -1,0 +1,6 @@
+{
+	"appId": "com.ionwizard.ioncrypto",
+	"appName": "ioncrypto",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

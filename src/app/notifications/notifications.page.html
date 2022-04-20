@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="top-holder">
+    <h2>Manage notifications</h2>
+    <p>You will receive appointment reminders & info about your bookings</p>
+  </div>
+
+  <div class="the-list ">
+    <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
+      <ion-label>Push</ion-label>
+      <ion-toggle mode="ios" [(ngModel)]="push" (ionChange)="setNotification('push')"></ion-toggle>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
+      <ion-label>Email</ion-label>
+      <ion-toggle mode="ios" [(ngModel)]="email" (ionChange)="setNotification('email')"></ion-toggle>
+    </ion-item>
+    <ion-item lines="none"  class="ion-no-padding animate__animated animate__fadeInLeft">
+      <ion-label>SMS</ion-label>
+      <ion-toggle mode="ios" [(ngModel)]="sms" (ionChange)="setNotification('sms')"></ion-toggle>
+    </ion-item>
+  </div>
+</ion-content>

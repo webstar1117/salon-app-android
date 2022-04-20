@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-text slot="end">{{city}},{{country}}</ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScrollStart)="onScroll($event)">
+  <div class="the-list ion-padding-horizontal">
+    <ion-item lines="none">
+      <ion-label>
+        <h2>{{service}} in {{city}}</h2>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div #map id="map"></div>
+
+  <div class="options">
+    <div class="card" *ngFor="let salon of salons">
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-slides mode="ios" pager="false" scrollbar="false" [options]="salon.salon_slider" *ngIf="category != 'professionals'">
+          <ion-slide *ngFor="let image of salon.salon_images">
+            <div class="card ion-text-left">
+              <img src="{{imageUrl}}{{image.image}}" alt="">
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <ion-row class="ion-padding-horizontal detail">
+          <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+            <ion-item lines="none">
+              <div class="thumb flex" id="btc" slot="start">
+                <img src="{{logoUrl}}{{salon.logo}}" alt="">
+              </div>
+              <ion-label>
+                <div class="title flex al-center" >
+                  <p>{{salon.name}} <span>2.9 mi</span></p>
+                </div>
+                <div class="status flex al-center" >
+                   <p><ion-icon name="star"></ion-icon> {{salon.review_rate != null ? salon.review_rate : '0.0'}} ({{salon.review_count}} reviews) <span> Beauty Salon</span></p>
+                </div>
+                <div class="time flex al-center" >
+                  <p>Open now <span>{{salon.opening_hour!=null?salon.opening_hour.open_time + ' - ' + salon.opening_hour.close_time:''}}</span></p>
+               </div>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding buttons">
+            <ion-button expand="block" (click)="goSalon(salon.id)">Haircut from $30</ion-button>
+            <ion-button expand="block" (click)="goSalon(salon.id)">see all services</ion-button>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="card" *ngIf="empty" id="empty">
+      <p>No salons related with {{service}}</p>
+    </div>
+  </div>
+
+  <div class="trending ion-padding-horizontal">
+    <div class="title animate__animated animate__zoomIn flex jc-end">
+      <ion-searchbar class="service" [ngClass]="expand ? 'expand' : 'collapse'" value="{{service}}" showClearButton="never" placeholder="Service or Salon" (click)="searchbar()" style="margin-right: 5px"></ion-searchbar>
+      <ion-searchbar class="calendar" [ngClass]="expand ? 'expand' : 'collapse'" value="{{dateString}}" searchIcon="calendar-clear-outline" showClearButton="never" placeholder="when" (click)="calendar()"></ion-searchbar>
+    </div>
+  </div>
+</ion-content>

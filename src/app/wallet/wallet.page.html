@@ -1,0 +1,122 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="top-holder ion-text-center">
+    <h5>Current Balance</h5>
+    <h1>$73,041.83</h1>
+
+    <div class="top-btns-holder ion-padding-top">
+      <ion-row>
+        <ion-col size="6" class="animate__animated animate__zoomIn animate__faster">
+          <ion-item lines="none" class="ion-activatable ripple-parent" (click)="goBuy()">
+            <ion-ripple-effect type="bounded"></ion-ripple-effect>
+            <div class="thumb flex al-center jc-center" slot="start">
+              <img src="assets/imgs/buy.svg" alt="">
+            </div>
+            <ion-label>Buy</ion-label>
+          </ion-item>
+        </ion-col>
+
+
+        <ion-col size="6" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+          <ion-item lines="none" class="ion-activatable ripple-parent">
+            <ion-ripple-effect type="bounded"></ion-ripple-effect>
+            <div class="thumb flex al-center jc-center" slot="start">
+              <img src="assets/imgs/sell.svg" alt="">
+            </div>
+            <ion-label>Sell</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+
+  <div class="seg-holder ion-padding-horizontal">
+    <ion-segment [value]="category" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="history">
+        <ion-label>History</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="portfolio">
+        <ion-label>Portfolio</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="history animate__animated animate__slideInUp animate__fast" *ngIf="category=='history'">
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="btc" slot="start">
+        <img src="assets/imgs/btc.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>BTC</h2>
+        <h5>Bitcoin</h5>
+      </ion-label>
+
+      <div class="end-slot2 ion-text-right" slot="end">
+        <h2>$1.06544561</h2>
+        <h5>$34,471.75</h5>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="maker" slot="start">
+        <img src="assets/imgs/tet.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>USDT</h2>
+        <h5>ThetherUS</h5>
+      </ion-label>
+      <div class="end-slot2 ion-text-right" slot="end">
+        <h2>$1.06544561</h2>
+        <h5>$34,471.75</h5>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="binance" slot="start">
+        <img src="assets/imgs/binance.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>BNB</h2>
+        <h5>Binance Coin</h5>
+      </ion-label>
+      <div class="end-slot2 ion-text-right" slot="end">
+        <h2>$1.06544561</h2>
+        <h5>$34,471.75</h5>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="matic" slot="start">
+        <img src="assets/imgs/matc.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>MATIC</h2>
+        <h5>Matic Network</h5>
+      </ion-label>
+      <div class="end-slot2 ion-text-right" slot="end">
+        <h2>$1.06544561</h2>
+        <h5>$34,471.75</h5>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="xdai" slot="start">
+        <img src="assets/imgs/xdai.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>XDAI</h2>
+        <h5>xDai</h5>
+      </ion-label>
+      <div class="end-slot2 ion-text-right" slot="end">
+        <h2>$1.06544561</h2>
+        <h5>$34,471.75</h5>
+      </div>
+    </ion-item>
+  </div>
+</ion-content>

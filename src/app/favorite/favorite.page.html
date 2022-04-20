@@ -1,0 +1,125 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Favorites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="seg-holder ion-padding-horizontal">
+    <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options0">
+      <ion-slide [ngClass]="category=='salons' ? 'checked' : ''" (click)="segmentChanged('salons')">
+        <ion-label>Salons</ion-label>
+      </ion-slide>
+      <ion-slide [ngClass]="category=='professionals' ? 'checked' : ''" (click)="segmentChanged('professionals')">
+        <ion-label>Professionals</ion-label>
+      </ion-slide>    
+    </ion-slides>
+  </div>
+
+  <div class="the-content">
+    <div class="salons" *ngIf="category=='salons'">
+      <div class="card" *ngFor="let salon of salons">
+        <ion-grid class="ion-no-padding" fixed>
+          <ion-row class="ion-padding slider">
+            <ion-col size="3" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <div class="thumb">
+                <img src="assets/imgs/img1.png" alt="">
+              </div>
+            </ion-col>
+            <ion-col size="3" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <div class="thumb">
+                <img src="assets/imgs/img2.png" alt="">
+              </div>
+            </ion-col>
+            <ion-col size="3" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+                <div class="thumb">
+                  <img src="assets/imgs/img3.png" alt="">
+                </div>
+            </ion-col>
+            <ion-col size="3" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <div class="thumb">
+                <img src="assets/imgs/img4.png" alt="">
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-padding-horizontal detail">
+            <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <ion-item lines="none">
+                <div class="thumb flex" id="btc" slot="start">
+                  <img src="{{logoUrl}}{{salon.logo}}" alt="">
+                </div>
+                <ion-label>
+                  <div class="title flex al-center" >
+                    <p>{{salon.name}} <span>2.9 mi</span></p>
+                  </div>
+                  <div class="status flex al-center" >
+                     <p><ion-icon name="star"></ion-icon> {{salon.review_rate != null ? salon.review_rate : '0.0'}} ({{salon.review_count != null ? salon.review_count : '0'}} reviews) <span> Beauty Salon</span></p>
+                  </div>
+                  <div class="time flex al-center" >
+                    <p>Open now: <span *ngIf="salon.opening_hour != null">{{salon.opening_hour.open_time}} – {{salon.opening_hour.close_time}}</span> </p>
+                 </div>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+    <div class="professionals" *ngIf="category=='professionals'">
+      <div class="card" *ngFor="let professional of professionals">
+        <ion-grid class="ion-no-padding" fixed>
+          <ion-row class="ion-padding-horizontal slider">
+            <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options">
+              <ion-slide>
+                <div class="card ion-text-left">
+                  <img src="assets/imgs/img11.png" alt="">
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div class="card ion-text-left">
+                  <img src="assets/imgs/img12.png" alt="">
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div class="card ion-text-left">
+                  <img src="assets/imgs/img13.png" alt="">
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div class="card ion-text-left">
+                  <img src="assets/imgs/img14.png" alt="">
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </ion-row>
+          <ion-row class="ion-padding-horizontal detail">
+            <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+              <ion-item lines="none">
+                <div class="thumb flex" slot="start">
+                  <img src="{{avatarUrl}}{{professional.avatar}}" alt="">
+                </div>
+                <ion-label>
+                  <div class="title flex al-center" >
+                    <p>{{professional.first_name}} {{professional.last_name}}</p>
+                  </div>
+                   <div class="special flex al-center" >
+                    <p>Cosmetologist</p>
+                  </div>
+                  <div class="status flex al-center" >
+                     <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? professional.review_rate : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
+                  </div>
+                  <ion-button expand="block">Haircut from $30</ion-button>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

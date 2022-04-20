@@ -1,0 +1,118 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 16px;
+        font-family: 'PoppinsMedium';
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .options
+    {
+        margin-top: 20px;
+
+        .detail
+        {
+            --background: inherit;
+
+            ion-item
+            {
+                --padding-start: 5px;
+                --background: inherit;
+                margin-bottom: 20px;
+
+                .thumb
+                {
+                    margin-inline-end: 10px;
+
+                    img
+                    {
+                        border-radius: 50%;
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+
+                ion-label
+                {
+                    margin: 0;
+
+                    .title
+                    {
+                        p
+                        {
+                            color: #1e1e1e;
+                            font-family: "PoppinsSemiBold";
+                            font-size: 18px;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .status
+                    {
+                        p
+                        {
+                            color: #767676;
+                            font-family: "PoppinsLight";
+                            font-size: 14px;
+                        }
+                    }
+
+                    .time
+                    {
+                        p
+                        {
+                            color: #1e1e1e;
+                            font-family: "PoppinsRegular";
+                            font-size: 16px;
+                            
+                            img
+                            {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            p
+            {
+                padding: 0 16px;
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                position: relative;
+    
+                span
+                {
+                    position: absolute;
+                    left: 40px;
+                }
+            }
+        }
+    }
+}

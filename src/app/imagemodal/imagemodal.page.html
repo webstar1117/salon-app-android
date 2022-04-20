@@ -1,0 +1,28 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-title mode="md" class="ion-text-left">Profile image</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="section ion-text-center" (click)="uploadImage()">
+    <img src="{{avatarUrl}}" *ngIf="!hasImage">
+    <img src="{{avatarUrl}}" id="image" *ngIf="hasImage">
+    <h3 class="ion-text-center" *ngIf="!hasImage">We’ll need access to your photo library to change profile image   </h3>
+  </div>
+
+  <input id="photo" type="file" style="display: none" (change)="saveImage($event)" accept="image/*"/>
+
+  <div class="bottom">
+    <ion-button (click)="nextStep()">Continue</ion-button>
+  </div>
+
+</ion-content>

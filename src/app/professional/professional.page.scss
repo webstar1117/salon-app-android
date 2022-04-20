@@ -1,0 +1,150 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    ion-buttons
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+    
+}
+
+ion-content
+{
+    --background: #F4EDE9;
+
+    .the-title
+    {
+        color: #1e1e1e;
+        
+        h2
+        {
+            font-size: 18px;
+            font-family: 'PoppinsSemiBold';
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        p
+        {
+            font-size: 18px;
+            font-family: 'PoppinsMedium';
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    }
+
+    .professionals
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        .card {
+            background: white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            ion-grid
+            {
+                .slider
+                {
+                    padding-top: 16px;
+
+                    ion-slides
+                    {
+                        ion-slide
+                        {
+                            .card
+                            {
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                                img
+                                {
+                                    width: 100%;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .detail
+                {
+                    ion-item
+                    {
+                        --padding-start: 5px;
+                        align-items: start;
+
+                        .thumb
+                        {
+                            margin-inline-end: 10px;
+
+                            img
+                            {
+                                border-radius: 50%;
+                                width: 12vw;
+                                height: 12vw;
+                            }
+                        }
+
+                        ion-label
+                        {
+                            margin: 0;
+
+                            .title
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsMedium";
+                                    font-size: 18px;
+                                }
+                            }
+                            
+                            .special
+                            {
+                                p
+                                {
+                                    color: #828282;
+                                    font-family: "PoppinsLightItalic";
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .status
+                            {
+                                p
+                                {
+                                    color: #1e1e1e;
+                                    font-family: "PoppinsRegular";
+                                    font-size: 14px;
+                                }
+                            }
+
+
+                            ion-button
+                            {
+                                margin-top: 5px;
+                                --background: white;
+                                color: #111111;
+                                --box-shadow: none;
+                                border: 1px solid #1e1e1e;
+                                font-family: "PoppinsRegular";
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

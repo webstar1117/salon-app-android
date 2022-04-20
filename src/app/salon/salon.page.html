@@ -1,0 +1,204 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="addFavorite()" *ngIf="!guest"><ion-icon name="heart-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let detail of salon">
+    <div class="information">
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-row class="ion-padding-horizontal detail">
+          <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+            <ion-item lines="none">
+              <div class="thumb" slot="start">
+                <img src="{{logoUrl}}{{detail.logo}}" alt="">
+                <div class="buttons flex jc-center">
+                  <img src="assets/imgs/instagram_icon.png" alt="">
+                  <img src="assets/imgs/tik-tok_icon.png" alt="">
+                </div>
+              </div>
+              <ion-label>
+                <div class="title flex al-center">
+                  <p>{{detail.name}}</p>
+                </div>
+                <div class="status flex al-center" >
+                  <p><ion-icon name="star"></ion-icon> {{detail.review_rate != null ? detail.review_rate : '0.0'}} ({{detail.review_count}} reviews) <span> Beauty Salon</span></p>
+                </div>
+                <div class="location flex al-center" >
+                  <p><ion-icon name="location-outline"></ion-icon> {{detail.zip_code}} {{detail.state}} {{detail.street}} <span> 2.9 mi </span><ion-icon name="open-outline"></ion-icon></p>
+                </div>
+                <div class="time flex al-center" >
+                  <p><ion-icon name="time-outline"></ion-icon> Open now: <span *ngIf="opening_hour != null">{{opening_hour.open_time}} – {{opening_hour.close_time}}</span> </p>
+                </div>
+                
+              </ion-label>
+            </ion-item>
+          </ion-col>      
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="top-slider-holder animate__animated animate__slideInRight ion-padding-horizontal">
+      <ion-slides mode="ios" pager="false" scrollbar="false" [options]="detail.salon_slider" *ngIf="category != 'professionals'">
+        <ion-slide *ngFor="let image of detail.salon_images">
+          <div class="card ion-text-left">
+            <img src="{{imageUrl}}{{image.image}}" alt="">
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    
+    <div class="seg-holder ion-padding-horizontal">
+      <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options2">
+        <ion-slide [ngClass]="category=='services' ? 'checked' : ''" (click)="segmentChanged('services')">
+          <ion-label>Services</ion-label>
+        </ion-slide>
+        <ion-slide [ngClass]="category=='professionals' ? 'checked' : ''" (click)="segmentChanged('professionals')">
+          <ion-label>Professionals</ion-label>
+        </ion-slide>
+        <ion-slide [ngClass]="category=='about' ? 'checked' : ''" (click)="segmentChanged('about')">
+          <ion-label>About</ion-label>
+        </ion-slide>
+        <ion-slide [ngClass]="category=='reviews' ? 'checked' : ''" (click)="segmentChanged('reviews')">
+          <ion-label>Reviews</ion-label>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="the-content">
+      <div class="services animate__animated animate__slideInUp animate__fast" *ngIf="category=='services'">
+        <div class="accordion-container" *ngFor="let service of detail.services" [ngClass]="type==service.name ? 'open' : ''">
+          <h1 (click)="toggleAccordion(service.name)">
+            {{service.name}}
+            <div class="arrow"></div>
+          </h1>        
+          <div class="content">
+            <ion-item lines="none" *ngFor="let data of service.data" (click)="selectProfessional(data.id)">
+              <ion-label>
+                <h2>{{data.service_name.name}} – {{data.duration}} min<span slot="end">From $ {{data.price}}</span></h2>
+                <h5>{{data.description}}</h5>
+              </ion-label>
+            </ion-item>
+          </div>
+        </div>
+
+        <div class="bottom ion-padding-horizontal" *ngIf="!guest">
+          <ion-button (click)="selectServices()">SELECT FEW SERVICES</ion-button>
+        </div>
+        
+      </div>
+
+      <div class="professionals animate__animated animate__slideInUp animate__fast" *ngIf="category=='professionals'">
+        <div class="card" *ngFor="let professional of detail.professionals">
+          <ion-grid class="ion-no-padding" fixed>
+            <ion-row class="ion-padding-horizontal slider">
+              <ion-slides mode="ios" pager="false" scrollbar="false" [options]="professional.slider_option">
+                <ion-slide *ngFor="let image of professional.professional_images">
+                  <div class="card ion-text-left">
+                    <img src="{{professionalUrl}}{{image.image}}" alt="">
+                  </div>
+                </ion-slide>
+              </ion-slides>
+            </ion-row>
+            <ion-row class="ion-padding-horizontal detail">
+              <ion-col size="12" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+                <ion-item lines="none">
+                  <div class="thumb flex" slot="start">
+                    <img src="{{avatarUrl}}{{professional.avatar}}" alt="">
+                  </div>
+                  <ion-label>
+                    <div class="title flex al-center" >
+                      <p>{{professional.first_name}} {{professional.last_name}}</p>
+                    </div>
+                    <div class="special flex al-center" >
+                      <p>{{professional.professional_skill.name}}</p>
+                    </div>
+                    <div class="status flex al-center" >
+                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate}} ({{professional.review_count}} reviews)</p>
+                    </div>
+                    <ion-button>{{professional.first_service_name}} from ${{professional.first_service_price}}</ion-button>
+                  </ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+
+      <div class="about ion-padding-horizontal animate__animated animate__slideInUp animate__fast" *ngIf="category=='about'">
+        <div class="title">
+          <h4>{{detail.name}}</h4>
+          <p>{{detail.description}}</p>
+        </div>
+
+        <div class="safety">
+          <h4 class="flex al-center"><img src="assets/imgs/icon1.png">Health and safety</h4>
+          <ion-grid class="ion-no-padding" fixed>
+            <ion-row class="ion-no-padding">
+              <ion-col size="6" *ngFor="let safety of safeties" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+                <ion-item lines="none">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                  <ion-label>{{safety.name}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="amenity">
+          <h4 class="flex al-center"><img src="assets/imgs/icon2.png">Amenities</h4>
+          <ion-grid class="ion-no-padding" fixed>
+            <ion-row class="ion-no-padding">
+              <ion-col size="6" *ngFor="let amenity of amenities" class="animate__animated animate__zoomIn animate__delay-1s animate__faster">
+                <ion-item lines="none">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                  <ion-label>{{amenity.name}}</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="phone">
+          <h4 class="flex al-center"><img src="assets/imgs/phone.png">{{detail.phone}}</h4>
+        </div>
+
+        <div class="site">
+          <h4 class="flex al-center"><img src="assets/imgs/icon3.png"><a href="{{detail.website}}">{{detail.website}}</a></h4>
+        </div>
+
+        <div class="time">
+          <h4 class="flex al-center"><img src="assets/imgs/time.png">Opening hours</h4>
+          <p *ngFor="let open of detail.opening_hours">{{open.day}} <span>{{open.open_time}}-{{open.close_time}}</span></p>
+        </div>
+
+        <div class="policy">
+          <h4 class="flex al-center"><img src="assets/imgs/icon4.png">Cancellation policy</h4>
+          <p>{{detail.cancellation_policy}}</p>
+        </div>
+      </div>
+
+      <div class="reviews ion-padding-horizontal animate__animated animate__slideInUp animate__fast" *ngIf="category=='reviews'">
+        <div class="review" *ngFor="let review of detail.reviews">
+          <h4 class="flex al-center">
+            <ion-icon name="{{review.rate >= 1 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 2 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 3 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 4 ? 'star' : 'star-outline'}}"></ion-icon>
+            <ion-icon name="{{review.rate >= 5 ? 'star' : 'star-outline'}}"></ion-icon>
+            {{review.name}}
+          </h4>
+          <p>{{review.description}}</p>
+          <img src="{{reviewUrl}}{{review.image}}" *ngIf="review.image != null">
+          <h5>Lisa F.  {{dateStringify(review.created_at)}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

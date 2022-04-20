@@ -1,0 +1,107 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">My appointments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="seg-holder ion-padding-horizontal">
+    <ion-slides mode="ios" pager="false" scrollbar="false" [options]="options">
+      <ion-slide [ngClass]="category=='upcoming' ? 'checked' : ''" (click)="segmentChanged('upcoming')">
+        <ion-label>Upcoming</ion-label>
+      </ion-slide>
+      <ion-slide [ngClass]="category=='archived' ? 'checked' : ''" (click)="segmentChanged('archived')">
+        <ion-label>Archived</ion-label>
+      </ion-slide>    
+    </ion-slides>
+  </div>
+
+  <div class="the-content">
+    <div class="upcoming animate__animated animate__slideInUp animate__fast" *ngIf="category=='upcoming'">
+      <div class="card" *ngFor="let appointment of upcoming">
+        <h2 class="date ion-padding-horizontal">{{appointment.booking_day}}, {{appointment.booking_month}} {{appointment.booking_date}}</h2>
+        <h2 class="time ion-padding-horizontal">{{appointment.booking_time}} – {{appointment.end_time}}</h2>
+        <div class="detail ion-padding-horizontal">
+          <ion-item lines="none">
+            <div class="thumb flex" id="btc" slot="start">
+              <img src="{{logoUrl}}{{appointment.salon.logo}}" alt="">
+            </div>
+            <ion-label>
+              <div class="title flex al-center" >
+                <p>{{appointment.salon.name}}</p>
+              </div>
+              <div class="location flex al-center" >
+                  <p>{{appointment.salon.zip_code}} {{appointment.salon.state}} {{appointment.salon.street}}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </div>
+        <h2 class="service ion-padding-horizontal">{{appointment.service.service_name.name}}  – {{appointment.service.duration}} min</h2>
+        <h2 class="professional ion-padding-horizontal">{{appointment.professional.first_name}} {{appointment.professional.last_name}} </h2>
+        <div class="buttons">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3">
+                <img src="assets/imgs/location.png">
+                <p>Get direction</p>
+              </ion-col>
+              <ion-col size="3" (click)="repeatAppointment(appointment)">
+                <img src="assets/imgs/repeat.png">
+                <p>Repeat</p>
+              </ion-col>
+              <ion-col size="3" (click)="changeAppointment(appointment)">
+                <img src="assets/imgs/edit.png">
+                <p>Change</p>
+              </ion-col>
+              <ion-col size="3" (click)="cancelAppointment(appointment.id)">
+                <img src="assets/imgs/cancel.png">
+                <p>Cancel</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+
+    <div class="archived animate__animated animate__slideInUp animate__fast" *ngIf="category=='archived'">
+      <div class="card" *ngFor="let appointment of archieve">
+        <h2 class="date ion-padding-horizontal">{{appointment.booking_day}}, {{appointment.booking_month}} {{appointment.booking_date}}</h2>
+        <h2 class="time ion-padding-horizontal">{{appointment.booking_time}} – {{appointment.end_time}}</h2>
+        <div class="detail ion-padding-horizontal">
+          <ion-item lines="none">
+            <div class="thumb flex" id="btc" slot="start">
+              <img src="{{logoUrl}}{{appointment.salon.logo}}" alt="">
+            </div>
+            <ion-label>
+              <div class="title flex al-center" >
+                <p>{{appointment.salon.name}}</p>
+              </div>
+              <div class="location flex al-center" >
+                <p>{{appointment.salon.zip_code}} {{appointment.salon.state}} {{appointment.salon.street}}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </div>
+        <h2 class="service ion-padding-horizontal">{{appointment.service.service_name.name}}  – {{appointment.service.duration}} min</h2>
+        <h2 class="professional ion-padding-horizontal">{{appointment.professional.first_name}} {{appointment.professional.last_name}} </h2>
+        <div class="buttons">
+          <ion-grid class="ion-padding-horizontal">
+            <ion-row>
+              <ion-col size="3" (click)="repeatAppointment(appointment)">
+                <img src="assets/imgs/repeat.png">
+                <p>Repeat</p>
+              </ion-col>
+              <ion-col size="9">
+                <ion-button (click)="leaveReview(appointment)">Leave Feedback</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

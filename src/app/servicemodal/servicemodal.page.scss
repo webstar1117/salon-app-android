@@ -1,0 +1,99 @@
+ion-toolbar
+{
+    --background: white;
+    position: relative;
+
+    ion-title
+    {
+        --color: #1e1e1e;
+        font-family: 'PoppinsMedium';
+        font-size: 18px;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position: absolute;
+        right: 0
+    }
+}
+
+ion-content
+{
+    --background: white;
+
+    .section
+    {
+        margin-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .input-item
+        {
+            ion-col
+            {
+                h5
+                {
+                    font-family: 'PoppinsMedium';
+                    font-size: 16px;
+                    color: #1e1e1e;
+                    margin-bottom: 5px;
+                    margin-top: 0;
+                }
+
+                ion-item
+                {
+                    margin-bottom: 10px;
+                    border: 1px solid #828282;
+                    width: 50%;
+                    &.item-has-focus{
+                        border: 1px solid #1e1e1e;
+                    }
+
+                    span
+                    {
+                        color: #1e1e1e;
+                        font-family: 'PoppinsRegular';
+                        font-size: 18px;
+                        margin-right: 5px;
+                    }
+    
+                    ion-input
+                    {
+                        color: #1e1e1e;
+                        --placeholder-color: #828282;
+                        --placeholder-opacity: 1;
+                        font-family: 'PoppinsRegular';
+                        font-size: 18px
+                    }
+
+                    ion-select
+                    {
+                        color: #1e1e1e;
+                        --placeholder-color: #828282;
+                        --placeholder-opacity: 1;
+                        font-family: 'PoppinsRegular';
+                        font-size: 18px
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom
+    {
+        margin: 30px 0;
+        
+        ion-button
+        {
+            width: 100%;
+            --background: #1e1e1e;
+            --border-radius: 40px;
+            height: 50px;
+            font-size: 16px;
+            font-family: 'PoppinsMedium';
+            --background-activated: inherit;
+            text-transform: uppercase;
+        }
+    }
+}

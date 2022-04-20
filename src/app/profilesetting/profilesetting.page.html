@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Profile</ion-title>
+    <ion-buttons slot="end" class="save">
+      <ion-button fill="clear" (click)="saveProfile()">
+        save
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder ion-text-center" (click)="changeImage()">
+    <img src="{{avatarUrl}}">
+    <h2>Change profile image</h2>
+  </div>
+
+  <div class="the-form">
+    <h2>Your name</h2>
+    <div class="input-item">
+      <ion-item lines="none">
+        <ion-input type="text" placeholder="First Name" [(ngModel)]="fname"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input type="text" placeholder="Last Name" [(ngModel)]="lname"></ion-input>
+      </ion-item>
+    </div>
+
+    <h2>Phone number</h2>
+    <div class="input-item">
+      <ion-item lines="none">
+        <ion-input type="number" placeholder="+144 222 4567" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+
+</ion-content>

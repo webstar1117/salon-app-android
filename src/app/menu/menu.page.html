@@ -1,0 +1,32 @@
+<ion-content class="ion-padding-horizontal">
+  <div class="top-holder">
+    <div class="profile-holder flex al-center">
+      <ion-avatar slot="start">
+        <img src="{{avatarUrl}}" alt="">
+      </ion-avatar>
+      <ion-label (click)="businessProfile()">
+        <img src="{{defaultUrl}}" alt="">
+        <p>Business profile</p>
+      </ion-label>
+      <ion-label (click)="directory()">
+        <img src="{{defaultUrl}}" alt="">
+        <p>Directory</p>
+      </ion-label>
+    </div>
+  </div>
+
+  <div class="the-list ">
+    <ion-item lines="none"  class="ion-no-padding animate__animated animate__fadeInLeft" (click)="clients()">
+      <ion-label>Clients</ion-label>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft" (click)="calendar()">
+      <ion-label>Calendar</ion-label>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft" (click)="availability()">
+      <ion-label>Set up availability</ion-label>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft" (click)="bank()">
+      <ion-label>Bank account</ion-label>
+    </ion-item>
+  </div>
+</ion-content>

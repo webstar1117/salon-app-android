@@ -1,0 +1,227 @@
+ion-toolbar
+{
+    --background: #171826;
+
+    ion-title
+    {
+        --color: #EDEEFA;
+        font-family: 'CSMedium';
+        font-size: 15px;
+    }
+}
+
+ion-content
+{
+    --background: #171826;
+
+    .top-holder
+    {
+        h5
+        {
+            color: #9496BA;
+            font-family: 'CSMedium';
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        h1
+        {
+            color: #FFFF;
+            font-family: 'CSMedium';
+            font-size: 30px;
+            margin: 5px 0;
+        }
+
+        .top-btns-holder
+        {
+            ion-item
+            {
+                --background: #2b2e46;
+                --border-radius: 15px;
+                margin: 0 0 10px 0;
+                .thumb
+                {
+                    background: #0066FF;
+                    border-radius: 11px;
+                    height: 34px;
+                    width: 34px;
+                    margin: 10px 0 10px 0 ;
+                }
+
+                ion-label
+                {
+                    color: var(--ion-color-light);
+                    font-family: 'CSMedium';
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .seg-holder
+    {
+        ion-segment
+        {
+            
+            border-radius: 12px;
+
+            ion-segment-button
+            {
+                --background: #2b2e46;
+                --background-checked: var(--ion-color-primary);
+                --border-radius: 12px;
+                --color: #767abd;
+                --color-checked:var(--ion-color-light);
+                font-family: 'CSMedium';
+                font-size: 14px;
+                --indicator-height:0;
+                text-transform: none;
+                margin: 0 10px;
+            }
+        }
+    }
+    
+    .history
+    {
+        ion-item
+        {
+
+            --background: #2b2e46;
+            --border-radius: 20px;
+            margin: 16px 0;
+
+            #aave
+            {
+                background: linear-gradient(225.33deg, #FF24F6 -12.15%, #28FC97 111.3%, #24FF96 111.32%);
+            }
+
+            #binance
+            {
+               background: #F3BA2F;
+            }
+            #btc
+            {
+               background: #FF7324; 
+            }
+
+            #compound
+            {
+               background: #227720; 
+            }
+
+            #dash
+            {
+               background: #0075FF; 
+            }
+
+            #eth
+            {
+               background: #8424FF; 
+            }
+
+            #kusama
+            {
+               background: #FFF; 
+            }
+
+            #maker
+            {
+                background: linear-gradient(180deg, #28D157 0%, #199E66 100%);
+            }
+
+            #matic
+            {
+                background: linear-gradient(180deg, #2BBDF7 0%, #2891F9 100%);
+            }
+
+            #monero
+            {
+               background: #FF7324; 
+            }
+
+            #xdai
+            {
+               background: #48A9A6; 
+            }
+            .thumb
+            {
+                border-radius: 15px;
+                height: 50px;
+                width: 50px;
+                margin: 10px 10px 10px 0;
+            }
+
+
+            ion-label
+            {
+                
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 15px;
+                    margin: 0;
+                }
+
+                .up
+                {
+                    h5,ion-icon
+                    {
+                        color: #58E45D;
+                    }
+                }
+
+                .down
+                {
+                    h5,ion-icon
+                    {
+                        color: #F03737;
+                    }
+                }
+
+
+                
+                h5
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+
+            .end-slot1
+            {
+                img
+                {
+                    height: 10vw;
+                }
+            }
+
+            .end-slot2
+            {
+                margin-left: 10px;
+                h2
+                {
+                    color: white;
+                    font-family: 'CSMedium';
+                    font-size: 16px;
+                    margin: 0;
+                }
+
+
+                
+                h5
+                {
+                    color: #A5ABDD;
+                    font-family: 'CSMedium';
+                    font-size: 12px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+
+}

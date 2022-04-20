@@ -1,0 +1,107 @@
+ion-toolbar
+{
+    --background: #F4EDE9;
+    position: relative;
+
+    .back
+    {
+        position: absolute;
+        left: 0;
+    }
+
+    ion-title
+    {
+        font-size: 20px;
+        font-family: 'PoppinsMedium';
+        color: #1e1e1e;
+    }
+
+    ion-button
+    {
+        color: #1e1e1e;
+        position:absolute;
+        right: 0;
+        font-size: 16px;
+        font-family: 'PoppinsMedium';
+    }
+    
+}
+
+ion-content
+{
+    --background:  #F4EDE9;
+
+    .section
+    {
+        margin-top: 10px;
+
+        h4
+        {
+            text-align: center;
+            font-size: 18px;
+            font-family: 'PoppinsMedium';
+            color: #1e1e1e;
+        }
+
+        h6
+        {
+            text-align: center;
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            color: #828282;
+        }
+
+        p
+        {
+            font-family: 'PoppinsLight';
+            font-size: 14px;
+            color: #1e1e1e;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            span
+            {
+                margin-left: 5px;
+            }
+        }
+
+        .services
+        {
+            margin-top: 20px;
+
+            ion-item
+            {
+                --background: white;
+                margin: 5px 0;
+
+                h1 {
+                    font-size: 16px;
+                    font-family: 'PoppinsMedium';
+                    color: #1e1e1e;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    margin-top: 16px;
+                    padding-right:35px;
+                }
+
+                ion-icon
+                {
+                    color: #828282;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            p
+            {
+                font-family: 'PoppinsLight';
+                font-size: 14px;
+                color: #1e1e1e;
+            }
+            
+        }
+    }
+}

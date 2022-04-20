@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="businessprofile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="the-form">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <h5>Service name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Adult cut" [(ngModel)]="name"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Price</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <span>$ </span>
+                <ion-input type="text" placeholder="50" [(ngModel)]="price"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Duration</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="30 min" [(ngModel)]="duration"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Description</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-textarea rows="6" placeholder="Looking for a quick haircut? This is the one for you." [(ngModel)]="description"></ion-textarea>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center ion-justify-content-center others">
+          <ion-col size="12">
+            <ion-label>Display this service on my profile</ion-label>
+            <ion-toggle mode="ios" [(ngModel)]="display"></ion-toggle>
+          </ion-col>
+          <ion-col size="12">
+            <h5 (click)="deleteService()">Delete this service</h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveService()">Save</ion-button>
+  </div>
+
+</ion-content>

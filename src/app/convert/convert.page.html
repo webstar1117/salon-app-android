@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Currency Converter</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+
+  <ion-grid style="height: 90%" [ngClass]="backdrop" *ngIf="converted">
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%">
+      <div class="holder">
+        <div class="sucess-msg">
+          <div class="animation-holder  flex al-center jc-center">
+            <img class="animate__animated animate__bounceInDown animate__slower" id="wallet" src="assets/imgs/walletonly.png" alt="">
+            <img  class="downanimation1" id="firstcoin" src="assets/imgs/bestcoin.png" alt="">
+            <img  class="downanimation2" id="seccoin" src="assets/imgs/bestcoin.png" alt="">
+            <img  class="downanimation3" id="thirdcoin" src="assets/imgs/bestcoin.png" alt="">
+          </div>
+      
+          <div class="success-holder ion-text-center">
+            <h1 class="animate__animated animate__zoomIn animate__delay-2s ">Currency conversion Successfull</h1>
+            <p class="animate__animated animate__zoomIn animate__delay-3s">You may see new balance in your wallet</p>
+            <div class="btn-holder animate__animated  animate__zoomIn animate__delay-5s ion-text-center">
+              <ion-button shape="round" (click)="goBack()">
+                Okay
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+  
+
+ 
+
+
+  <div class="section2" *ngIf="!converted">
+    <div  class="top-img-holder flex al-center jc-center ion-text-center">
+      <img class="" [ngClass]="showAnimation" src="assets/imgs/convertbigarrow.png" alt="">
+      <img src="assets/imgs/convertbigbit.png" alt="">
+      <img src="assets/imgs/convertbigusd.png" alt="">
+    </div>
+  
+    <div class="convert-selector">
+      <div class="from">
+        <div *ngFor="let data of currencies">
+          <ng-container *ngIf="data.value == fromCurrency">
+            <ion-item lines="none" (click)="presentModal()">
+              <div class="thumb flex al-center jc-center" slot="start">
+                <img [src]="data.icon" alt="" >
+              </div>
+              <div class="selected fromcurrency flex al-center">
+                <h3>{{data.name}}</h3>
+                <ion-icon name="caret-down"></ion-icon>
+              </div>
+              <ion-label>2.056454</ion-label>
+            </ion-item>
+          </ng-container>
+        </div>
+      </div>
+  
+      <div class="to">
+        <div *ngFor="let data of currencies">
+          <ng-container *ngIf="data.value == toCurrency">
+            <ion-item lines="none" (click)="presentModal()">
+              <div class="thumb flex al-center jc-center" slot="start">
+                <img [src]="data.icon" alt="" >
+              </div>
+              <div class="selected fromcurrency flex al-center">
+                <h3>{{data.name}}</h3>
+                <ion-icon name="caret-down"></ion-icon>
+              </div>
+              <ion-label>$97749.84</ion-label>
+            </ion-item>
+          </ng-container>
+        </div>
+      </div>
+  
+      <div class="convert-btn btn-holder ion-text-center">
+        <ion-button shape="round" (click)="convert()">
+          Convert
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="menu" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Set up availability</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="section">
+    <h4>Select professional</h4>
+    <h6 *ngIf="empty">No professionals found</h6>
+    <p (click)="addProfessional()" *ngIf="empty"><img src="assets/imgs/add.png"><span>Add professional</span></p>
+    <div class="services" *ngIf="!empty">
+      <ion-item lines="none" *ngFor="let professional of professionals" class="al-start" (click)="setupAvailability(professional.id)">
+        <h1>{{professional.first_name}} {{professional.last_name}}</h1>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="profile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Set up a business</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="title-holder ion-text-center">
+    <h1>Build a connection with new clients</h1>
+    <img src="{{avatarUrl}}" (click)="changeImage()">
+    <h2 (click)="changeImage()">Change profile image</h2>
+  </div>
+
+  <div class="the-form">
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="6">
+            <h5>First name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Calvin" [(ngModel)]="fname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <h5>Last name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Nelson" [(ngModel)]="lname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Business name</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="Calvins" [(ngModel)]="bname"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Type of business</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-select mode="ios" interface="popover" type="text" placeholder="Hair salon" [(ngModel)]="btype">
+                  <ion-select-option [value]="businessType.id" *ngFor="let businessType of businessTypes">{{businessType.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveProfile()">Continue</ion-button>
+  </div>
+
+</ion-content>

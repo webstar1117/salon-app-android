@@ -1,0 +1,160 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab2" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="top-holder animate__animated animate__bounceIn">
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="btc" slot="start">
+        <img src="assets/imgs/btc.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Bitcoin / BTC</h2>
+        <h3>$32,138.87</h3>
+      </ion-label>
+      <div class="end-slot" slot="end">
+        <ion-badge class="up flex al-center" mode="ios">
+          <ion-icon name="chevron-up"></ion-icon>
+          <h5>3.28%</h5>
+        </ion-badge>
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="chart-holder">
+    <div>
+      <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis" [tooltip]="chartOptions.tooltip"></apx-chart>
+    </div>
+
+    <div class="chart-switcher">
+      <ion-segment [value]="timerange" (ionChange)="changeChart($event)">
+        <ion-segment-button value="15m">
+          <ion-label>15m</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="1h">
+          <ion-label>1h</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="4h">
+          <ion-label>4h</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="1d">
+          <ion-label>1d</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+  </div>
+
+
+  <div class="history-holder ">
+    <h3>Market History</h3>
+      <div class="animate__animated animate__slideInUp animate__fast">
+
+        <ion-row class="header">
+          <ion-col size="4">
+            <h4>Time</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>Price</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>Quantity</h4>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4 class="down">$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4 class="up">$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+        <ion-row class="values">
+          <ion-col size="4">
+            <h4>09:22:14</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$39,979.45</h4>
+          </ion-col>
+          <ion-col size="4">
+            <h4>$0.000546</h4>
+          </ion-col>
+        </ion-row>
+      </div>
+
+  </div>
+
+  <div class="bottom-btn-holder ion-padding-horizontal">
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" id="sell">
+         Sell
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="block" id="buy" (click)="goBuy()">
+         Buy
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

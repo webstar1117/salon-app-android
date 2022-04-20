@@ -1,0 +1,31 @@
+<ion-content class="ion-padding">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="close()">
+          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="title-holder ion-text-left">
+    <h2>Forgot Password?</h2>
+  </div>
+  <div class="the-form">
+    <div class="input-item">
+      <ion-item lines="none">
+        <ion-input type="email" placeholder="EMAIL" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <p class="error" *ngIf="!isEmail">Email fail! Please type in your correct email address</p>
+    </div>
+    <p class="alert">*We will send you a One Time Password on this email</p>
+  </div>
+
+  <div class="btn-holder ion-text-center">
+    <ion-button expand="block" (click)="sendEmail()">
+      Send Email
+    </ion-button>
+  </div>
+</ion-content>

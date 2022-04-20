@@ -1,0 +1,186 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Market</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div class="seg-holder">
+  <ion-segment [value]="category" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="watchlist">
+      <ion-label>Watchlists</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="trending">
+      <ion-label>Trending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="best">
+      <ion-label>Best Value</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="top100">
+      <ion-label>Top 100</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<div class="the-content ion-padding-horizontal">
+  <div class="watchlist animate__animated animate__slideInUp animate__fast" *ngIf="category=='watchlist'">
+    <ion-item lines="none" (click)="goDetailedView()">
+      <div class="thumb flex al-center jc-center" id="btc" slot="start">
+        <img src="assets/imgs/btc.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Bitcoin</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+          <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$32,138.87</h2>
+        <h5>Supply 18.8 M</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="maker" slot="start">
+        <img src="assets/imgs/maker.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Maker</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+          <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$2,423.20</h2>
+        <h5>Supply 18.8 M</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="eth" slot="start">
+        <img src="assets/imgs/eth.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Etherium</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$1,786.28</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="compound" slot="start">
+        <img src="assets/imgs/compound.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Compound</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$378.25</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="aave" slot="start">
+        <img src="assets/imgs/aave.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Ave</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$378.25</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="monero" slot="start">
+        <img src="assets/imgs/monero.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Monero</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$378.25</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="kusama" slot="start">
+        <img src="assets/imgs/kusama.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Kusama</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$378.25</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+
+    <ion-item lines="none">
+      <div class="thumb flex al-center jc-center" id="dash" slot="start">
+        <img src="assets/imgs/dash.svg" alt="">
+      </div>
+      <ion-label>
+        <h2>Dash</h2>
+        <div class="status up flex al-center" >
+          <ion-icon name="chevron-up"></ion-icon>
+           <h5>3.28%</h5>
+         </div>
+      </ion-label>
+      <div class="end-slot1" slot="end">
+        <img src="assets/imgs/greenchart1.png" alt="">
+      </div>
+      <div class="end-slot2" slot="end">
+        <h2>$378.25</h2>
+        <h5>Supply 0.1 Bn</h5>
+    </div>
+    </ion-item>
+  </div>
+</div>
+</ion-content>

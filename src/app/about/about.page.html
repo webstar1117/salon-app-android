@@ -1,0 +1,118 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back">
+      <ion-back-button defaultHref="businessprofile" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="the-form">
+    <h1>Describe your business</h1>
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-textarea rows="6" placeholder="The Beauty Salon conveniently located in the City centre is the perfect place to indulge all your beauty needs in a tranquil and elegant setting." [(ngModel)]="description"></ion-textarea>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="the-form">
+    <h1>Contact information</h1>
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <h5>Phone number</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="888 888 8888" [(ngModel)]="phone"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Website</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="https://florian.info" [(ngModel)]="website"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Instagram</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="@lisa_nelson" [(ngModel)]="instagram"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <h5>Tik tok</h5>
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-input type="text" placeholder="@lisa_nelson" [(ngModel)]="tiktok"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="the-form">
+    <h1>Amenities</h1>
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <ion-button *ngFor="let ameinity of basic_amenities" [ngClass]="amenities.indexOf(ameinity.id) != -1? 'checked' : '' " (click)="setAmenities(ameinity.id)">{{ameinity.name}}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="the-form">
+    <h1>Health and Safety</h1>
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <ion-button *ngFor="let safety of basic_safeties" [ngClass]="safeties.indexOf(safety.id) != -1? 'checked' : '' " (click)="setSafety(safety.id)">{{safety.name}}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="the-form">
+    <h1>Cancellation policy</h1>
+    <div class="input-item">
+      <ion-grid fixed>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12">
+            <div class="input-holder">
+              <ion-item lines="none">
+                <ion-textarea rows="6" placeholder="You will not be charged if you cancel at least 24 hours before your bookingOtherwise you will be charged 50% of price." [(ngModel)]="policy"></ion-textarea>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  </div>
+
+  <div class="bottom">
+    <ion-button (click)="saveAbout()">Save</ion-button>
+  </div>
+
+</ion-content>
