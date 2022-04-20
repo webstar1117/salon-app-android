@@ -122,7 +122,11 @@
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
       },
-      "cordova-plugin-googleplus": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb",
+        "WEB_APPLICATION_CLIENT_ID": "991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "15.0.1"
+      },
       "cordova-plugin-nativegeocoder": {
         "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
       },

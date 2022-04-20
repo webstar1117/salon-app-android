@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-stripe@1.5.3",
+      "/Users/test/Desktop/salon"
+    ]
+  ],
+  "_from": "cordova-plugin-stripe@1.5.3",
+  "_id": "cordova-plugin-stripe@1.5.3",
+  "_inBundle": false,
+  "_integrity": "sha1-YqrltO8ND0Yh0OhJhlilW1EzQIw=",
+  "_location": "/cordova-plugin-stripe",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-stripe@1.5.3",
+    "name": "cordova-plugin-stripe",
+    "escapedName": "cordova-plugin-stripe",
+    "rawSpec": "1.5.3",
+    "saveSpec": null,
+    "fetchSpec": "1.5.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-stripe/-/cordova-plugin-stripe-1.5.3.tgz",
+  "_spec": "1.5.3",
+  "_where": "/Users/test/Desktop/salon",
+  "author": {
+    "name": "Ibby Hadeed",
+    "email": "i.hadeed@zyra.ca"
+  },
+  "bugs": {
+    "url": "https://github.com/ihadeed/cordova-plugin-stripe/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-stripe",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "description": "Cordova plugin that lets you use Stripe's Native SDKs for Android and iOS",
+  "devDependencies": {
+    "dmd-plugin-cordova-plugin": "^0.1.4",
+    "jsdoc-to-markdown": "^3.0.0",
+    "jshint": "^2.9.4"
+  },
+  "files": [
+    "src",
+    "www",
+    "plugin.xml"
+  ],
+  "homepage": "https://github.com/ihadeed/cordova-plugin-stripe#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser",
+    "stripe",
+    "phonegap",
+    "cordova-plugin"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-stripe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/cordova-plugin-stripe.git"
+  },
+  "scripts": {
+    "docs": "jsdoc2md --template \"scripts/doc.template.md\" \"www/**/*.js\" > README.md",
+    "jshint": "jshint www && jshint src && jshint tests"
+  },
+  "version": "1.5.3"
+}

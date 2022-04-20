@@ -1,0 +1,60 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-applepay@5.0.0",
+      "/Users/test/Desktop/salon"
+    ]
+  ],
+  "_from": "cordova-plugin-applepay@5.0.0",
+  "_id": "cordova-plugin-applepay@5.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-HfHsiifLnRuNJktPlH6cfHC8yZqK0y7ko9T6m4k4iXcV0OwFaHzOHohRgo7eM3c5nXcpzzLYcthMaiKZXWYrlw==",
+  "_location": "/cordova-plugin-applepay",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-applepay@5.0.0",
+    "name": "cordova-plugin-applepay",
+    "escapedName": "cordova-plugin-applepay",
+    "rawSpec": "5.0.0",
+    "saveSpec": null,
+    "fetchSpec": "5.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-applepay/-/cordova-plugin-applepay-5.0.0.tgz",
+  "_spec": "5.0.0",
+  "_where": "/Users/test/Desktop/salon",
+  "author": {
+    "name": "Sam Kelleher",
+    "email": "sam@samkelleher.com",
+    "url": "https://samkelleher.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/samkelleher/cordova-plugin-applepay/issues"
+  },
+  "contributors": [
+    {
+      "name": "Andrew Crites",
+      "email": "acjcrites@gmail.com"
+    },
+    {
+      "name": "Balazs Sarvari",
+      "email": "balazs.sarvari@gmail.com"
+    }
+  ],
+  "description": "An adapted Cordova plugin to provide Apple Pay functionality.",
+  "homepage": "https://github.com/samkelleher/cordova-plugin-applepay",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "main": "www/applepay.js",
+  "name": "cordova-plugin-applepay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samkelleher/cordova-plugin-applepay.git"
+  },
+  "scripts": {},
+  "version": "5.0.0"
+}

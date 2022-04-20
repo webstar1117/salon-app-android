@@ -199,60 +199,24 @@ export class AppointmentmodalPage implements OnInit {
   }
 
   applePayment(){
-    this.applePay.canMakePayments().then((message) => {
-      this.toastMessage(message);
-      let order: any = {
-        items: [
-          { label: 'Service', amount: this.orginal_price },
-          { label: 'Tip', amount: this.tip_price },
-          { label: 'Beauty Salon', amount: this.total_price }
-        ],
-        shippingMethods: [],
-        merchantIdentifier: 'com.company.applicationName', /* The merchant ID registered in Apple developer account */
-        currencyCode: 'USD', 
-        countryCode: 'US', 
-        billingAddressRequirement: ['name','email','phone'], 
-        shippingAddressRequirement: 'none',
-        shippingType: 'none',
-        merchantCapabilities: ['3ds', 'debit', 'credit'], /* The payment capabilities supported by the merchant. */
-        supportedNetworks: ['visa', 'masterCard', 'amex', 'discover'],  
-        /* The list of payment networks supported by the merchant. */
-        total: { label: 'COMPANY, INC.', amount: this.total_price, type: "final" }
-      }
-      var data = {
-        api_token: localStorage.getItem('token'),
-        professional_id: this.professional_id,
-        service_id: this.service_id,
-        salon_id: this.salon_id,
-        year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
-        month: this.date.toLocaleDateString("en-US", { month: 'long' }),
-        date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
-        day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
-        time: this.datas[0].time,
-        price: this.orginal_price,
-        tip: this.tip_price,
-        tax: 0
-      }
-      this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
-      .subscribe(res => {
-        console.log("Apple Payment Data ====>", JSON.stringify(res));
-        if(res["status"] == 200){
-          this.applePay.makePaymentRequest(order).then(message => {
-            this.toastMessage(message);
-            this.applePay.completeLastTransaction('success');
-            this.paymentSuccess();
-            this.modalCtrl.dismiss();
-          }).catch((error) => {
-            this.applePay.completeLastTransaction('failure');
-            this.toastMessage(error);
-          });
-        }
-      }, (err) => {
-        console.log(err);
-      })
-    }).catch((error) => {
-      this.toastMessage(error);
-    })
+    console.log("doGooglePayTest");
+    try{
+      (<any>window).cordova.plugins.RzGooglePay.pay({
+          amount: 23.5,
+          country_code: "US",
+          currency_code: "USD",
+      },function(data){
+          console.log("Success");
+          console.log(data);
+          alert("Success: "+JSON.stringify(data));
+      },function(err){
+          console.error(err);
+          alert("Error: "+err);
+      });
+    }catch(e){
+      console.error(e);
+      alert("Exception: "+e.message);
+    }
   }
 
 

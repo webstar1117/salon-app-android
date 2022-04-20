@@ -1,0 +1,104 @@
+{
+  "_from": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+  "_id": "cordova-plugin-googlemaps@2.8.0-20200709-2008",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-googlemaps",
+  "_phantomChildren": {
+    "ansi": "0.3.1",
+    "big-integer": "1.6.48",
+    "elementtree": "0.1.7",
+    "endent": "1.4.1",
+    "glob": "7.1.7",
+    "graceful-fs": "4.2.8",
+    "isexe": "2.0.0",
+    "minimatch": "3.0.4",
+    "nice-try": "1.0.5",
+    "plist": "3.0.4",
+    "q": "1.4.1",
+    "strip-bom": "3.0.0",
+    "underscore": "1.13.1"
+  },
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+    "rawSpec": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+    "saveSpec": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+    "fetchSpec": "https://github.com/mapsplugin/cordova-plugin-googlemaps.git",
+    "gitCommittish": "multiple_maps"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#2cdc896cb5edfadb02aed9995ea742567dc8de02",
+  "_spec": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
+  "_where": "D:\\beauty-salon\\salon-app-android",
+  "author": {
+    "name": "Masashi Katsumata, Hirbod Mirjavadi"
+  },
+  "bugs": {
+    "url": "https://github.com/mapsplugin/cordova-plugin-googlemaps/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-googlemaps",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "cordova-common": "^3.1.0"
+  },
+  "deprecated": false,
+  "description": "Google Maps native SDK for Android and iOS, and Google Maps JavaScript API v3 for browser.",
+  "devDependencies": {
+    "cordova-js": "^4.2.4",
+    "eslint": "^5.7.0",
+    "jest": "^23.6.0"
+  },
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=5.1.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=5.1.1"
+    },
+    {
+      "name": "apple-xcode",
+      "version": ">=10.0.0"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=10.0.0"
+    }
+  ],
+  "homepage": "https://github.com/mapsplugin/cordova-plugin-googlemaps",
+  "keywords": [
+    "google",
+    "maps",
+    "geo",
+    "google maps",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-googlemaps",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git"
+  },
+  "scripts": {
+    "eslint": "node node_modules/eslint/bin/eslint www src",
+    "jest": "jest",
+    "test": "jest && npm run eslint",
+    "test:watch": "jest --watch"
+  },
+  "version": "2.8.0-20200709-2008"
+}

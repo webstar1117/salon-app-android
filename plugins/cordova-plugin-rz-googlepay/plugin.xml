@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-rz-googlepay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>RzGooglePay</name>
+    <js-module name="RzGooglePay" src="www/RzGooglePay.js">
+        <clobbers target="cordova.plugins.RzGooglePay" />
+    </js-module>
+    <platform name="android">
+        <framework src="com.google.android.gms:play-services-wallet:19.1.0" />
+        <config-file parent="/manifest/application/" target="AndroidManifest.xml">
+            <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+        </config-file>
+        <!--<config-file parent="/*" target="res/xml/config.xml">
+            <feature name="RspNativeAudioStreaming">
+                <param name="android-package" value="com.julien.audio.mp3stream.RspNativeAudioStreaming" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+        </config-file>-->
+        <source-file src="src/android/RzGooglePay.java" target-dir="src/com/rz/googlepayplugin/" />
+    </platform>
+</plugin>

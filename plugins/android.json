@@ -1,0 +1,77 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-googleplus": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-sign-in-with-apple": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-googlemaps": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-stripe": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-applepay": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-facebook-connect": {
+      "APP_ID": "1003844693883642",
+      "APP_NAME": "hairday",
+      "FACEBOOK_URL_SCHEME_SUFFIX": " ",
+      "OTHER_APP_SCHEMES": " ",
+      "FACEBOOK_AUTO_LOG_APP_EVENTS": "true",
+      "FACEBOOK_HYBRID_APP_EVENTS": "false",
+      "FACEBOOK_ADVERTISER_ID_COLLECTION": "true",
+      "FACEBOOK_ANDROID_SDK_VERSION": "11.3.0",
+      "FACEBOOK_IOS_SDK_VERSION": "11.1.0",
+      "FACEBOOK_BROWSER_SDK_VERSION": "v11.0",
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-camera": {
+      "ANDROIDX_CORE_VERSION": "1.6.+",
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-rz-googlepay": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-androidx-build": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    }
+  }
+}

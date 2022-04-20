@@ -1,0 +1,47 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-sign-in-with-apple@0.1.2",
+      "/Users/test/Desktop/salon"
+    ]
+  ],
+  "_from": "cordova-plugin-sign-in-with-apple@0.1.2",
+  "_id": "cordova-plugin-sign-in-with-apple@0.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-SOVa2fwqT5aRGCclgjQIZAA0RsylX9vWtVwNK9sx6kTV65FjZ2CcOygyY//EIo9YNSGzHR+OExhu9EDagyZIpg==",
+  "_location": "/cordova-plugin-sign-in-with-apple",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-sign-in-with-apple@0.1.2",
+    "name": "cordova-plugin-sign-in-with-apple",
+    "escapedName": "cordova-plugin-sign-in-with-apple",
+    "rawSpec": "0.1.2",
+    "saveSpec": null,
+    "fetchSpec": "0.1.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-sign-in-with-apple/-/cordova-plugin-sign-in-with-apple-0.1.2.tgz",
+  "_spec": "0.1.2",
+  "_where": "/Users/test/Desktop/salon",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/twogate/cordova-plugin-sign-in-with-apple/issues"
+  },
+  "description": "This plugin only supports iOS >= 13.",
+  "homepage": "https://github.com/twogate/cordova-plugin-sign-in-with-apple#readme",
+  "license": "MIT",
+  "main": "www/sign-in-with-apple.js",
+  "name": "cordova-plugin-sign-in-with-apple",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twogate/cordova-plugin-sign-in-with-apple.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.2"
+}
