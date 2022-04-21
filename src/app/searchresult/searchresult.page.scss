@@ -71,19 +71,13 @@ ion-content
 
             ion-grid
             {
-                .slider
+                ion-slide
                 {
-                    .thumb
+                    img
                     {
-                        padding: 5px;
-                        width: 95%;
-
-                        img
-                        {
-                            border-radius: 10px;
-                            width: 20vw;
-                            height: 20vw;
-                        }
+                        border-radius: 10px;
+                        width: 20vw;
+                        height: 20vw;
                     }
                 }
 
