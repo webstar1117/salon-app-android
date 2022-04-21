@@ -209,7 +209,7 @@ public class RzGooglePay extends CordovaPlugin {
             paymentDataRequest.put("transactionInfo",transactionInfo);
 
             JSONObject merchantInfo = new JSONObject();
-            merchantInfo.put("merchantName", "Holiday inc");
+            merchantInfo.put("merchantName", "hairday, inc.");
             paymentDataRequest.put("merchantInfo",merchantInfo);
 
             PaymentDataRequest request = PaymentDataRequest.fromJson(paymentDataRequest.toString());
