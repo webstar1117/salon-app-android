@@ -280,21 +280,27 @@ export class AppointmentmodalPage implements OnInit {
                     console.log(err);
                   });
                 }
+              }else{
+                this.toastMessage("Failed in Stripe payment");
+                loading.dismiss();
               }
             }, (err) => {
               console.log(err);
+              loading.dismiss();
             });
           }).catch(error => console.log(error));
         }else{
-          this.toastMessage('You set no card as a default.')
+          this.toastMessage('You set no card as a default.');
+          loading.dismiss();
         }
+      }else{
+        this.toastMessage('You set no card as a default.')
+        loading.dismiss();
       }
     }, (err) => {
       console.log(err);
-    });
-
-
-   
+      loading.dismiss();
+    });   
   }
 
   async paymentSuccess(){

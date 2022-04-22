@@ -71,13 +71,17 @@ ion-content
 
             ion-grid
             {
-                ion-slide
+                ion-slides
                 {
-                    img
+                    z-index: 0;
+                    ion-slide
                     {
-                        border-radius: 10px;
-                        width: 20vw;
-                        height: 20vw;
+                        img
+                        {
+                            border-radius: 10px;
+                            width: 20vw;
+                            height: 20vw;
+                        }
                     }
                 }
 

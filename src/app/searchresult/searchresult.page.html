@@ -49,7 +49,7 @@
           </ion-col>
         </ion-row>
         <ion-row class="ion-padding buttons">
-            <ion-button expand="block" (click)="goSalon(salon.id)">Haircut from $30</ion-button>
+            <ion-button expand="block" (click)="goSalon(salon.id)">{{salon.first_service.service_name.name}} from ${{salon.first_service.price}}</ion-button>
             <ion-button expand="block" (click)="goSalon(salon.id)">see all services</ion-button>
         </ion-row>
       </ion-grid>
