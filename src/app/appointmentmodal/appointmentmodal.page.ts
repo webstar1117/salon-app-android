@@ -124,7 +124,7 @@ export class AppointmentmodalPage implements OnInit {
           this.datas[i]["time_done"] = "";
           this.datas[i]["editable"] = false;
           if(this.datas[i]["service"]["price"] != null){
-            this.total_price += this.datas[i]["service"]["price"];
+            this.total_price += Number(this.datas[i]["service"]["price"]);
           }
         }
         this.orginal_price = this.total_price;
@@ -201,11 +201,11 @@ export class AppointmentmodalPage implements OnInit {
   paypalPayment(){
     console.log("paypalPayTest");
     this.payPal.init({
-      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+      PayPalEnvironmentProduction: 'AYT5PlcUIz8KGl7SO-cJggKbh6Yen4qMiA1yASJd8oh8-YzNLL5p5CQokb4BNooj6_wWngMRuKDs7Pwy',
       PayPalEnvironmentSandbox: 'AYwMhV_uzghSeMmF9lQymsf8Rrm1snYf6OPFvwwTNKfUOPtSOE_V-vrlsB6jakO24iUuBwqTKFrrx5TU'
     }).then(() => {
       // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+      this.payPal.prepareToRender('PayPalEnvironmentProduction', new PayPalConfiguration({
         // Only needed if you get an "Internal Service Error" after PayPal login!
         //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
       })).then(() => {
@@ -213,13 +213,16 @@ export class AppointmentmodalPage implements OnInit {
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
           console.log(res);
           // Successfully paid
-        }, () => {
+        }, (err) => {
+          console.log(JSON.stringify(err));
           // Error or render dialog closed without being successful
         });
-      }, () => {
+      }, (err) => {
+        console.log(JSON.stringify(err));
         // Error in configuration
       });
-    }, () => {
+    }, (err) => {
+      console.log(JSON.stringify(err));
       // Error in initialization, maybe PayPal isn't supported or something else
     });
   }
