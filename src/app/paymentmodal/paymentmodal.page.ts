@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, NavParams, ToastController } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
-import { ApplePay } from '@ionic-native/apple-pay/ngx'
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
 import { AddcardmodalPage } from '../addcardmodal/addcardmodal.page';
 

@@ -31,7 +31,6 @@
     "@capacitor/ios": "^3.2.3",
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
-    "@ionic-native/apple-pay": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/facebook": "^5.36.0",
     "@ionic-native/geolocation": "^5.36.0",
@@ -39,12 +38,13 @@
     "@ionic-native/google-plus": "^5.36.0",
     "@ionic-native/ionic-webview": "^5.22.0-beta-1",
     "@ionic-native/native-geocoder": "^5.36.0",
+    "@ionic-native/paypal": "^5.36.0",
     "@ionic-native/sign-in-with-apple": "^5.36.0",
     "@ionic/angular": "^6.1.1",
     "@ionic/angular-server": "^6.1.1",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.28.1",
-    "cordova-plugin-applepay": "^5.0.0",
+    "com.paypal.cordova.mobilesdk": "^3.5.0",
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-googleplus": "^8.5.2",
@@ -80,6 +80,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "card.io.cordova.mobilesdk": "^2.1.0",
     "cordova-android": "^10.0.0",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
@@ -136,7 +137,6 @@
         "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
       },
       "cordova-plugin-stripe": {},
-      "cordova-plugin-applepay": {},
       "cordova-plugin-facebook-connect": {
         "APP_ID": "1003844693883642",
         "APP_NAME": "hairday",
@@ -152,7 +152,8 @@
       "cordova-plugin-camera": {
         "ANDROIDX_CORE_VERSION": "1.6.+"
       },
-      "cordova-plugin-rz-googlepay": {}
+      "cordova-plugin-rz-googlepay": {},
+      "com.paypal.cordova.mobilesdk": {}
     },
     "platforms": [
       "browser",
