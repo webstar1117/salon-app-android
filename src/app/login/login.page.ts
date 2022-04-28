@@ -3,13 +3,8 @@ import { NavController, ToastController } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
-import { SignInWithApple, ASAuthorizationAppleIDRequest, AppleSignInResponse, AppleSignInErrorResponse, } from "@ionic-native/sign-in-with-apple/ngx";
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-
-
-
-
 
 @Component({
   selector: 'app-login',
@@ -36,9 +31,7 @@ export class LoginPage implements OnInit {
     private http: HttpClient,
     private toastCtrl: ToastController,
     private googlePlus: GooglePlus,
-    private fb: Facebook,
-    private signInWithApple: SignInWithApple,
-
+    private fb: Facebook
   ) { }
 
   ngOnInit() {
@@ -166,49 +159,6 @@ export class LoginPage implements OnInit {
               });
           })
       }, error => {
-        this.toastMessage("error: " + error);
-      });
-  }
-
-  withApple() {
-    this.signInWithApple
-      .signin({
-        requestedScopes: [
-          ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
-          ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
-        ]
-      })
-      .then((res: AppleSignInResponse) => {
-        const credential = new firebase.auth.OAuthProvider('apple.com').credential(
-          res.identityToken
-        );
-        const response =  firebase.auth().signInWithCredential(credential).then(async () => {
-          console.log(" response" ,  response);
-          
-          await firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-              console.log("user"  , JSON.stringify(user));
-              const userData:any = [user];
-              this.http.post(this.apiUrl + "login-social", { email: userData[0].email })
-                .subscribe(res => {
-                  if (res["status"] == 500) {
-                    this.toastMessage("logged in successfully");
-                    localStorage.setItem('token', res['data']['api_token']);
-                    localStorage.setItem('social', 'facebook');
-                    this.navCtrl.navigateRoot('home');
-                  } else {
-                    for (let key in res["message"]) {
-                      this.toastMessage(res["message"][key]);
-                    }
-                  }
-                }, (err) => {
-                  console.log(err);
-                });
-            }
-          })
-        })
-      })
-      .catch((error: AppleSignInErrorResponse) => {
         this.toastMessage("error: " + error);
       });
   }

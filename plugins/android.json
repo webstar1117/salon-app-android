@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com.paypal.cordova.mobilesdk": {
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
     "cordova-plugin-applepay": {
       "PACKAGE_NAME": "com.hairdayinc.hairday"
     },
@@ -67,7 +70,14 @@
     }
   },
   "dependent_plugins": {
+<<<<<<< HEAD
     "cordova-androidx-build": {
+=======
+    "card.io.cordova.mobilesdk": {
+>>>>>>> bf59ca9e1d3228603719987e2fa8c6194c2118eb
+      "PACKAGE_NAME": "com.hairdayinc.hairday"
+    },
+    "cordova-plugin-add-swift-support": {
       "PACKAGE_NAME": "com.hairdayinc.hairday"
     },
     "cordova-plugin-add-swift-support": {
