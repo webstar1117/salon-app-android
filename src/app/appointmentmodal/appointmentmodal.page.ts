@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
 import { PaymentmodalPage } from '../paymentmodal/paymentmodal.page';
-import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 
 @Component({
   selector: 'app-appointmentmodal',
@@ -58,7 +57,6 @@ export class AppointmentmodalPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private http: HttpClient,
-    private payPal: PayPal,
     private stripe: Stripe,
   ) { 
     let _this = this;
@@ -286,34 +284,6 @@ export class AppointmentmodalPage implements OnInit {
       this.toastMessage("Please select time.")
     }
   }
-
-  paypalPayment(){
-    console.log("paypalPayTest");
-    this.payPal.init({
-      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-      PayPalEnvironmentSandbox: 'AYwMhV_uzghSeMmF9lQymsf8Rrm1snYf6OPFvwwTNKfUOPtSOE_V-vrlsB6jakO24iUuBwqTKFrrx5TU'
-    }).then(() => {
-      // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
-        // Only needed if you get an "Internal Service Error" after PayPal login!
-        //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
-      })).then(() => {
-        let payment = new PayPalPayment(String(this.total_price), 'USD', 'Description', 'sale');
-        this.payPal.renderSinglePaymentUI(payment).then((res) => {
-          console.log(res);
-          // Successfully paid
-        }, () => {
-          // Error or render dialog closed without being successful
-        });
-      }, () => {
-        // Error in configuration
-      });
-    }, () => {
-      // Error in initialization, maybe PayPal isn't supported or something else
-    });
-  }
-
-
   
   async visaPay(){
     this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
