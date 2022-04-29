@@ -60,7 +60,96 @@ export class AppointmentmodalPage implements OnInit {
     private http: HttpClient,
     private payPal: PayPal,
     private stripe: Stripe,
-  ) { }
+  ) { 
+    let _this = this;
+    setTimeout(() => {
+      // Render the PayPal button into #paypal-button-container
+      <any>window['paypal'].Buttons({
+
+        // Set up the transaction
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: _this.total_price
+              }
+            }]
+          });
+        },
+
+        // Finalize the transaction
+        onApprove: function (data, actions) {
+          return actions.order.capture()
+            .then(function (details) {
+              // Show a success message to the buyer
+              if(_this.multi == false){
+                var data = {
+                  api_token: localStorage.getItem('token'),
+                  professional_id: _this.professional_id,
+                  service_id: _this.service_id,
+                  salon_id: _this.salon_id,
+                  year: _this.date.toLocaleDateString("en-US", { year: 'numeric'}),
+                  month: _this.date.toLocaleDateString("en-US", { month: 'long' }),
+                  date: _this.date.toLocaleDateString("en-US", { day: 'numeric' }),
+                  day: _this.date.toLocaleDateString("en-US", { weekday: 'long' }),
+                  time: _this.datas[0].time,
+                  price: _this.orginal_price,
+                  tip: _this.tip_price,
+                  tax: 0
+                }
+                _this.http.post(_this.apiUrl+"appointment/add", JSON.stringify(data), _this.httpOptions)
+                .subscribe(res => {
+                  if(res["status"] == 200){
+                    _this.paymentSuccess();
+                    _this.modalCtrl.dismiss();
+                  }else{
+                    _this.toastMessage("Failed to add data");
+                  }
+                }, (err) => {
+                  console.log(err);
+                });
+              }else{
+                let multidata = []; 
+                for(var i in _this.datas){
+                  let data = {
+                    professional_id: _this.datas[i]["professional"]["id"],
+                    service_id: _this.datas[i]["service"]["id"],
+                    salon_id: _this.datas[i]["service"]["salon_id"],
+                    year: _this.datas[i]["date"].toLocaleDateString("en-US", { year: 'numeric'}),
+                    month: _this.datas[i]["date"].toLocaleDateString("en-US", { month: 'long' }),
+                    date: _this.datas[i]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
+                    day: _this.datas[i]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
+                    time: _this.datas[i].time,
+                    price: _this.datas[i]["service"]["price"],
+                    tip: _this.tip_price,
+                    tax: 0
+                  }
+                  multidata.push(data);
+                }
+                let requestData = {
+                  api_token: localStorage.getItem('token'),
+                  data: multidata
+                }
+                _this.http.post(_this.apiUrl+"appointment/add-multi", JSON.stringify(requestData), _this.httpOptions)
+                .subscribe(res => {
+                  if(res["status"] == 200){
+                    _this.paymentSuccess();
+                    _this.modalCtrl.dismiss();
+                  }else{
+                    _this.toastMessage("Failed to add data");
+                  }
+                }, (err) => {
+                  console.log(err);
+                });
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            })
+        }
+      }).render('#paypal-button-container');
+    }, 500)
+  }
  
   ngOnInit() {
     this.multi = this.navParams.get('multi');
