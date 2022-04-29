@@ -148,8 +148,7 @@
       },
       "cordova-plugin-camera": {
         "ANDROIDX_CORE_VERSION": "1.6.+"
-      },
-      "com.paypal.cordova.mobilesdk": {}
+      }
     },
     "platforms": [
       "browser",
