@@ -124,7 +124,7 @@ export class AppointmentmodalPage implements OnInit {
           this.datas[i]["time_done"] = "";
           this.datas[i]["editable"] = false;
           if(this.datas[i]["service"]["price"] != null){
-            this.total_price += Number(this.datas[i]["service"]["price"]);
+            this.total_price += this.datas[i]["service"]["price"];
           }
         }
         this.orginal_price = this.total_price;
@@ -201,48 +201,33 @@ export class AppointmentmodalPage implements OnInit {
   paypalPayment(){
     console.log("paypalPayTest");
     this.payPal.init({
-      PayPalEnvironmentProduction: 'AYT5PlcUIz8KGl7SO-cJggKbh6Yen4qMiA1yASJd8oh8-YzNLL5p5CQokb4BNooj6_wWngMRuKDs7Pwy',
+      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
       PayPalEnvironmentSandbox: 'AYwMhV_uzghSeMmF9lQymsf8Rrm1snYf6OPFvwwTNKfUOPtSOE_V-vrlsB6jakO24iUuBwqTKFrrx5TU'
     }).then(() => {
       // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({})
-      ).then(() => {
+      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+        // Only needed if you get an "Internal Service Error" after PayPal login!
+        //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
+      })).then(() => {
         let payment = new PayPalPayment(String(this.total_price), 'USD', 'Description', 'sale');
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
           console.log(res);
           // Successfully paid
-          // {
-          //   "client": {
-          //     "environment": "sandbox",
-          //     "product_name": "PayPal iOS SDK",
-          //     "paypal_sdk_version": "2.16.0",
-          //     "platform": "iOS"
-          //   },
-          //   "response_type": "payment",
-          //   "response": {
-          //     "id": "PAY-1AB23456CD789012EF34GHIJ",
-          //     "state": "approved",
-          //     "create_time": "2016-10-03T13:33:33Z",
-          //     "intent": "sale"
-          //   }
-          // }
-        }, (err) => {
-          console.log(JSON.stringify(err));
+        }, () => {
           // Error or render dialog closed without being successful
         });
-      }, (err) => {
-        console.log(JSON.stringify(err));
+      }, () => {
         // Error in configuration
       });
-    }, (err) => {
-      console.log(JSON.stringify(err));
+    }, () => {
       // Error in initialization, maybe PayPal isn't supported or something else
     });
   }
+
+
   
   async visaPay(){
-    this.stripe.setPublishableKey('pk_test_51KTg0FKjV2JSpsumi5RKbZdqZo34XOt0OxCG523b9Fd6HP5HMXELLUPqKo9cW88Ccp5QVtJPeqtB6yh7OvCIMyDg00DXUsjGzB');
-    // this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
+    this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
     var token = localStorage.getItem('token');
     let card;
 
@@ -275,73 +260,33 @@ export class AppointmentmodalPage implements OnInit {
             .subscribe(res => {
               if(res["status"] == 200){
                 if(res["data"][0].status == "succeeded"){
-                  if(this.multi == false){
-                    var data = {
-                      api_token: localStorage.getItem('token'),
-                      professional_id: this.professional_id,
-                      service_id: this.service_id,
-                      salon_id: this.salon_id,
-                      year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
-                      month: this.date.toLocaleDateString("en-US", { month: 'long' }),
-                      date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
-                      day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
-                      time: this.datas[0].time,
-                      price: this.orginal_price,
-                      tip: this.tip_price,
-                      tax: 0
-                    }
-                    this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
-                    .subscribe(res => {
-                      loading.dismiss();
-                      if(res["status"] == 200){
-                        this.paymentSuccess();
-                        this.modalCtrl.dismiss();
-                      }else{
-                        this.toastMessage("Failed to add data");
-                      }
-                    }, (err) => {
-                      console.log(err);
-                    });
-                  }else{
-                    let multidata = []; 
-                    for(var i in this.datas){
-                      let data = {
-                        professional_id: this.datas[i]["professional"]["id"],
-                        service_id: this.datas[i]["service"]["id"],
-                        salon_id: this.datas[i]["service"]["salon_id"],
-                        year: this.datas[i]["date"].toLocaleDateString("en-US", { year: 'numeric'}),
-                        month: this.datas[i]["date"].toLocaleDateString("en-US", { month: 'long' }),
-                        date: this.datas[i]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
-                        day: this.datas[i]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
-                        time: this.datas[i].time,
-                        price: this.datas[i]["service"]["price"],
-                        tip: this.tip_price,
-                        tax: 0
-                      }
-                      multidata.push(data);
-                    }
-                    let requestData = {
-                      api_token: localStorage.getItem('token'),
-                      data: multidata
-                    }
-                    console.log(requestData);
-                    this.http.post(this.apiUrl+"appointment/add-multi", JSON.stringify(requestData), this.httpOptions)
-                    .subscribe(res => {
-                      console.log(res);
-                      loading.dismiss();
-                      if(res["status"] == 200){
-                        this.paymentSuccess();
-                        this.modalCtrl.dismiss();
-                      }else{
-                        this.toastMessage("Failed to add data");
-                      }
-                    }, (err) => {
-                      console.log(err);
-                    });
+                  var data = {
+                    api_token: localStorage.getItem('token'),
+                    professional_id: this.professional_id,
+                    service_id: this.service_id,
+                    salon_id: this.salon_id,
+                    year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
+                    month: this.date.toLocaleDateString("en-US", { month: 'long' }),
+                    date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
+                    day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
+                    time: this.datas[0].time,
+                    price: this.orginal_price,
+                    tip: this.tip_price,
+                    tax: 0
                   }
+                  this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
+                  .subscribe(res => {
+                    loading.dismiss();
+                    if(res["status"] == 200){
+                      this.paymentSuccess();
+                      this.modalCtrl.dismiss();
+                    }
+                  }, (err) => {
+                    console.log(err);
+                  });
                 }
               }else{
-                this.toastMessage(res["message"]);
+                this.toastMessage("Failed in Stripe payment");
                 loading.dismiss();
               }
             }, (err) => {
