@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
 import { PaymentmodalPage } from '../paymentmodal/paymentmodal.page';
-import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 
 @Component({
   selector: 'app-appointmentmodal',
@@ -58,7 +57,6 @@ export class AppointmentmodalPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private http: HttpClient,
-    private payPal: PayPal,
     private stripe: Stripe,
   ) { 
     let _this = this;
@@ -285,48 +283,6 @@ export class AppointmentmodalPage implements OnInit {
     }else{
       this.toastMessage("Please select time.")
     }
-  }
-
-  paypalPayment(){
-    console.log("paypalPayTest");
-    this.payPal.init({
-      PayPalEnvironmentProduction: 'AYT5PlcUIz8KGl7SO-cJggKbh6Yen4qMiA1yASJd8oh8-YzNLL5p5CQokb4BNooj6_wWngMRuKDs7Pwy',
-      PayPalEnvironmentSandbox: 'AYwMhV_uzghSeMmF9lQymsf8Rrm1snYf6OPFvwwTNKfUOPtSOE_V-vrlsB6jakO24iUuBwqTKFrrx5TU'
-    }).then(() => {
-      // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({})
-      ).then(() => {
-        let payment = new PayPalPayment(String(this.total_price), 'USD', 'Description', 'sale');
-        this.payPal.renderSinglePaymentUI(payment).then((res) => {
-          console.log(res);
-          // Successfully paid
-          // {
-          //   "client": {
-          //     "environment": "sandbox",
-          //     "product_name": "PayPal iOS SDK",
-          //     "paypal_sdk_version": "2.16.0",
-          //     "platform": "iOS"
-          //   },
-          //   "response_type": "payment",
-          //   "response": {
-          //     "id": "PAY-1AB23456CD789012EF34GHIJ",
-          //     "state": "approved",
-          //     "create_time": "2016-10-03T13:33:33Z",
-          //     "intent": "sale"
-          //   }
-          // }
-        }, (err) => {
-          console.log(JSON.stringify(err));
-          // Error or render dialog closed without being successful
-        });
-      }, (err) => {
-        console.log(JSON.stringify(err));
-        // Error in configuration
-      });
-    }, (err) => {
-      console.log(JSON.stringify(err));
-      // Error in initialization, maybe PayPal isn't supported or something else
-    });
   }
   
   async visaPay(){
