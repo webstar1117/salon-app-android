@@ -93,9 +93,9 @@ export class BusinessPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       this.avatar = data.data.avatar;
-      if(this.avatar != null){
-        this.readFile(this.avatar);
-      }
+      // if(this.avatar != null){
+      //   this.readFile(this.avatar);
+      // }
     });
     
     return await modal.present();
