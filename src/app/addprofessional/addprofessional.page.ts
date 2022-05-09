@@ -136,9 +136,7 @@ export class AddprofessionalPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       this.avatar = data.data.avatar;
-      if(this.avatar != null){
-        this.readFile(this.avatar, 'avatar');
-      }
+      this.avatarUrl = data.data.avatarUrl;
     });
     
     return await modal.present();
@@ -157,29 +155,14 @@ export class AddprofessionalPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       var portfolio = data.data.avatar;
+      var portfolio_url = data.data.avatarUrl;
       if(portfolio != null){
         this.portfolios.push(portfolio);
-        this.readFile(portfolio, 'portfolio');
+        this.portfolio_urls.push(portfolio_url);
       }
     });
     
     return await modal.present();
-  }
-
-  readFile(file, type){
-    let reader = new FileReader();
-    let point = this;
-    if(type == 'avatar'){
-      reader.onload = (_event) => { 
-        point.avatarUrl = reader.result;
-      }
-    }else{
-      reader.onload = (_event) => { 
-        var image = reader.result;
-        point.portfolio_urls.push(image);
-      }
-    }
-    reader.readAsDataURL(file);
   }
 
   async toastMessage(msg){

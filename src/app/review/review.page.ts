@@ -59,21 +59,10 @@ export class ReviewPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       this.image = data.data.avatar;
-      if(this.image != null){
-        this.readFile(this.image);
-      }
+      this.imageUrl = data.data.avatarUrl;
     });
     
     return await modal.present();
-  }
-
-  readFile(file){
-    let reader = new FileReader();
-    let point = this;
-    reader.onload = (_event) => { 
-      point.imageUrl = reader.result;
-    }
-    reader.readAsDataURL(file);
   }
 
   saveReview(){

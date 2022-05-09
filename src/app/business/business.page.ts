@@ -93,21 +93,10 @@ export class BusinessPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       this.avatar = data.data.avatar;
-      // if(this.avatar != null){
-      //   this.readFile(this.avatar);
-      // }
+      this.avatarUrl = data.data.avatarUrl;
     });
     
     return await modal.present();
-  }
-
-  readFile(file){
-    let reader = new FileReader();
-    let point = this;
-    reader.onload = (_event) => { 
-      point.avatarUrl = reader.result;
-    }
-    reader.readAsDataURL(file);
   }
 
   async toastMessage(msg){
