@@ -13,6 +13,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -30,7 +32,7 @@ import { environment } from 'src/environments/environment';
   AngularFireModule.initializeApp(environment.firebaseConfig),  
   AngularFirestoreModule,        
 ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, GoogleMaps, Geolocation, NativeGeocoder, NavParams, Stripe],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, Camera, GoogleMaps, Geolocation, NativeGeocoder, NavParams, Stripe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

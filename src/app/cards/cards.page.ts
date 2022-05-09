@@ -15,7 +15,7 @@ export class CardsPage implements OnInit {
     slidesPerView:1,
   };
   cards: any;
-  method: string = 'apple';
+  method: string;
   apiUrl = 'https://hairday.app/api/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

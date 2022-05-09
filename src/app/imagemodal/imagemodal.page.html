@@ -13,7 +13,7 @@
 
 <ion-content class="ion-padding-horizontal">
 
-  <div class="section ion-text-center" (click)="uploadImage()">
+  <div class="section ion-text-center" (click)="presentActionSheet()">
     <img src="{{avatarUrl}}" *ngIf="!hasImage">
     <img src="{{avatarUrl}}" id="image" *ngIf="hasImage">
     <h3 class="ion-text-center" *ngIf="!hasImage">We’ll need access to your photo library to change profile image   </h3>
