@@ -135,7 +135,7 @@ export class AddprofessionalPage implements OnInit {
 
     modal.onDidDismiss()
     .then((data:any) => {
-      this.avatar = data.data.avatar;
+      this.avatarUrl = data.data.avatar;
       if(this.avatar != null){
         this.readFile(this.avatar, 'avatar');
       }

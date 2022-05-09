@@ -66,7 +66,7 @@ export class BusinessPage implements OnInit {
   
       this.http.post(this.apiUrl+"business/add-name-and-image", formData)
         .subscribe(res => {
-          if(res["status"] == 200){
+          if(res["status"] == 500){
             this.toastMessage(res["message"]);
             this.navCtrl.navigateForward('businesssetup', {state: {salon_id: res["data"][0]}});
           }else{
@@ -92,7 +92,7 @@ export class BusinessPage implements OnInit {
 
     modal.onDidDismiss()
     .then((data:any) => {
-      this.avatar = data.data.avatar;
+      this.avatarUrl = data.data.avatar;
       // if(this.avatar != null){
       //   this.readFile(this.avatar);
       // }
