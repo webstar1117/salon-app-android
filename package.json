@@ -79,7 +79,7 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "cordova-android": "^10.0.0",
+    "cordova-android": "^10.1.2",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
@@ -152,8 +152,8 @@
     },
     "platforms": [
       "browser",
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
