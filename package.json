@@ -45,7 +45,6 @@
     "apexcharts": "^3.28.1",
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-geolocation": "^4.1.0",
-    "cordova-plugin-googleplus": "^8.5.2",
     "cordova-plugin-nativegeocoder": "^3.4.1",
     "cordova-plugin-sign-in-with-apple": "^0.1.2",
     "cordova-plugin-stripe": "^1.5.3",
@@ -79,7 +78,6 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "cordova-android": "^10.1.2",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
@@ -89,6 +87,7 @@
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-googlemaps": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
     "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git",
+    "cordova-plugin-googleplus": "^8.5.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -120,11 +119,6 @@
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
       },
-      "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb",
-        "WEB_APPLICATION_CLIENT_ID": "991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb.apps.googleusercontent.com",
-        "PLAY_SERVICES_VERSION": "15.0.1"
-      },
       "cordova-plugin-nativegeocoder": {
         "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
       },
@@ -148,12 +142,16 @@
       },
       "cordova-plugin-camera": {
         "ANDROIDX_CORE_VERSION": "1.6.+"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.184564234091-7q52ne8132o92shgr2cpc9ppj38vb1j9",
+        "CLIENT_ID": "184564234091-7q52ne8132o92shgr2cpc9ppj38vb1j9.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "15.0.1"
       }
     },
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "ios"
     ]
   }
 }
