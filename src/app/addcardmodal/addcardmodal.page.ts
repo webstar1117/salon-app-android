@@ -94,7 +94,7 @@ export class AddcardmodalPage implements OnInit {
 
   validateExpiryDate(ev){
     this.expireDate = ev.target.value;
-    if(this.expireDate.length == 2 && this.expireDate.indexOf("/") == -1){ 
+    if(this.expireDate.length == 2 && this.expireDate.indexOf("/") == -1){
       this.expireDate += "/";
     }
     if((/^(0[1-9]|1[0-2])\/([0-9]{2})$/).test(this.expireDate)){
@@ -144,12 +144,8 @@ export class AddcardmodalPage implements OnInit {
         var cardData = res["data"];
         this.modalCtrl.dismiss({card: cardData});
       }else{
-        if(Array.isArray(res["message"])){
-          for(let key in res["message"]){
-            this.toastMessage(res["message"][key]);
-          }
-        }else{
-          this.toastMessage(res["message"]);
+        for(let key in res["message"]){
+          this.toastMessage(res["message"][key]);
         }
       }
     }, (err) => {
