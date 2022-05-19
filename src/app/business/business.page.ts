@@ -15,6 +15,7 @@ export class BusinessPage implements OnInit {
   bname: string;
   btype: string;
   businessTypes: any;
+  isSending: boolean = false;
   avatar: any;
   avatarUrl: any = 'assets/imgs/user.png';
   
@@ -56,6 +57,7 @@ export class BusinessPage implements OnInit {
     }else if(this.avatar == undefined){
       this.toastMessage('Please upload profile image');
     }else{
+      this.isSending = true;
       let formData = new FormData();
       formData.append("api_token", localStorage.getItem('token'));
       formData.append("first_name", this.fname);
@@ -70,12 +72,14 @@ export class BusinessPage implements OnInit {
             this.toastMessage(res["message"]);
             this.navCtrl.navigateForward('businesssetup', {state: {salon_id: res["data"][0]}});
           }else{
+            this.isSending = false;
             for(let key in res["message"]){
               this.toastMessage(res["message"][key]);
             }
           }
         }, (err) => {
           console.log(err);
+          this.isSending = false;
         });
     }
   }

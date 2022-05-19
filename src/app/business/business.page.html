@@ -58,7 +58,7 @@
   </div>
 
   <div class="bottom">
-    <ion-button (click)="saveProfile()">Continue</ion-button>
+    <ion-button (click)="saveProfile()" [disabled]="isSending">Continue</ion-button>
   </div>
 
 </ion-content>
