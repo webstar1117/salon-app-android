@@ -62,10 +62,6 @@ export class ProfilePage implements OnInit {
     this.navCtrl.navigateForward("profilesetting");
   }
 
-  notifications(){
-    this.navCtrl.navigateForward("notifications");
-  }
-
   cards(){
     this.navCtrl.navigateForward("cards");
   }
