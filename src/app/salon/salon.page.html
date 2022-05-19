@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="home" icon="chevron-back"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="addFavorite()" *ngIf="!guest"><ion-icon name="heart-outline"></ion-icon></ion-button>
+      <ion-button (click)="addFavorite()" *ngIf="!guest"><ion-icon name="{{favorite ? 'heart' : 'heart-outline'}}"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, NavParams } from '@ionic/angular';
+import { NavController, ModalController, ToastController, NavParams } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -30,7 +30,7 @@ export class AddcardmodalPage implements OnInit {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  constructor(private navCtrl: NavController, private modalCtrl: ModalController, private navParams: NavParams, private http: HttpClient) { }
+  constructor(private navCtrl: NavController, private toastCtrl: ToastController, private modalCtrl: ModalController, private navParams: NavParams, private http: HttpClient) { }
  
   ngOnInit() {
   }
@@ -94,6 +94,9 @@ export class AddcardmodalPage implements OnInit {
 
   validateExpiryDate(ev){
     this.expireDate = ev.target.value;
+    if(this.expireDate.length == 2 && this.expireDate.indexOf("/") == -1){ 
+      this.expireDate += "/";
+    }
     if((/^(0[1-9]|1[0-2])\/([0-9]{2})$/).test(this.expireDate)){
       this.validated = true;
     }else{
@@ -140,6 +143,14 @@ export class AddcardmodalPage implements OnInit {
       if(res["status"] == 200){
         var cardData = res["data"];
         this.modalCtrl.dismiss({card: cardData});
+      }else{
+        if(Array.isArray(res["message"])){
+          for(let key in res["message"]){
+            this.toastMessage(res["message"][key]);
+          }
+        }else{
+          this.toastMessage(res["message"]);
+        }
       }
     }, (err) => {
       console.log(err);
@@ -151,6 +162,13 @@ export class AddcardmodalPage implements OnInit {
     this.modalCtrl.dismiss({card: null});
   }
 
-  
+  async toastMessage(msg){
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      cssClass: 'ion-text-center',
+      duration: 2000
+    });
+    toast.present();
+  }
 
 }

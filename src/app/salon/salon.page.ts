@@ -23,6 +23,7 @@ export class SalonPage implements OnInit {
   safeties: any;
   amenities: any;
   opening_hour: any;
+  favorite: false;
 
   logoUrl = 'https://hairday.app/assets/images/salon-logos/';
   imageUrl = 'https://hairday.app/assets/images/salons/';
@@ -88,9 +89,25 @@ export class SalonPage implements OnInit {
       console.log(err);
     });
 
+    this.checkFavorite();
+
     if(localStorage.getItem("token") != null){
       this.guest = false;
     }
+  }
+
+  checkFavorite(){
+    var detail = {salon_id: this.salon_id, api_token: localStorage.getItem('token')};
+    this.http.post(this.apiUrl+"salon/favorite/determine", JSON.stringify(detail), this.httpOptions)
+    .subscribe(res => {
+      if(res["status"] == 200){
+        this.favorite = res["data"];
+      }else{
+        this.favorite = false;
+      }
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   addFavorite(){
@@ -99,6 +116,7 @@ export class SalonPage implements OnInit {
     .subscribe(res => {
       if(res["status"] == 200){
         this.toastMessage(res["message"]);
+        this.checkFavorite();
       }else{
         for(let key in res["message"]){
           this.toastMessage(res["message"][key]);
