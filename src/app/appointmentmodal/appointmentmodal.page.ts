@@ -286,7 +286,7 @@ export class AppointmentmodalPage implements OnInit {
   }
   
   async visaPay(){
-    this.stripe.setPublishableKey('pk_test_51KTg0FKjV2JSpsumi5RKbZdqZo34XOt0OxCG523b9Fd6HP5HMXELLUPqKo9cW88Ccp5QVtJPeqtB6yh7OvCIMyDg00DXUsjGzB');
+    this.stripe.setPublishableKey('pk_test_51JwyVGEDfScRvyn3VD4lrKiNBkdBVvFZjV1XKQeKcBWBUr6Yp9kAIf3dsqWmeXLLkCeufUJmTuVGFlY95Kirakv300Czfe5zDT');
     // this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
     var token = localStorage.getItem('token');
     let card;
