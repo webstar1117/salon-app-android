@@ -113,6 +113,8 @@ export class LoginPage implements OnInit {
       webClientId: '184564234091-o3hr1ci6cuq2mtv0jabqkta31dpmm0iq.apps.googleusercontent.com',
       offline: true,
     }).then((res: any) => {
+      console.log('res')
+      console.log(res)
       const data: any = [res]
       this.http.post(this.apiUrl + "login-social", {
         email: data[0].email
