@@ -116,6 +116,8 @@ export class LoginPage implements OnInit {
       console.log('res')
       console.log(res)
       const data: any = [res]
+      console.log('data')
+      console.log(data)
       this.http.post(this.apiUrl + "login-social", {
         email: data[0].email
       })
