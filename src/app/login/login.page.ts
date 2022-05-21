@@ -117,16 +117,16 @@ export class LoginPage implements OnInit {
       this.http.post(this.apiUrl + "login-social", {
         email: data[0].email
       })
-        .subscribe(res => {
-          console.log('res',JSON.stringify(res))
-          if (res["status"] == 200) {
-            this.toastMessage(res["message"]);
-            localStorage.setItem('token', res['data']['api_token']);
+        .subscribe(res1 => {
+          console.log('res1',JSON.stringify(res1))
+          if (res1["status"] == 200) {
+            this.toastMessage(res1["message"]);
+            localStorage.setItem('token', res1['data']['api_token']);
             localStorage.setItem('social', 'google');
             this.navCtrl.navigateRoot('home');
           } else {
-            for (let key in res["message"]) {
-              this.toastMessage(res["message"][key]);
+            for (let key in res1["message"]) {
+              this.toastMessage(res1["message"][key]);
             }
           }
         }, (err) => {
