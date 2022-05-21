@@ -95,6 +95,7 @@ export class ProfilePage implements OnInit {
         .then(res => {
           // user logged out so we will remove him from the NativeStorage
           localStorage.removeItem("social");
+          localStorage.removeItem("token");
           this.navCtrl.navigateRoot('login');
         }, err =>{
           console.log(err);
@@ -103,6 +104,7 @@ export class ProfilePage implements OnInit {
         this.fb.logout()
         .then(res => {
           localStorage.removeItem("social");
+          localStorage.removeItem("token");
           this.navCtrl.navigateRoot('login');
         }, err =>{
           console.log(err);
