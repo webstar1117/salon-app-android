@@ -113,17 +113,14 @@ export class LoginPage implements OnInit {
       webClientId: '184564234091-o3hr1ci6cuq2mtv0jabqkta31dpmm0iq.apps.googleusercontent.com',
       offline: true,
     }).then((res: any) => {
-      console.log('res')
-      console.log(res)
       const data: any = [res]
-      console.log('data')
-      console.log(data)
       this.http.post(this.apiUrl + "login-social", {
         email: data[0].email
       })
         .subscribe(res => {
-          if (res["status"] == 500) {
-            this.toastMessage("logged in successfully");
+          console.log('res',JSON.stringify(res))
+          if (res["status"] == 200) {
+            this.toastMessage(res["message"]);
             localStorage.setItem('token', res['data']['api_token']);
             localStorage.setItem('social', 'google');
             this.navCtrl.navigateRoot('home');
@@ -151,8 +148,8 @@ export class LoginPage implements OnInit {
             const userEmail = [user]
             this.http.post(this.apiUrl + "login-social", { email: userEmail[0].email })
               .subscribe(res => {
-                if (res["status"] == 500) {
-                  this.toastMessage("logged in successfully");
+                if (res["status"] == 200) {
+                  this.toastMessage(res["message"]);
                   localStorage.setItem('token', res['data']['api_token']);
                   localStorage.setItem('social', 'facebook');
                   this.navCtrl.navigateRoot('home');
