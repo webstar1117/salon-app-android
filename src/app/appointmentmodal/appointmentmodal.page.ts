@@ -17,6 +17,7 @@ export class AppointmentmodalPage implements OnInit {
   professional_id: any;
   service_id: any;
   salon_id: any;
+  appointment_id: any;
   multidata: any;
   datas: any;
   date: any = new Date();
@@ -155,6 +156,7 @@ export class AppointmentmodalPage implements OnInit {
       this.professional_id = this.navParams.get('professional_id');
       this.service_id = this.navParams.get('service_id');
       this.salon_id = this.navParams.get('salon_id');
+      this.appointment_id = this.navParams.get('appointment_id');
       this.getOneData();
     }else{
       this.multidata = this.navParams.get('data');
@@ -326,6 +328,7 @@ export class AppointmentmodalPage implements OnInit {
                       professional_id: this.professional_id,
                       service_id: this.service_id,
                       salon_id: this.salon_id,
+                      appointment_id: this.appointment_id,
                       year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
                       month: this.date.toLocaleDateString("en-US", { month: 'long' }),
                       date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
