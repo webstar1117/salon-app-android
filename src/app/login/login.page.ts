@@ -133,7 +133,7 @@ export class LoginPage implements OnInit {
           console.log(err);
         });
     }).catch(err => {
-      this.toastMessage("error: " + err);
+      this.toastMessage("error: " + err.errorMessage);
     })
   }
 
@@ -163,7 +163,7 @@ export class LoginPage implements OnInit {
               });
           })
       }, error => {
-        this.toastMessage("error: " + JSON.stringify(error) );
+        this.toastMessage("error: " + error.errorMessage );
       });
   }
 
