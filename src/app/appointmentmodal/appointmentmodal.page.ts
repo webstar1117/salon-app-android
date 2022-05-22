@@ -370,19 +370,20 @@ export class AppointmentmodalPage implements OnInit {
                       data: multidata
                     }
                     console.log(requestData);
-                    this.http.post(this.apiUrl+"appointment/add-multi", JSON.stringify(requestData), this.httpOptions)
-                    .subscribe(res => {
-                      console.log(res);
-                      loading.dismiss();
-                      if(res["status"] == 200){
-                        this.paymentSuccess();
-                        this.modalCtrl.dismiss();
-                      }else{
-                        this.toastMessage("Failed to add data:"+JSON.stringify(res));
-                      }
-                    }, (err) => {
-                      console.log(err);
-                    });
+                    this.toastMessage("requestData:"+JSON.stringify(requestData));
+                    // this.http.post(this.apiUrl+"appointment/add-multi", JSON.stringify(requestData), this.httpOptions)
+                    // .subscribe(res => {
+                    //   console.log(res);
+                    //   loading.dismiss();
+                    //   if(res["status"] == 200){
+                    //     this.paymentSuccess();
+                    //     this.modalCtrl.dismiss();
+                    //   }else{
+                    //     this.toastMessage("Failed to add data:"+JSON.stringify(res));
+                    //   }
+                    // }, (err) => {
+                    //   console.log(err);
+                    // });
                   }
                 }
               }else{
