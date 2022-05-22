@@ -129,7 +129,7 @@ export class LoginPage implements OnInit {
           console.log(err);
         });
     }).catch(err => {
-      this.toastMessage("error: " + err.errorMessage);
+      this.toastMessage("error: " + err);
     })
   }
 
