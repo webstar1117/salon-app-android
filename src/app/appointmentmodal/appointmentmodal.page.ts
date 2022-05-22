@@ -378,7 +378,7 @@ export class AppointmentmodalPage implements OnInit {
                         this.paymentSuccess();
                         this.modalCtrl.dismiss();
                       }else{
-                        this.toastMessage("Failed to add data");
+                        this.toastMessage("Failed to add data:"+JSON.stringify(res));
                       }
                     }, (err) => {
                       console.log(err);
