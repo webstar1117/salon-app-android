@@ -94,10 +94,6 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('otpphoneinput');
   }
 
-  skip() {
-    this.navCtrl.navigateRoot('home');
-  }
-
   switchType() {
     if (this.ptype == 'password') {
       this.ptype = 'text';
