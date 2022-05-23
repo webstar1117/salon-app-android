@@ -30,6 +30,7 @@ export class BusinessPage implements OnInit {
     private toastCtrl: ToastController) { }
 
   ngOnInit() {
+    this.isSending = false;
     this.getBusinessType();
   }
 
@@ -46,18 +47,23 @@ export class BusinessPage implements OnInit {
   }
 
   saveProfile(){
+    this.isSending = true;
     if(this.fname == undefined){
       this.toastMessage('Please input first name');
+      this.isSending = false;
     }else if(this.lname == undefined){
       this.toastMessage('Please input last name');
+      this.isSending = false;
     }else if(this.bname == undefined){
       this.toastMessage('Please input business name');
+      this.isSending = false;
     }else if(this.btype == undefined){
       this.toastMessage('Please select business type');
+      this.isSending = false;
     }else if(this.avatar == undefined){
       this.toastMessage('Please upload profile image');
+      this.isSending = false;
     }else{
-      this.isSending = true;
       let formData = new FormData();
       formData.append("api_token", localStorage.getItem('token'));
       formData.append("first_name", this.fname);
