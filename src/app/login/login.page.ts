@@ -159,7 +159,7 @@ export class LoginPage implements OnInit {
               });
           })
       }, error => {
-        this.toastMessage("error: " + JSON.stringify(error) );
+        this.toastMessage("error: " + error.errorMessage );
       });
   }
 
