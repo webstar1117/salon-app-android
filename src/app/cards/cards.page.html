@@ -17,7 +17,6 @@
     <ion-radio-group [(ngModel)]="method" (ionChange)="selectCard()">
       <div class="radio-group" *ngFor="let card of cards">
         <ion-item lines="none" class="ion-no-padding animate__animated animate__fadeInLeft">
-          <div class="icon"></div>
           <ion-label>{{card.type}}</ion-label>
           <ion-radio slot="end" value="{{card.id}}"></ion-radio>
         </ion-item>
