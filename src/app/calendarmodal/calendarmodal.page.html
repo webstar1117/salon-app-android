@@ -16,10 +16,8 @@
 
       <ion-datetime
       #todayDate
-      [max]="maxApplicableDate"
       presentation="date"
       (ionChange)="onCurrentDateChanged(todayDate.value)"
-      [disabled]="isIdeal"
     >
     </ion-datetime>
   </ion-item>
