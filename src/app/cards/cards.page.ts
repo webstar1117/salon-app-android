@@ -62,6 +62,7 @@ export class CardsPage implements OnInit {
   selectCard(){
     var params = {
       card_id: this.method,
+      api_token: localStorage.getItem('token'),
       default: 1,
     };
     this.http.post(this.apiUrl+"card/default", JSON.stringify(params), this.httpOptions)
