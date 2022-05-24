@@ -30,6 +30,7 @@ export class ImagemodalPage implements OnInit {
     quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
     sourceType: this.camera.PictureSourceType.CAMERA,
+    correctOrientation: true,
   }
   optionsForPhotoFile: CameraOptions = {
     quality: 50,
