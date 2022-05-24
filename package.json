@@ -145,8 +145,8 @@
         "ANDROIDX_CORE_VERSION": "1.6.+"
       },
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.184564234091-7q52ne8132o92shgr2cpc9ppj38vb1j9",
-        "CLIENT_ID": "184564234091-7q52ne8132o92shgr2cpc9ppj38vb1j9.apps.googleusercontent.com",
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.256433266062-kq93h4e5tv8fask6aiu5t8acg94p16ih",
+        "CLIENT_ID": "256433266062-kq93h4e5tv8fask6aiu5t8acg94p16ih.apps.googleusercontent.com",
         "PLAY_SERVICES_VERSION": "15.0.1"
       }
     },
