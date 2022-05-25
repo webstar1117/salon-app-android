@@ -15,6 +15,7 @@
       <ion-title>{{viewTitle}}</ion-title>
 
       <ion-datetime
+      *ngIf="show"
       #todayDate
       [max]="maxApplicableDate"
       presentation="date"
