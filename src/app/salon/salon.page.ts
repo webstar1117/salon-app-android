@@ -84,6 +84,20 @@ export class SalonPage implements OnInit {
             }
           }
         }
+
+        for(var i in this.salon[0].reviews){
+          var fname = this.salon[0].reviews[i]["user"]["firstname"];
+          var lname = this.salon[0].reviews[i]["user"]["lastname"];
+          if(fname != null && lname != null){
+            this.salon[0].reviews[i]["username"] = fname + " " + lname;
+          }else if(fname != null && lname == null){
+            this.salon[0].reviews[i]["username"] = fname;
+          }else if(fname == null && lname != null){
+            this.salon[0].reviews[i]["username"] = lname;
+          }else{
+            this.salon[0].reviews[i]["username"] = this.salon[0].reviews[i]["user"]["email"];
+          }
+        }
       }
     }, (err) => {
       console.log(err);

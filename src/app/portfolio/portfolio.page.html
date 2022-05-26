@@ -55,7 +55,7 @@
         <div class="content">
           <ion-item lines="none" *ngFor="let service of professional.services">
             <ion-label>
-              <h2>Adult Cut – {{service.duration}} min<span slot="end">$ {{service.price}}</span></h2>
+              <h2>{{service.service_name.name}} – {{service.duration}} min<span slot="end">$ {{service.price}}</span></h2>
               <h5>{{service.description}}</h5>
             </ion-label>
           </ion-item>
@@ -88,7 +88,7 @@
           </h4>
           <p>{{review.description}}</p>
           <img src="{{reviewUrl}}{{review.image}}" *ngIf="review.image != null">
-          <h5>Lisa F.  {{dateStringify(review.created_at)}}</h5>
+          <h5>{{review.username}}  {{dateStringify(review.created_at)}}</h5>
         </div>
       </div>
 

@@ -314,12 +314,8 @@ export class AppointmentmodalPage implements OnInit {
   }
   
   async visaPay(){
-<<<<<<< HEAD
-    this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
-=======
     this.stripe.setPublishableKey('pk_test_51JwyVGEDfScRvyn3VD4lrKiNBkdBVvFZjV1XKQeKcBWBUr6Yp9kAIf3dsqWmeXLLkCeufUJmTuVGFlY95Kirakv300Czfe5zDT');
     // this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
->>>>>>> 5eea4a03984971f4ef8e114b11d7434b212bf810
     var token = localStorage.getItem('token');
     let card;
 
@@ -352,21 +348,6 @@ export class AppointmentmodalPage implements OnInit {
             .subscribe(res => {
               if(res["status"] == 200){
                 if(res["data"][0].status == "succeeded"){
-<<<<<<< HEAD
-                  var data = {
-                    api_token: localStorage.getItem('token'),
-                    professional_id: this.professional_id,
-                    service_id: this.service_id,
-                    salon_id: this.salon_id,
-                    year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
-                    month: this.date.toLocaleDateString("en-US", { month: 'long' }),
-                    date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
-                    day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
-                    time: this.datas[0].time,
-                    price: this.orginal_price,
-                    tip: this.tip_price,
-                    tax: 0
-=======
                   if(this.multi == false){
                     var data = {
                       api_token: localStorage.getItem('token'),
@@ -431,18 +412,7 @@ export class AppointmentmodalPage implements OnInit {
                     }, (err) => {
                       console.log(err);
                     });
->>>>>>> 5eea4a03984971f4ef8e114b11d7434b212bf810
                   }
-                  this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
-                  .subscribe(res => {
-                    loading.dismiss();
-                    if(res["status"] == 200){
-                      this.paymentSuccess();
-                      this.modalCtrl.dismiss();
-                    }
-                  }, (err) => {
-                    console.log(err);
-                  });
                 }
               }else{
                 this.toastMessage("Failed in Stripe payment");

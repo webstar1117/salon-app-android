@@ -196,7 +196,7 @@
           </h4>
           <p>{{review.description}}</p>
           <img src="{{reviewUrl}}{{review.image}}" *ngIf="review.image != null">
-          <h5>Lisa F.  {{dateStringify(review.created_at)}}</h5>
+          <h5>{{review.username}}  {{dateStringify(review.created_at)}}</h5>
         </div>
       </div>
     </div>

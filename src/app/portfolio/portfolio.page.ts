@@ -48,6 +48,19 @@ export class PortfolioPage implements OnInit {
     .subscribe(res => {
       if(res["status"] == 200){
         this.professionals = [res["data"]["professional"]];
+        for(var i in this.professionals[0].reviews){
+          var fname = this.professionals[0].reviews[i]["user"]["firstname"];
+          var lname = this.professionals[0].reviews[i]["user"]["lastname"];
+          if(fname != null && lname != null){
+            this.professionals[0].reviews[i]["username"] = fname + " " + lname;
+          }else if(fname != null && lname == null){
+            this.professionals[0].reviews[i]["username"] = fname;
+          }else if(fname == null && lname != null){
+            this.professionals[0].reviews[i]["username"] = lname;
+          }else{
+            this.professionals[0].reviews[i]["username"] = this.professionals[0].reviews[i]["user"]["email"];
+          }
+        }
       }
     }, (err) => {
       console.log(err);
