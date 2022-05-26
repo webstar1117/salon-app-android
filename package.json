@@ -43,6 +43,7 @@
     "@ionic/angular-server": "^6.1.1",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.28.1",
+    "cordova-android": "10.1.2",
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-nativegeocoder": "^3.4.1",
@@ -78,15 +79,16 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "cordova-android": "^10.1.2",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
+    "cordova-ios": "^6.2.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-camera": "^6.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-googlemaps": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
     "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git",
+    "cordova-plugin-googleplus": "^8.5.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -143,13 +145,14 @@
         "ANDROIDX_CORE_VERSION": "1.6.+"
       },
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.184564234091-o3hr1ci6cuq2mtv0jabqkta31dpmm0iq",
-        "CLIENT_ID": "184564234091-o3hr1ci6cuq2mtv0jabqkta31dpmm0iq.apps.googleusercontent.com",
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.184564234091-g4ga51849m1nmmeuou1kqtejur5ck6gs",
+        "CLIENT_ID": "184564234091-g4ga51849m1nmmeuou1kqtejur5ck6gs.apps.googleusercontent.com",
         "PLAY_SERVICES_VERSION": "15.0.1"
       }
     },
     "platforms": [
       "browser",
+      "ios",
       "android"
     ]
   }

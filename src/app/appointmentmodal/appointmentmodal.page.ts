@@ -17,6 +17,7 @@ export class AppointmentmodalPage implements OnInit {
   professional_id: any;
   service_id: any;
   salon_id: any;
+  appointment_id: any;
   multidata: any;
   datas: any;
   date: any = new Date();
@@ -155,6 +156,7 @@ export class AppointmentmodalPage implements OnInit {
       this.professional_id = this.navParams.get('professional_id');
       this.service_id = this.navParams.get('service_id');
       this.salon_id = this.navParams.get('salon_id');
+      this.appointment_id = this.navParams.get('appointment_id');
       this.getOneData();
     }else{
       this.multidata = this.navParams.get('data');
@@ -243,7 +245,26 @@ export class AppointmentmodalPage implements OnInit {
   onCurrentDateChanged(ev: Date, key)
   {
     this.datas[key].date = ev;
+    this.date = ev;
     this.datas[key].dateString = this.datas[key].date.toLocaleDateString("en-US", { weekday: 'long', day: 'numeric', month: 'short' })
+    var params = {
+      professional_id: this.datas[key]["professional"]["id"],
+      service_id: this.datas[key]["service"]["id"],
+      salon_id: this.datas[key]["service"]["salon_id"],
+      year: this.datas[key].date.toLocaleDateString("en-US", { year: 'numeric'}),
+      month: this.datas[key].date.toLocaleDateString("en-US", { month: 'long' }),
+      date: this.datas[key].date.toLocaleDateString("en-US", { day: 'numeric' }),
+      day: this.datas[key].date.toLocaleDateString("en-US", { weekday: 'long' })
+    }
+    this.http.post(this.apiUrl+"appointment/time-list", JSON.stringify(params), this.httpOptions)
+    .subscribe(res => {
+      console.log(res);
+      if(res["status"] == 200){
+        this.datas[key]['time_list'] = res["data"];
+      }
+    }, (err) => {
+      console.log(err);
+    });
   };
 
   setTime(time, key){
@@ -264,13 +285,18 @@ export class AppointmentmodalPage implements OnInit {
 
   nextStep(){
     var time = true;
+    var date = true;
     for(var key in this.datas){
       if(this.datas[key].time == ""){
         time = false;
         break;
       }
+      if(this.datas[key].date < new Date()){
+        date = false
+      }
     }
-    if(time){
+    
+    if(time && date){
       for(var key in this.datas){
         this.datas[key].editable = false;
       }
@@ -280,13 +306,20 @@ export class AppointmentmodalPage implements OnInit {
         this.title = 'Payment Information';
         this.payable = true;
       }
+    }else if(!date){
+      this.toastMessage("Please select available date. Cannot select past date.")
     }else{
       this.toastMessage("Please select time.")
     }
   }
   
   async visaPay(){
+<<<<<<< HEAD
     this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
+=======
+    this.stripe.setPublishableKey('pk_test_51JwyVGEDfScRvyn3VD4lrKiNBkdBVvFZjV1XKQeKcBWBUr6Yp9kAIf3dsqWmeXLLkCeufUJmTuVGFlY95Kirakv300Czfe5zDT');
+    // this.stripe.setPublishableKey('pk_live_51JwyVGEDfScRvyn3j8YQM4l9uTTKZlz0TLWacwe9eXH7mc5KDBlVSk99nuoL8BhQDb7N0dtNpGRy0ayilZ7p2v3R00ODJoMc4F');
+>>>>>>> 5eea4a03984971f4ef8e114b11d7434b212bf810
     var token = localStorage.getItem('token');
     let card;
 
@@ -319,6 +352,7 @@ export class AppointmentmodalPage implements OnInit {
             .subscribe(res => {
               if(res["status"] == 200){
                 if(res["data"][0].status == "succeeded"){
+<<<<<<< HEAD
                   var data = {
                     api_token: localStorage.getItem('token'),
                     professional_id: this.professional_id,
@@ -332,6 +366,72 @@ export class AppointmentmodalPage implements OnInit {
                     price: this.orginal_price,
                     tip: this.tip_price,
                     tax: 0
+=======
+                  if(this.multi == false){
+                    var data = {
+                      api_token: localStorage.getItem('token'),
+                      professional_id: this.datas[0]["professional"]["id"],
+                      service_id: this.datas[0]["service"]["id"],
+                      salon_id: this.datas[0]["service"]["salon_id"],
+                      appointment_id: this.appointment_id,
+                      year: this.datas[0]["date"].toLocaleDateString("en-US", { year: 'numeric'}),
+                      month: this.datas[0]["date"].toLocaleDateString("en-US", { month: 'long' }),
+                      date: this.datas[0]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
+                      day: this.datas[0]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
+                      time: this.datas[0].time,
+                      price: this.orginal_price,
+                      tip: this.tip_price,
+                      tax: 0
+                    }
+                    this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
+                    .subscribe(res => {
+                      loading.dismiss();
+                      if(res["status"] == 200){
+                        this.paymentSuccess();
+                        this.modalCtrl.dismiss();
+                      }else{
+                        this.toastMessage("Failed to add data");
+                      }
+                    }, (err) => {
+                      console.log(err);
+                    });
+                  }else{
+                    let multidata = []; 
+                    for(var i in this.datas){
+                      let data = {
+                        professional_id: this.datas[i]["professional"]["id"],
+                        service_id: this.datas[i]["service"]["id"],
+                        salon_id: this.datas[i]["service"]["salon_id"],
+                        year: this.datas[i]["date"].toLocaleDateString("en-US", { year: 'numeric'}),
+                        month: this.datas[i]["date"].toLocaleDateString("en-US", { month: 'long' }),
+                        date: this.datas[i]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
+                        day: this.datas[i]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
+                        time: this.datas[i].time,
+                        price: this.datas[i]["service"]["price"],
+                        tip: this.tip_price,
+                        tax: 0
+                      }
+                      multidata.push(data);
+                    }
+                    let requestData = {
+                      api_token: localStorage.getItem('token'),
+                      data: multidata
+                    }
+                    console.log(requestData);
+                    this.http.post(this.apiUrl+"appointment/add-multi", JSON.stringify(requestData), this.httpOptions)
+                    .subscribe(res => {
+                      console.log(res);
+                      loading.dismiss();
+                      if(res["status"] == 200){
+                        this.paymentSuccess();
+                        this.modalCtrl.dismiss();
+                      }else{
+                        this.toastMessage("Failed to add data");
+                      }
+                    }, (err) => {
+                      console.log(err);
+                    });
+>>>>>>> 5eea4a03984971f4ef8e114b11d7434b212bf810
                   }
                   this.http.post(this.apiUrl+"appointment/add", JSON.stringify(data), this.httpOptions)
                   .subscribe(res => {

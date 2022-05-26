@@ -15,6 +15,7 @@ export class BusinessPage implements OnInit {
   bname: string;
   btype: string;
   businessTypes: any;
+  isSending: boolean = false;
   avatar: any;
   avatarUrl: any = 'assets/imgs/user.png';
   
@@ -29,6 +30,7 @@ export class BusinessPage implements OnInit {
     private toastCtrl: ToastController) { }
 
   ngOnInit() {
+    this.isSending = false;
     this.getBusinessType();
   }
 
@@ -45,16 +47,22 @@ export class BusinessPage implements OnInit {
   }
 
   saveProfile(){
+    this.isSending = true;
     if(this.fname == undefined){
       this.toastMessage('Please input first name');
+      this.isSending = false;
     }else if(this.lname == undefined){
       this.toastMessage('Please input last name');
+      this.isSending = false;
     }else if(this.bname == undefined){
       this.toastMessage('Please input business name');
+      this.isSending = false;
     }else if(this.btype == undefined){
       this.toastMessage('Please select business type');
+      this.isSending = false;
     }else if(this.avatar == undefined){
       this.toastMessage('Please upload profile image');
+      this.isSending = false;
     }else{
       let formData = new FormData();
       formData.append("api_token", localStorage.getItem('token'));
@@ -66,16 +74,18 @@ export class BusinessPage implements OnInit {
   
       this.http.post(this.apiUrl+"business/add-name-and-image", formData)
         .subscribe(res => {
-          if(res["status"] == 200){
+          if(res["status"] == 500){
             this.toastMessage(res["message"]);
             this.navCtrl.navigateForward('businesssetup', {state: {salon_id: res["data"][0]}});
           }else{
+            this.isSending = false;
             for(let key in res["message"]){
               this.toastMessage(res["message"][key]);
             }
           }
         }, (err) => {
           console.log(err);
+          this.isSending = false;
         });
     }
   }
@@ -93,21 +103,10 @@ export class BusinessPage implements OnInit {
     modal.onDidDismiss()
     .then((data:any) => {
       this.avatar = data.data.avatar;
-      // if(this.avatar != null){
-      //   this.readFile(this.avatar);
-      // }
+      this.avatarUrl = data.data.avatarUrl;
     });
     
     return await modal.present();
-  }
-
-  readFile(file){
-    let reader = new FileReader();
-    let point = this;
-    reader.onload = (_event) => { 
-      point.avatarUrl = reader.result;
-    }
-    reader.readAsDataURL(file);
   }
 
   async toastMessage(msg){

@@ -1,7 +1,6 @@
 
 <ion-header class="ion-no-border">
   <ion-toolbar mode="md">
-    <ion-title mode="md" class="ion-text-center">{{title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear" (click)="close()">
         <ion-icon slot="icon-only" name="close-outline"></ion-icon>
@@ -54,27 +53,8 @@
     </div>
   </div>
 
-  <div class="settings">
-    <ion-grid class="ion-no-padding" fixed>
-      <ion-row>
-        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
-          <img src="assets/imgs/envelope.png" alt="">
-          <p>Send to my email</p>
-        </ion-col>
-        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
-          <img src="assets/imgs/calendar.png" alt="">
-          <p>Add to my calendar</p>
-        </ion-col>
-        <ion-col size="4" class="animate__animated animate__zoomIn animate__delay-1s animate__faster ion-text-center">
-          <img src="assets/imgs/location.png" alt="">
-          <p>Get directions</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-
   <div class="bottom">
-    <ion-button (click)="close()">Choose another service</ion-button>
+    <ion-button (click)="goHome()">Choose another service</ion-button>
   </div>
 
 </ion-content>

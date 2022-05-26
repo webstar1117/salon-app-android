@@ -45,19 +45,15 @@
         <div class="buttons">
           <ion-grid>
             <ion-row>
-              <ion-col size="3">
-                <img src="assets/imgs/location.png">
-                <p>Get direction</p>
-              </ion-col>
-              <ion-col size="3" (click)="repeatAppointment(appointment)">
+              <ion-col size="4" (click)="repeatAppointment(appointment)">
                 <img src="assets/imgs/repeat.png">
                 <p>Repeat</p>
               </ion-col>
-              <ion-col size="3" (click)="changeAppointment(appointment)">
+              <ion-col size="4" (click)="changeAppointment(appointment)">
                 <img src="assets/imgs/edit.png">
                 <p>Change</p>
               </ion-col>
-              <ion-col size="3" (click)="cancelAppointment(appointment.id)">
+              <ion-col size="4" (click)="cancelAppointment(appointment.id)">
                 <img src="assets/imgs/cancel.png">
                 <p>Cancel</p>
               </ion-col>

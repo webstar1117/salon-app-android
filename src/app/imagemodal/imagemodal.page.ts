@@ -30,6 +30,7 @@ export class ImagemodalPage implements OnInit {
     quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
     sourceType: this.camera.PictureSourceType.CAMERA,
+    correctOrientation: true,
   }
   optionsForPhotoFile: CameraOptions = {
     quality: 50,
@@ -205,7 +206,7 @@ export class ImagemodalPage implements OnInit {
           });
         }
     }else if(this.type == 'business' || this.type == 'professional' || this.type == "portfolio" || this.type == "review"){
-      this.modalCtrl.dismiss({avatar: this.image});
+      this.modalCtrl.dismiss({avatar: imageData, avatarUrl: this.image});
     }else if(this.type == 'salon'){
       var salon_id = this.navParams.get('salon_id');
       if(this.image == undefined){
@@ -213,7 +214,7 @@ export class ImagemodalPage implements OnInit {
       }else{
         let formData = new FormData();
         formData.append("salon_id", salon_id);
-        formData.append("image", this.image);  
+        formData.append("image", imageData);  
         this.http.post(this.apiUrl+"business/upload-business-image", formData)
           .subscribe(res => {
             if(res["status"] == 200){

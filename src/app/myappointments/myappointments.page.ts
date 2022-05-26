@@ -63,7 +63,13 @@ export class MyappointmentsPage implements OnInit {
           }else{
             newhour = hour;
           }
-          this.upcoming[i].end_time = newhour + ":" + min + " " + m;
+          var newMin;
+          if(min < 10){
+            newMin = "0" + min;
+          }else{
+            newMin = min;
+          }
+          this.upcoming[i].end_time = newhour + ":" + newMin + " " + m;
         }
       }
     }, (err) => {
@@ -97,7 +103,13 @@ export class MyappointmentsPage implements OnInit {
           }else{
             newhour = hour;
           }
-          this.archieve[i].end_time = newhour + ":" + min + " " + m;
+          var newMin;
+          if(min < 10){
+            newMin = "0" + min;
+          }else{
+            newMin = min;
+          }
+          this.archieve[i].end_time = newhour + ":" + newMin + " " + m;
         }
       }
     }, (err) => {
@@ -130,16 +142,25 @@ export class MyappointmentsPage implements OnInit {
     return await modal.present();
   }
 
-  changeAppointment(appointment){
-    this.http.post(this.apiUrl+"my-appointment/cancel-appointment", JSON.stringify({appointment_id: appointment.id}), this.httpOptions)
-      .subscribe(res => {
-        if(res["status"] == 200){
-          this.getUpcoming();
-        }
-      }, (err) => {
-        console.log(err);
-      });
-    this.repeatAppointment(appointment);
+  async changeAppointment(appointment){
+    var professional_id = appointment.professional_id;
+    var service_id = appointment.service_id;
+    var salon_id = appointment.salon_id;
+    var appointment_id = appointment.id;
+    const modal = await this.modalCtrl.create({
+      component: AppointmentmodalPage,
+      componentProps: {multi: false, professional_id: professional_id, service_id: service_id, salon_id: salon_id, appointment_id: appointment_id},
+      cssClass: 'appointmodal',
+      mode:'ios',
+      swipeToClose:true,
+      presentingElement: await this.modalCtrl.getTop()
+    });
+
+    modal.onDidDismiss()
+    .then((data:any) => {
+    });
+    
+    return await modal.present();
   }
 
   async cancelAppointment(appointment_id){

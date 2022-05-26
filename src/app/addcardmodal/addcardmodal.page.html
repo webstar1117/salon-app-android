@@ -24,7 +24,7 @@
             <ion-input type="text" [maxlength]="cardNumMaxLength" placeholder="4444 4444 4444 4444" [value]="cardNumber" (keyup)="validateCardNumber($event)"></ion-input>
           </ion-col>
           <ion-col size="2">
-            <ion-input type="text" placeholder="12/23" (value)="expireDate" (keyup)="validateExpiryDate($event)"></ion-input>
+            <ion-input type="text" placeholder="12/23" [value]="expireDate" (keyup)="validateExpiryDate($event)"></ion-input>
           </ion-col>
           <ion-col size="2">
             <ion-input type="text" [disabled]="!validated" [maxlength]="cvvMaxLength" placeholder="444" [value]="cvv" (keyup)="validateCVV($event)"></ion-input>

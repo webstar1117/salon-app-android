@@ -22,6 +22,7 @@ export class PortfolioPage implements OnInit {
   category:any = 'portfolio';
   professionals: any;
   guest: boolean = true;
+  favorite: false;
   professionalUrl = 'https://hairday.app/assets/images/professionals/';
   avatarUrl = 'https://hairday.app/assets/images/professional-avatars/';
   reviewUrl = 'https://hairday.app/assets/images/reviews/';
@@ -52,6 +53,8 @@ export class PortfolioPage implements OnInit {
       console.log(err);
     });
 
+    this.checkFavorite();
+
     if(localStorage.getItem("token") != null){
       this.guest = false;
     }
@@ -67,12 +70,27 @@ export class PortfolioPage implements OnInit {
     return date.toLocaleDateString("en-US", { month: 'short', day: 'numeric', year: "numeric"});
   }
 
+   checkFavorite(){
+    var detail = {professional_id: this.professional_id, api_token: localStorage.getItem('token')};
+    this.http.post(this.apiUrl+"professional/favorite/determine", JSON.stringify(detail), this.httpOptions)
+    .subscribe(res => {
+      if(res["status"] == 200){
+        this.favorite = res["data"];
+      }else{
+        this.favorite = false;
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
   addFavorite(){
     var professional = {professional_id: this.professional_id, api_token: localStorage.getItem('token')};
     this.http.post(this.apiUrl+"professional/favorite/add", JSON.stringify(professional), this.httpOptions)
     .subscribe(res => {
       if(res["status"] == 200){
         this.toastMessage(res["message"]);
+        this.checkFavorite();
       }else{
         for(let key in res["message"]){
           this.toastMessage(res["message"][key]);

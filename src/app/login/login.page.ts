@@ -35,6 +35,9 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+	if(localStorage.getItem('token')){
+      this.navCtrl.navigateRoot('home');
+    }
   }
 
 
@@ -91,10 +94,6 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('otpphoneinput');
   }
 
-  skip() {
-    this.navCtrl.navigateRoot('home');
-  }
-
   switchType() {
     if (this.ptype == 'password') {
       this.ptype = 'text';
@@ -107,22 +106,23 @@ export class LoginPage implements OnInit {
 
   withGoogle() {
     this.googlePlus.login({
-      webClientId: '184564234091-o3hr1ci6cuq2mtv0jabqkta31dpmm0iq.apps.googleusercontent.com',
+      webClientId: '184564234091-g4ga51849m1nmmeuou1kqtejur5ck6gs.apps.googleusercontent.com',
       offline: true,
     }).then((res: any) => {
       const data: any = [res]
       this.http.post(this.apiUrl + "login-social", {
         email: data[0].email
       })
-        .subscribe(res => {
-          if (res["status"] == 500) {
-            this.toastMessage("logged in successfully");
-            localStorage.setItem('token', res['data']['api_token']);
+        .subscribe(res1 => {
+          console.log('res1',JSON.stringify(res1))
+          if (res1["status"] == 200) {
+            this.toastMessage(res1["message"]);
+            localStorage.setItem('token', res1['data']['api_token']);
             localStorage.setItem('social', 'google');
             this.navCtrl.navigateRoot('home');
           } else {
-            for (let key in res["message"]) {
-              this.toastMessage(res["message"][key]);
+            for (let key in res1["message"]) {
+              this.toastMessage(res1["message"][key]);
             }
           }
         }, (err) => {
@@ -144,8 +144,8 @@ export class LoginPage implements OnInit {
             const userEmail = [user]
             this.http.post(this.apiUrl + "login-social", { email: userEmail[0].email })
               .subscribe(res => {
-                if (res["status"] == 500) {
-                  this.toastMessage("logged in successfully");
+                if (res["status"] == 200) {
+                  this.toastMessage(res["message"]);
                   localStorage.setItem('token', res['data']['api_token']);
                   localStorage.setItem('social', 'facebook');
                   this.navCtrl.navigateRoot('home');
@@ -159,7 +159,7 @@ export class LoginPage implements OnInit {
               });
           })
       }, error => {
-        this.toastMessage("error: " + error);
+        this.toastMessage("error: " + error.errorMessage );
       });
   }
 
