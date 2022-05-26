@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, NavParams, ToastController } from '@ionic/angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CalendarMode, Step } from 'ionic2-calendar/calendar';
-import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
-import { AddcardmodalPage } from '../addcardmodal/addcardmodal.page';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-paymentmodal',
@@ -33,7 +30,6 @@ export class PaymentmodalPage implements OnInit {
 
   close()
   {
-    this.navCtrl.navigateBack('home');
     this.modalCtrl.dismiss();
   }
 

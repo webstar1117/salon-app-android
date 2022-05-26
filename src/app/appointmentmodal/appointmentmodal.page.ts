@@ -266,13 +266,18 @@ export class AppointmentmodalPage implements OnInit {
 
   nextStep(){
     var time = true;
+    var date = true;
     for(var key in this.datas){
       if(this.datas[key].time == ""){
         time = false;
         break;
       }
+      if(this.datas[key].date < new Date()){
+        date = false
+      }
     }
-    if(time){
+    
+    if(time && date){
       for(var key in this.datas){
         this.datas[key].editable = false;
       }
@@ -282,6 +287,8 @@ export class AppointmentmodalPage implements OnInit {
         this.title = 'Payment Information';
         this.payable = true;
       }
+    }else if(!date){
+      this.toastMessage("Please select available date. Cannot select past date.")
     }else{
       this.toastMessage("Please select time.")
     }
