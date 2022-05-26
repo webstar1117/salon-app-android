@@ -33,6 +33,12 @@ export class PaymentmodalPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  goHome()
+  {
+    this.navCtrl.navigateRoot('home');
+    this.modalCtrl.dismiss();
+  }
+
   async toastMessage(msg){
     const toast = await this.toastCtrl.create({
       message: msg,

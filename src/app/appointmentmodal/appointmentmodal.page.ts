@@ -246,6 +246,24 @@ export class AppointmentmodalPage implements OnInit {
   {
     this.datas[key].date = ev;
     this.datas[key].dateString = this.datas[key].date.toLocaleDateString("en-US", { weekday: 'long', day: 'numeric', month: 'short' })
+    var params = {
+      professional_id: this.datas[key]["professional"]["id"],
+      service_id: this.datas[key]["service"]["id"],
+      salon_id: this.datas[key]["service"]["salon_id"],
+      year: this.datas[key].date.toLocaleDateString("en-US", { year: 'numeric'}),
+      month: this.datas[key].date.toLocaleDateString("en-US", { month: 'long' }),
+      date: this.datas[key].date.toLocaleDateString("en-US", { day: 'numeric' }),
+      day: this.datas[key].date.toLocaleDateString("en-US", { weekday: 'long' })
+    }
+    this.http.post(this.apiUrl+"appointment/time-list", JSON.stringify(params), this.httpOptions)
+    .subscribe(res => {
+      console.log(res);
+      if(res["status"] == 200){
+        this.datas[key]['time_list'] = res["data"];
+      }
+    }, (err) => {
+      console.log(err);
+    });
   };
 
   setTime(time, key){
