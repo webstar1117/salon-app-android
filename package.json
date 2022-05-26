@@ -43,7 +43,6 @@
     "@ionic/angular-server": "^6.1.1",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.28.1",
-    "cordova-android": "10.1.2",
     "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-nativegeocoder": "^3.4.1",
@@ -79,6 +78,7 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "card.io.cordova.mobilesdk": "^2.1.0",
+    "cordova-android": "^10.1.2",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
@@ -146,8 +146,8 @@
       },
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5",
-        "CLIENT_ID": "63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5.apps.googleusercontent.com",
-        "PLAY_SERVICES_VERSION": "15.0.1"
+        "WEB_APPLICATION_CLIENT_ID": "63484794242-bn7btns5js9o0i1iq2ebl1hf7c2n0g4c.apps.googleusercontent.com",
+        "CLIENT_ID": "63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5.apps.googleusercontent.com"
       }
     },
     "platforms": [

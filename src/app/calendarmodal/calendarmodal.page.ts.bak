@@ -23,7 +23,7 @@ export class CalendarmodalPage implements OnInit {
     setTimeout(()=>{
       this.show=true;
       this.ngzone.run(()=>{})
-    },30)
+    },20)
     this.onCurrentDateChanged(new Date());
    }
 

@@ -56,9 +56,9 @@
     },
     "is_top_level": true,
     "variables": {
-      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb",
-      "WEB_APPLICATION_CLIENT_ID": "991305834542-9jdd87auh6dofhdskdr4gbml739v7aqb.apps.googleusercontent.com",
-      "PLAY_SERVICES_VERSION": "15.0.1"
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5",
+      "WEB_APPLICATION_CLIENT_ID": "63484794242-bn7btns5js9o0i1iq2ebl1hf7c2n0g4c.apps.googleusercontent.com",
+      "CLIENT_ID": "63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5.apps.googleusercontent.com"
     }
   },
   "cordova-plugin-nativegeocoder": {
