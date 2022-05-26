@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "com.paypal.cordova.mobilesdk": {
-      "PACKAGE_NAME": "com.hairdayinc.hairday"
-    },
     "cordova-plugin-applepay": {
       "PACKAGE_NAME": "com.hairdayinc.hairday"
     },
@@ -70,9 +67,6 @@
     }
   },
   "dependent_plugins": {
-    "card.io.cordova.mobilesdk": {
-      "PACKAGE_NAME": "com.hairdayinc.hairday"
-    },
     "cordova-androidx-build": {
       "PACKAGE_NAME": "com.hairdayinc.hairday"
     },
