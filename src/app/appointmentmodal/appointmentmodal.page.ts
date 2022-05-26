@@ -245,6 +245,7 @@ export class AppointmentmodalPage implements OnInit {
   onCurrentDateChanged(ev: Date, key)
   {
     this.datas[key].date = ev;
+    this.date = ev;
     this.datas[key].dateString = this.datas[key].date.toLocaleDateString("en-US", { weekday: 'long', day: 'numeric', month: 'short' })
     var params = {
       professional_id: this.datas[key]["professional"]["id"],
@@ -350,14 +351,14 @@ export class AppointmentmodalPage implements OnInit {
                   if(this.multi == false){
                     var data = {
                       api_token: localStorage.getItem('token'),
-                      professional_id: this.professional_id,
-                      service_id: this.service_id,
-                      salon_id: this.salon_id,
+                      professional_id: this.datas[0]["professional"]["id"],
+                      service_id: this.datas[0]["service"]["id"],
+                      salon_id: this.datas[0]["service"]["salon_id"],
                       appointment_id: this.appointment_id,
-                      year: this.date.toLocaleDateString("en-US", { year: 'numeric'}),
-                      month: this.date.toLocaleDateString("en-US", { month: 'long' }),
-                      date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
-                      day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
+                      year: this.datas[0]["date"].toLocaleDateString("en-US", { year: 'numeric'}),
+                      month: this.datas[0]["date"].toLocaleDateString("en-US", { month: 'long' }),
+                      date: this.datas[0]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
+                      day: this.datas[0]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
                       time: this.datas[0].time,
                       price: this.orginal_price,
                       tip: this.tip_price,
