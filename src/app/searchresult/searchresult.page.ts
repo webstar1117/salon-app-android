@@ -123,7 +123,19 @@ export class SearchresultPage implements OnInit {
     .subscribe(res => {
       console.log(res);
       if(res["status"] == 200){
-        this.salons = [res["data"]["salon"]];                     
+        this.salons = [res["data"]["salon"]];
+        var salon_image_count = this.salons[0].salon_images.length;
+        if(salon_image_count < 4){
+          this.salons[0].salon_slider = {
+            initialSlide: 0,
+            slidesPerView:salon_image_count,
+          }
+        }else{
+          this.salons[0].salon_slider = {
+            initialSlide: 0,
+            slidesPerView:4,
+          }
+        }
         let today = new Date();
         let week = today.getDay();
         for(let i in this.salons){
