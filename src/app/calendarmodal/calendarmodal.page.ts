@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import { NavController, ModalController, NavParams } from '@ionic/angular';
 import { format } from "date-fns";
 
@@ -16,10 +16,14 @@ export class CalendarmodalPage implements OnInit {
   viewTitle;
   day: any;
   time: any;
-  
-  constructor(private navCtrl: NavController, private modalCtrl: ModalController, private navParams: NavParams) { }
+  show=false;
+  constructor(public ngzone:NgZone,private navCtrl: NavController, private modalCtrl: ModalController, private navParams: NavParams) { }
  
   ngOnInit() { 
+    setTimeout(()=>{
+      this.show=true;
+      this.ngzone.run(()=>{})
+    },20)
     this.onCurrentDateChanged(new Date());
    }
 
