@@ -54,10 +54,10 @@
                 </div>
                 <ion-label>
                   <div class="title flex al-center" >
-                    <p>{{salon.name}} <span>2.9 mi</span></p>
+                    <p>{{salon.name}}</p>
                   </div>
                   <div class="status flex al-center" >
-                     <p><ion-icon name="star"></ion-icon> {{salon.review_rate != null ? salon.review_rate : '0.0'}} ({{salon.review_count != null ? salon.review_count : '0'}} reviews) <span> Beauty Salon</span></p>
+                     <p><ion-icon name="star"></ion-icon> {{salon.review_rate != null ? (salon.review_rate | number:'1.2-2') : '0.0'}} ({{salon.review_count != null ? salon.review_count : '0'}} reviews) <span> Beauty Salon</span></p>
                   </div>
                   <div class="time flex al-center" >
                     <p>Open now: <span *ngIf="salon.opening_hour != null">{{salon.opening_hour.open_time}} – {{salon.opening_hour.close_time}}</span> </p>
@@ -111,7 +111,7 @@
                     <p>Cosmetologist</p>
                   </div>
                   <div class="status flex al-center" >
-                     <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? professional.review_rate : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
+                     <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? (professional.review_rate | number:'1.2-2') : '0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
                   </div>
                   <ion-button expand="block">Haircut from $30</ion-button>
                 </ion-label>

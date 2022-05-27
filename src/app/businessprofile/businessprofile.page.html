@@ -114,7 +114,7 @@
                       <p>{{professional.professional_skill.name}}</p>
                     </div>
                     <div class="status flex al-center" >
-                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate}} ({{professional.review_count}} reviews)</p>
+                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? (professional.review_rate | number:'1.2-2') :'0.0'}} ({{professional.review_count != null ? professional.review_count : '0'}} reviews)</p>
                     </div>
                     <ion-button>{{professional.first_service_name}} from ${{professional.first_service_price}}</ion-button>
                   </ion-label>

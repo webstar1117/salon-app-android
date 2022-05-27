@@ -32,7 +32,7 @@
                   <p>{{data.value.professional.professional_skill.name}}</p>
                 </div>
                 <div class="status flex al-center" >
-                  <p><ion-icon name="star"></ion-icon> {{data.value.professional.review_rate != null ? data.value.professional.review_rate :'0.0'}} ({{data.value.professional.review_count != null ? data.value.professional.review_count : '0'}} reviews)</p>
+                  <p><ion-icon name="star"></ion-icon> {{data.value.professional.review_rate != null ? (data.value.professional.review_rate | number:'1.2-2') :'0.0'}} ({{data.value.professional.review_count != null ? data.value.professional.review_count : '0'}} reviews)</p>
                 </div>
               </ion-label>
             </ion-item>

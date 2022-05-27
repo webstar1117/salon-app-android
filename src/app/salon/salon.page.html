@@ -28,7 +28,7 @@
                   <p>{{detail.name}}</p>
                 </div>
                 <div class="status flex al-center" >
-                  <p><ion-icon name="star"></ion-icon> {{detail.review_rate != null ? detail.review_rate : '0.0'}} ({{detail.review_count}} reviews) <span> Beauty Salon</span></p>
+                  <p><ion-icon name="star"></ion-icon> {{detail.review_rate != null ? (detail.review_rate | number:'1.2-2') : '0.0'}} ({{detail.review_count}} reviews) <span> Beauty Salon</span></p>
                 </div>
                 <div class="location flex al-center" >
                   <p><ion-icon name="location-outline"></ion-icon> {{detail.zip_code}} {{detail.state}} {{detail.street}} <span> 2.9 mi </span><ion-icon name="open-outline"></ion-icon></p>
@@ -120,7 +120,7 @@
                       <p>{{professional.professional_skill.name}}</p>
                     </div>
                     <div class="status flex al-center" >
-                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate}} ({{professional.review_count}} reviews)</p>
+                      <p><ion-icon name="star"></ion-icon> {{professional.review_rate != null ? (professional.review_rate | number:'1.2-2') : '0.0'}} ({{professional.review_count}} reviews)</p>
                     </div>
                     <ion-button>{{professional.first_service_name}} from ${{professional.first_service_price}}</ion-button>
                   </ion-label>
