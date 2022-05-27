@@ -14,6 +14,7 @@ export class ProfessionalPage implements OnInit {
   service_id:any = 1;
   professionals: any;
   salon_id: any;
+  empty = false;
   professionalUrl = 'https://hairday.app/assets/images/professionals/';
   avatarUrl = 'https://hairday.app/assets/images/professional-avatars/';
   apiUrl = 'https://hairday.app/api/';
@@ -47,6 +48,9 @@ export class ProfessionalPage implements OnInit {
               slidesPerView:3.6,
             };
           }
+        }
+        if(this.professionals.length == 0){
+          this.empty = true;
         }
       }
     }, (err) => {

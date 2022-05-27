@@ -136,6 +136,11 @@ export class SearchresultPage implements OnInit {
             slidesPerView:4,
           }
         }
+        if(this.salons.length == 0){
+          this.empty = true;
+        }else{
+          this.empty = false;
+        }
         let today = new Date();
         let week = today.getDay();
         for(let i in this.salons){

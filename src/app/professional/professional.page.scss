@@ -147,5 +147,18 @@ ion-content
                 }
             }
         }
+        #empty
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p
+            {
+                color: #1e1e1e;
+                font-family: 'PoppinsMedium';
+                font-size: 16px;
+            }
+        }
     }
 }
