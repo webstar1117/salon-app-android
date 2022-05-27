@@ -29,7 +29,7 @@ export class ProfessionalPage implements OnInit {
       this.service_id = params.service_id
     }
 
-    this.http.get(this.apiUrl+"professionals-by-service/"+this.service_id, this.httpOptions)
+    this.http.get(this.apiUrl+"professionals-by-service/"+this.service_id+"/"+this.salon_id, this.httpOptions)
     .subscribe(res => {
       if(res["status"] == 200){
         this.title = res["data"]["name"];

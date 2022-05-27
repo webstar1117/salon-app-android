@@ -56,7 +56,13 @@ export class AppointmentdetailPage implements OnInit {
     }else{
       newhour = hour;
     }
-    this.end_time = newhour + ":" + min + " " + m;
+    var newMin;
+    if(min < 10){
+      newMin = "0" + min;
+    }else{
+      newMin = min;
+    }
+    this.end_time = newhour + ":" + newMin + " " + m;
   }
 
   close()

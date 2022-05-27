@@ -144,7 +144,7 @@ export class BusinessprofilePage implements OnInit {
   }
 
   preview(){
-    this.navCtrl.navigateForward('salon');
+    this.navCtrl.navigateForward('salon', {state: {salon_id: this.salon_id}});
   }
 
   segmentChanged(category)
