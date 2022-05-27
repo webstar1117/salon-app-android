@@ -50,6 +50,9 @@
           </ion-row>
         </ion-grid>
       </div>
+      <div class="card" *ngIf="empty" id="empty">
+        <p>No Professionals related with {{title}}</p>
+      </div>
     </div>
   </div>
 </ion-content>
