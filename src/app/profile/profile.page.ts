@@ -20,97 +20,107 @@ export class ProfilePage implements OnInit {
   };
   constructor(private navCtrl: NavController, private http: HttpClient, private googlePlus: GooglePlus, private fb: Facebook) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
   ionViewWillEnter(): void {
-    this.http.post(this.apiUrl+"profile", JSON.stringify({api_token: localStorage.getItem('token')}), this.httpOptions)
-    .subscribe(res => {
-      if(res["status"] == 200){
-        var fname = res["data"]["user"]["firstname"];
-        var lname = res["data"]["user"]["lastname"];
-        console.log(res["data"]);
-        if(fname != null && lname != null){
-          this.name = fname + " " + lname;
-        }else if(fname != null && lname == null){
-          this.name = fname;
-        }else if(fname == null && lname != null){
-          this.name = lname;
-        }else{
-          this.name = res["data"]["user"]["email"];
-        }
-        
-        var avatar = res["data"]["user"]["avatar"];
-        if(avatar != null){
-          this.avatarUrl = 'https://hairday.app/assets/images/avatars/'+avatar;
-        }
+    this.http.post(this.apiUrl + "profile", JSON.stringify({ api_token: localStorage.getItem('token') }), this.httpOptions)
+      .subscribe(res => {
+        if (res["status"] == 200) {
+          var fname = res["data"]["user"]["firstname"];
+          var lname = res["data"]["user"]["lastname"];
+          console.log(res["data"]);
+          if (fname != null && lname != null) {
+            this.name = fname + " " + lname;
+          } else if (fname != null && lname == null) {
+            this.name = fname;
+          } else if (fname == null && lname != null) {
+            this.name = lname;
+          } else {
+            this.name = res["data"]["user"]["email"];
+          }
 
-        var salons = res["data"]["salons"];
-        if(salons != null){
-          this.newBusiness = false;
+          var avatar = res["data"]["user"]["avatar"];
+          if (avatar != null) {
+            this.avatarUrl = 'https://hairday.app/assets/images/avatars/' + avatar;
+          }
+
+          var salons = res["data"]["salons"];
+          if (salons != null) {
+            this.newBusiness = false;
+          }
         }
-      }
-    }, (err) => {
-      console.log(err);
-    });
+      }, (err) => {
+        console.log(err);
+      });
   }
 
-  close(){
+  close() {
     this.navCtrl.navigateBack('home');
   }
 
-  editProfile(){
+  editProfile() {
     this.navCtrl.navigateForward("profilesetting");
   }
 
-  cards(){
+  cards() {
     this.navCtrl.navigateForward("cards");
   }
 
-  myAppointments(){
+  myAppointments() {
     this.navCtrl.navigateForward('myappointments');
   }
 
-  favorite(){
+  favorite() {
     this.navCtrl.navigateForward('favorite');
   }
 
-  business(){
-    if(this.newBusiness){
+  business() {
+    if (this.newBusiness) {
       this.navCtrl.navigateForward('business');
-    }else{
+    } else {
       this.navCtrl.navigateForward('mybusiness')
     }
   }
 
-  signout()
-  {
-    if(localStorage.getItem('location') != null){
+  signout() {
+    if (localStorage.getItem('location') != null) {
       localStorage.removeItem('location');
-    }else if(sessionStorage.getItem('location') != null){
+    } else if (sessionStorage.getItem('location') != null) {
       sessionStorage.removeItem('location');
     }
-    if(localStorage.getItem("social") != null){
-      if(localStorage.getItem("social") == "google"){
-        this.googlePlus.logout()
-        .then(res => {
-          // user logged out so we will remove him from the NativeStorage
-          localStorage.removeItem("social");
-          localStorage.removeItem("token");
-          this.navCtrl.navigateRoot('login');
-        }, err =>{
-          console.log(err);
-        })
-      }else if(localStorage.getItem("social") == "facebook"){
+    if (localStorage.getItem("social") != null) {
+      if (localStorage.getItem("social") == "google") {
+        this.googlePlus.trySilentLogin({}).then(res => {
+          this.googlePlus.logout().then(res => {
+            // user logged out so we will remove him from the NativeStorage
+            localStorage.removeItem("social");
+            localStorage.removeItem("token");
+            this.navCtrl.navigateRoot('login');
+          }).catch(error => {
+            console.log(error);
+          });
+        }).catch(error => {
+          this.googlePlus.disconnect().then(res => {
+            localStorage.removeItem("social");
+            localStorage.removeItem("token");
+            this.navCtrl.navigateRoot('login');
+          }).catch(error => {
+            console.log(error);
+          });
+          console.log(error);
+        });
+
+      } else if (localStorage.getItem("social") == "facebook") {
         this.fb.logout()
-        .then(res => {
-          localStorage.removeItem("social");
-          localStorage.removeItem("token");
-          this.navCtrl.navigateRoot('login');
-        }, err =>{
-          console.log(err);
-        })
+          .then(res => {
+            localStorage.removeItem("social");
+            localStorage.removeItem("token");
+            this.navCtrl.navigateRoot('login');
+          }, err => {
+            console.log(err);
+          })
       }
-    }else{
+    } else {
       localStorage.removeItem("token");
       this.navCtrl.navigateRoot('login');
     }

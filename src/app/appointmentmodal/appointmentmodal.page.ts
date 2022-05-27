@@ -286,13 +286,31 @@ export class AppointmentmodalPage implements OnInit {
   nextStep(){
     var time = true;
     var date = true;
-    for(var key in this.datas){
+    for(var key in this.datas){      
       if(this.datas[key].time == ""){
         time = false;
         break;
-      }
-      if(this.datas[key].date < new Date()){
-        date = false
+      }else{
+        var currentYear = new Date().getFullYear();
+        var currentMonth = new Date().getMonth();
+        var currentDate = new Date().getDate();
+        var currentHour = new Date().getHours();
+        var currentMin = new Date().getMinutes();
+        var year = this.datas[key].date.getFullYear();
+        var month = this.datas[key].date.getMonth();
+        var day = this.datas[key].date.getDate();
+        var hour = this.datas[key].time.split(":")[0];
+        if(this.datas[key].time.indexOf("am") != -1){
+          hour = Number(hour);
+        }else{
+          hour = Number(hour) + Number(12);
+        }
+        var min = this.datas[key].time.split(":")[1].substr(0, 2);
+        min = Number(min);
+        if(new Date(year, month, day, hour, min) < new Date(currentYear, currentMonth, currentDate, currentHour, currentMin)){
+          date = false;
+          break;
+        }
       }
     }
     
@@ -307,7 +325,7 @@ export class AppointmentmodalPage implements OnInit {
         this.payable = true;
       }
     }else if(!date){
-      this.toastMessage("Please select available date. Cannot select past date.")
+      this.toastMessage("Please select available date and time. Cannot select past date and time.")
     }else{
       this.toastMessage("Please select time.")
     }

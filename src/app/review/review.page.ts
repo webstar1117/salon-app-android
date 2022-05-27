@@ -14,9 +14,9 @@ export class ReviewPage implements OnInit {
   salon_id: any;
   service_id: any;
   professional_id: any;
-  title: any;
-  feedback: any;
-  rate: any;
+  title: any="";
+  feedback: any="";
+  rate: any = 0;
   image: any;
   imageUrl: any;
 
