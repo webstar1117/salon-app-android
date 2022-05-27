@@ -34,7 +34,6 @@ export class MyappointmentsPage implements OnInit {
 
   ngOnInit() {
     this.getUpcoming();
-    this.getArchieve();    
   }
 
   getUpcoming(){
@@ -120,6 +119,11 @@ export class MyappointmentsPage implements OnInit {
   segmentChanged(category)
   {
     this.category = category;
+    if(this.category == 'upcoming'){
+      this.getUpcoming();
+    }else{
+      this.getArchieve();
+    }
   }
 
   async repeatAppointment(appointment){
@@ -137,6 +141,8 @@ export class MyappointmentsPage implements OnInit {
 
     modal.onDidDismiss()
     .then((data:any) => {
+      this.getUpcoming();
+      this.getArchieve();
     });
     
     return await modal.present();
@@ -158,6 +164,8 @@ export class MyappointmentsPage implements OnInit {
 
     modal.onDidDismiss()
     .then((data:any) => {
+      this.getUpcoming();
+      this.getArchieve();
     });
     
     return await modal.present();
@@ -179,6 +187,7 @@ export class MyappointmentsPage implements OnInit {
               if(res["status"] == 200){
                 this.toastMessage(res["message"]);
                 this.getUpcoming();
+                this.getArchieve();
               }else{
                 if(Array.isArray(res["message"])){
                   for(let key in res["message"]){
