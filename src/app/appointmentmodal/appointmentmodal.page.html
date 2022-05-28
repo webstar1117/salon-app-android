@@ -72,7 +72,7 @@
         </div>
       </div>
       <h5 id="time" *ngIf="isSetTime">{{data.value.time}} - {{data.value.time_done}}</h5>
-      <div id="edit" (click)="editDate(data.key)" *ngIf="!data.value.editable">Edit</div>    
+      <div id="edit" (click)="editDate(data.key)" *ngIf="!data.value.editable && !payable">Edit</div>    
     </div>
 
     <div class="time" *ngIf="!isSetTime">
