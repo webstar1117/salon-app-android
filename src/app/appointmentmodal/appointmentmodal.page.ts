@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CalendarMode, Step } from 'ionic2-calendar/calendar';
 import { Stripe } from '@awesome-cordova-plugins/stripe/ngx';
 import { PaymentmodalPage } from '../paymentmodal/paymentmodal.page';
+declare var cordova;
 
 @Component({
   selector: 'app-appointmentmodal',
@@ -453,6 +454,109 @@ export class AppointmentmodalPage implements OnInit {
       console.log(err);
       loading.dismiss();
     });   
+  }
+
+  async applePayment() {
+    try {
+      let exititself = true;
+      let totalpricestripe = this.total_price * 100;
+      let browser = cordova.InAppBrowser.open("https://hairday.app/apple-pay/payment.php?total=" + totalpricestripe, "_blank", "location=yes,zoom=no,hideurlbar=yes,toolbarcolor=#000000,hidenavigationbuttons=yes,closebuttoncolor=#ffffff,closebuttoncaption=Done");
+      browser.addEventListener('loadstart', async event => {
+        if (event.url.includes("success")) {
+          exititself = false;
+          browser.close();
+          const loading = await this.loadingCtrl.create({
+            spinner: 'bubbles',
+            cssClass: 'loading',
+            message: 'Checking...',
+          });
+          loading.present();
+          if (this.multi == false) {
+            var data = {
+              api_token: localStorage.getItem('token'),
+              professional_id: this.professional_id,
+              service_id: this.service_id,
+              salon_id: this.salon_id,
+              year: this.date.toLocaleDateString("en-US", { year: 'numeric' }),
+              month: this.date.toLocaleDateString("en-US", { month: 'long' }),
+              date: this.date.toLocaleDateString("en-US", { day: 'numeric' }),
+              day: this.date.toLocaleDateString("en-US", { weekday: 'long' }),
+              time: this.datas[0].time,
+              price: this.orginal_price,
+              tip: this.tip_price,
+              tax: 0
+            }
+            this.http.post(this.apiUrl + "appointment/add", JSON.stringify(data), this.httpOptions)
+              .subscribe(res => {
+                loading.dismiss();
+                if (res["status"] == 200) {
+                  this.paymentSuccess();
+                  this.modalCtrl.dismiss();
+                } else {
+                  for (let key in res["message"]) {
+                    this.toastMessage(res["message"][key]);
+                  }
+                }
+              }, (err) => {
+                loading.dismiss();
+                console.log(err);
+              });
+          } else {
+            let multidata = [];
+            for (var i in this.datas) {
+              let data = {
+                professional_id: this.datas[i]["professional"]["id"],
+                service_id: this.datas[i]["service"]["id"],
+                salon_id: this.datas[i]["service"]["salon_id"],
+                year: this.datas[i]["date"].toLocaleDateString("en-US", { year: 'numeric' }),
+                month: this.datas[i]["date"].toLocaleDateString("en-US", { month: 'long' }),
+                date: this.datas[i]["date"].toLocaleDateString("en-US", { day: 'numeric' }),
+                day: this.datas[i]["date"].toLocaleDateString("en-US", { weekday: 'long' }),
+                time: this.datas[i].time,
+                price: this.datas[i]["service"]["price"],
+                tip: this.tip_price,
+                tax: 0
+              }
+              multidata.push(data);
+            }
+            let requestData = {
+              api_token: localStorage.getItem('token'),
+              data: multidata
+            }
+            this.http.post(this.apiUrl + "appointment/add-multi", JSON.stringify(requestData), this.httpOptions)
+              .subscribe(res => {
+                loading.dismiss();
+                if (res["status"] == 200) {
+                  this.paymentSuccess();
+                  this.modalCtrl.dismiss();
+                } else {
+                  for (let key in res["message"]) {
+                    this.toastMessage(res["message"][key]);
+                  }
+                }
+              }, (err) => {
+                loading.dismiss();
+                console.log(err);
+              });
+          }
+        }
+        else if (event.url.includes("error")) {
+          exititself = false;
+          browser.close();
+          this.toastMessage("Failed To Charge Payment");
+        }
+
+      })
+      browser.addEventListener('exit', () => {
+        if (exititself)
+          this.toastMessage("Failed To Charge Payment");
+      }, err => {
+        console.error(err);
+      });
+    } catch (error) {
+      this.toastMessage(error);
+    }
+
   }
 
   async paymentSuccess(){

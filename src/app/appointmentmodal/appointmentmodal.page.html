@@ -128,6 +128,7 @@
   <div class="bottom">
     <ion-button (click)="nextStep()" *ngIf="!payable">NEXT</ion-button>
     <div id="paypal-button-container" [hidden]="!payable"></div>
+    <ion-button (click)="applePayment()" *ngIf="payable"><ion-icon name="logo-google"></ion-icon>Pay</ion-button>
     <ion-button (click)="visaPay()" *ngIf="payable">PAY WITH CREDIT CARD</ion-button>
   </div>
 
