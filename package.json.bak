@@ -43,6 +43,7 @@
     "@ionic/angular-server": "^6.1.1",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.28.1",
+    "cordova-plugin-facebook-connect": "^3.2.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-nativegeocoder": "^3.4.1",
     "cordova-plugin-sign-in-with-apple": "^0.1.2",
@@ -77,7 +78,7 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "cordova-android": "^10.1.1",
+    "cordova-android": "^10.1.2",
     "cordova-androidx-build": "^1.0.4",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
@@ -128,6 +129,18 @@
         "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
       },
       "cordova-plugin-stripe": {},
+      "cordova-plugin-facebook-connect": {
+        "APP_ID": "425599699488147",
+        "APP_NAME": "hairday",
+        "FACEBOOK_URL_SCHEME_SUFFIX": " ",
+        "OTHER_APP_SCHEMES": " ",
+        "FACEBOOK_AUTO_LOG_APP_EVENTS": "true",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ADVERTISER_ID_COLLECTION": "true",
+        "FACEBOOK_ANDROID_SDK_VERSION": "11.3.0",
+        "FACEBOOK_IOS_SDK_VERSION": "11.1.0",
+        "FACEBOOK_BROWSER_SDK_VERSION": "v11.0"
+      },
       "cordova-plugin-camera": {
         "ANDROIDX_CORE_VERSION": "1.6.+"
       },
@@ -135,10 +148,6 @@
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5",
         "WEB_APPLICATION_CLIENT_ID": "63484794242-bn7btns5js9o0i1iq2ebl1hf7c2n0g4c.apps.googleusercontent.com",
         "CLIENT_ID": "63484794242-6mgmauuqkooqeh92t9u0lra3is3rjis5.apps.googleusercontent.com"
-      },
-      "cordova-plugin-facebook-connect": {
-        "APP_ID": "425599699488147",
-        "APP_NAME": "HAIRDAY"
       }
     },
     "platforms": [

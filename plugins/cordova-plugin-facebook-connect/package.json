@@ -1,35 +1,32 @@
 {
-  "_args": [
-    [
-      "cordova-plugin-facebook-connect@3.2.0",
-      "/Users/test/Desktop/salon"
-    ]
-  ],
-  "_from": "cordova-plugin-facebook-connect@3.2.0",
+  "_from": "cordova-plugin-facebook-connect",
   "_id": "cordova-plugin-facebook-connect@3.2.0",
   "_inBundle": false,
   "_integrity": "sha512-7tdHvfJ7r7iN4zqFbNQwJet/UOytvmV6zxr3Cj9NT44/PemjeTn94HlO59I5yLs2Qc+LYc1GsUTnmVcxIqf/SA==",
   "_location": "/cordova-plugin-facebook-connect",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "tag",
     "registry": true,
-    "raw": "cordova-plugin-facebook-connect@3.2.0",
+    "raw": "cordova-plugin-facebook-connect",
     "name": "cordova-plugin-facebook-connect",
     "escapedName": "cordova-plugin-facebook-connect",
-    "rawSpec": "3.2.0",
+    "rawSpec": "",
     "saveSpec": null,
-    "fetchSpec": "3.2.0"
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
-    "/"
+    "#DEV:/",
+    "#USER"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook-connect/-/cordova-plugin-facebook-connect-3.2.0.tgz",
-  "_spec": "3.2.0",
-  "_where": "/Users/test/Desktop/salon",
+  "_shasum": "feacc991457c87a9a28c4557bd67da5da2c4e298",
+  "_spec": "cordova-plugin-facebook-connect",
+  "_where": "E:\\saloon-android\\salon-app-android",
   "bugs": {
     "url": "https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect/issues"
   },
+  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-plugin-facebook-connect",
     "platforms": [
@@ -38,6 +35,7 @@
       "browser"
     ]
   },
+  "deprecated": false,
   "description": "Cordova Facebook SDK Plugin",
   "homepage": "https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect#readme",
   "keywords": [
