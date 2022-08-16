@@ -16,6 +16,7 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps/ngx';
+import { getPreciseDistance,convertDistance } from 'geolib';
 
 declare var google;
 
@@ -48,6 +49,7 @@ export class SearchresultPage implements OnInit {
   logoUrl = 'https://hairday.app/assets/images/salon-logos/';
   imageUrl = 'https://hairday.app/assets/images/salons/';
   apiUrl = 'https://hairday.app/api/';
+ geocoder;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -60,7 +62,7 @@ export class SearchresultPage implements OnInit {
     private nativeGeocoder: NativeGeocoder,
     private geolocation: Geolocation,
     private platform: Platform
-  ) { }
+  ) { this.geocoder = new google.maps.Geocoder();}
 
   ngOnInit() {
     var params = this.router.getCurrentNavigation().extras.state;
@@ -87,11 +89,13 @@ export class SearchresultPage implements OnInit {
                     slidesPerView:4,
                   }
                 }
+                this.salons[i]['find_distance']=0
               }
             }
             if(this.salons.length == 0){
               this.empty = true;
             }
+            this.loadMap();
           }, (err) => {
             console.log(err);
           });
@@ -113,7 +117,7 @@ export class SearchresultPage implements OnInit {
         this.latLng = JSON.parse(location);
         this.getAddressFromCoords(this.latLng.lat, this.latLng.lng);
       }
-      this.loadMap();
+    
     });    
   }
 
@@ -146,8 +150,10 @@ export class SearchresultPage implements OnInit {
         for(let i in this.salons){
           let opening_hours = this.salons[i]['opening_hours'];
           this.salons[i]['opening_hour'] = opening_hours[week-1];
+          this.salons[i]['find_distance']=0
         }
       }
+      console.log(this.salons)
       if(this.salons.length == 0){
         this.empty = true;
       }
@@ -179,6 +185,7 @@ export class SearchresultPage implements OnInit {
   // }
 
   loadMap() {
+    console.log('Came')
     this.geolocation.getCurrentPosition().then((resp) => {
      this.latitude = resp.coords.latitude;
      this.longitude = resp.coords.longitude;
@@ -219,6 +226,9 @@ export class SearchresultPage implements OnInit {
     //  this.markers.push(marker);
      this.map.setCenter(pos);
 
+   },er=>{
+    console.log('Error getting location', er);
+
    }).catch((error) => {
      console.log('Error getting location', error);
    });
@@ -226,24 +236,51 @@ export class SearchresultPage implements OnInit {
 
   getAddressFromCoords(lattitude, longitude) {
     console.log("getAddressFromCoords " + lattitude + " " + longitude);
-    let options: NativeGeocoderOptions = {
+   /* let options: NativeGeocoderOptions = {
       useLocale: true,
       maxResults: 5
-    };
+    };*/
+   this. geocoder
+   .geocode({ location: {
+    lat: lattitude,
+    lng: longitude,
+  }})
+   .then((allresults:any) => {
+    //console.log(allresults.results);
+    var address_components = allresults.results[0].address_components;
+    for (var i = 0; i < address_components.length; i++) 
+    {
+        if (address_components[i].types[0] === "locality" && address_components[i].types[1] === "political" ) {                                
+          this.city = address_components[i].long_name;   
+        }
 
-    this.nativeGeocoder.reverseGeocode(lattitude, longitude, options)
+        if (address_components[i].types[0] === "country") {
+            this.country = address_components[i].long_name;
+        }
+    }
+    for(let i in this.salons){
+    this.salons[i]['find_distance']=0;
+    this.getTotalDistance(i,{
+      lat: lattitude,
+      lng: longitude,
+    })
+    }
+   })
+   /* this.nativeGeocoder.reverseGeocode(lattitude, longitude, options)
       .then((result: NativeGeocoderResult[]) => {
+         var address_components = results[0].address_components;
+
         console.log( "location result =====>" ,  JSON.stringify(result));
         this.address = "";
         this.address2 = "";
         let responseAddress = [];
         let countryname=[] ;
         for (let [key, value] of Object.entries(result[0].locality )) {
-          if (value.length > 0)
+          if (value['length'] > 0)
             responseAddress.push(value);
         }
         for (let [key, data] of Object.entries(result[0].countryName)) {
-          if (data.length > 0)
+          if (data['length'] > 0)
             countryname.push(data);
         }
         for (let value of countryname) {
@@ -261,7 +298,7 @@ export class SearchresultPage implements OnInit {
       })
       .catch((error: any) => {
         this.address = "Address Not Available!";
-      });
+      });*/
 
   }
 
@@ -340,4 +377,17 @@ export class SearchresultPage implements OnInit {
     this.navCtrl.navigateForward('salon', {state: {salon_id: id}});
   }
 
+   getTotalDistance(index,location)
+  {
+    this.geocoder.geocode( { 'address': this.salons[index].zip_code+" "+this.salons[index].state+" "+this.salons[index].street+" "+this.salons[index].suite}, (results, status) =>{
+      if (status == 'OK') {
+        //console.log(results[0].geometry.location)
+        this.salons[index]['find_distance']=convertDistance(getPreciseDistance({ latitude:location.lat , longitude: location.lng },
+          { latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng() }),'mi').toFixed(2);
+      } else {
+        this.salons[index]['find_distance']=0;
+      }
+    });
+   
+  }
 }

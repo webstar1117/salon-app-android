@@ -36,7 +36,7 @@
               </div>
               <ion-label>
                 <div class="title flex al-center" >
-                  <p>{{salon.name}} <span>2.9 mi</span></p>
+                  <p>{{salon.name}} <span>{{ salon.find_distance }} mi</span></p>
                 </div>
                 <div class="status flex al-center" >
                    <p><ion-icon name="star"></ion-icon> {{salon.review_rate != null ? (salon.review_rate | number:'1.2-2') : '0.0'}} ({{salon.review_count}} reviews) <span> Beauty Salon</span></p>
